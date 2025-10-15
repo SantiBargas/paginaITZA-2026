@@ -78,6 +78,17 @@
 
     <style>
         /* estabilidad y evitar CLS */
+
+        #carousel .carousel-caption{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:0 1rem;
+  pointer-events:none;
+}
+#carousel .carousel-caption .btn{ pointer-events:auto; }
+
+
         .nav-bar .navbar {
             min-height: 64px
         }
@@ -227,7 +238,7 @@
 
 
         <!-- Carousel Start -->
-        <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div id="carousel" class="carousel slide" data-interval="false">
             <ol class="carousel-indicators">
                 <li data-target="#carousel" data-slide-to="3" class="active"></li>
                 <li data-target="#carousel" data-slide-to="2"></li>
@@ -333,7 +344,7 @@
 
 
         <!-- Fact Start -->
-        <div class="fact">
+        <!-- <div class="fact">
             <div class="container-fluid">
                 <div class="row counters">
                     <div class="col-md-6 fact-left wow slideInLeft">
@@ -382,7 +393,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Fact End -->
 
 
@@ -434,7 +445,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="service-item">
                             <div class="service-img">
-                                <img src="img/imgTopo_converted.webp" alt="Topografía" width="600" height="600"
+                                <img src="img\imgTopo_converted.webp" alt="Topografía" width="600" height="600"
                                     loading="lazy" decoding="async">
                                 <div class="service-overlay">
                                     <p>

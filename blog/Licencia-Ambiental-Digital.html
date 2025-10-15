@@ -41,7 +41,28 @@
         <link href="..\css\style.css" rel="stylesheet">
         <link href="..\css/fontello.css" rel="stylesheet">
 
-
+<style>
+    .page-header{
+  position: relative; isolation:isolate; overflow:hidden;
+  display:flex; align-items:center;
+  min-height: clamp(360px, 48vw, 640px); /* asegura altura y evita CLS */
+  padding: 64px 0;
+  color:#fff;
+}
+.page-header::before{
+  content:"";
+  position:absolute; inset:0;
+  background: url("../paginav2/main-amb_converted.webp") center / cover no-repeat;
+  z-index:-2; /* imagen de fondo */
+}
+.page-header::after{
+  content:"";                               /* oscurece para que el texto contraste */
+  position:absolute; inset:0;
+  background: rgba(0, 0, 0, 0.555);
+  z-index:-1;
+}
+.page-header .container{ position:relative; z-index:1; }
+</style>
 
    
 
@@ -52,7 +73,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4Q99W75"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-        <a href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20acerca%20de%20la%20Licencia%20Ambiental%20Digital" class="btn-wsp" target="_blank">
+        <a href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20acerca%20de%20los%20servicios%20ambientales%20de%20ITZA" class="btn-wsp" target="_blank">
             <i class="icon-whatsapp"></i>
         </a>
         <div class="wrapper">
@@ -145,7 +166,7 @@
                                 <a href="../contact.html" class="nav-item nav-link">Contacto</a>
                             </div>
                             <div class="ml-auto">
-                                <a class="btn" href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20acerca%20de%20los%20servicios%20de%20ITZA">Contáctanos</a>
+                                <a class="btn" href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20acerca%20de%20los%20servicios%20ambientales%20de%20ITZA">Contáctanos</a>
                             </div>
                         </div>
                     </nav>
@@ -166,7 +187,7 @@
                             <div class="tags">Trámite 100 % online</div><br>
                             
                             <a class="btn"
-                    href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20sobre%20los%20servicios%20de%20agrimensura"
+                    href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20acerca%20de%20los%20servicios%20ambientales%20de%20ITZA"
                     target="_blank">Tramitar con un profesional</a>
                         </div>
                         
@@ -220,7 +241,138 @@ Nuestro equipo está conformado por consultores ambientales habilitados por la p
             <!-- About End -->         
                      
           
-           
+           <!-- Servicios Start -->
+        <div class="service">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Servicios que se adaptan</p>
+                    <h2>Ingeniería Integral</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="../paginav2/main-hid_converted.webp" alt="Ingeniería hídrica" width="300"
+                                    height="300" loading="lazy" decoding="async">
+                                <div class="service-overlay">
+                                    <p>
+                                        Soluciones en estudios hídricos, factibilidades, diseño hidráulico, agua
+                                        subterránea y servicios sanitarios.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h3>Ingeniería Hídrica</h3>
+                                <a class="btn" href="../RecursosHidricos.html" target="_blank">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="../img/imgAgr_converted.webp" alt="Agrimensura" width="300"
+                                    height="300"
+                                    loading="lazy" decoding="async">
+                                <div class="service-overlay">
+                                    <p>
+                                        Ofrecemos servicios de mensura, subdivisión, posesiones, propiedad horizontal,
+                                        verificación del estado parcelario y tasaciones, acompañando a nuestros clientes
+                                        desde el análisis inicial hasta la registración final de sus proyectos.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h3>Agrimensura</h3>
+                                <a class="btn" href="../Agrimensura.html" target="_blank">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="../img\imgTopo_converted.webp" alt="Topografía" width="300"
+                                    height="300"
+                                    loading="lazy" decoding="async">
+                                <div class="service-overlay">
+                                    <p>
+                                        Brindamos servicios topográficos precisos y eficientes, incluyendo
+                                        relevamientos, replanteos, nivelaciones y fotogrametría con drones, aplicando
+                                        tecnología avanzada para garantizar resultados óptimos en proyectos civiles,
+                                        viales e industriales. </p>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h3>Topografía</h3>
+                                <a class="btn" href="../Topografia.html" target="_blank">+</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="../paginav2/main-amb_converted.webp" alt="Ingeniería ambiental" width="300"
+                                    height="300" loading="lazy" decoding="async">
+                                <div class="service-overlay">
+                                    <p>
+                                        Ofrecemos estudios de impacto ambiental, tratamiento de efluentes, gestión de
+                                        residuos, asesoría agroindustrial y consultoría ante entes de control,
+                                        garantizando sostenibilidad y cumplimiento normativo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h3>Ingeniería Ambiental</h3>
+                                <a class="btn" href="../Ambiental.html" target="_blank">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="../paginav2/main-civil_converted.webp" alt="Ingeniería civil" width="300"
+                                    height="300" loading="lazy" decoding="async">
+                                <div class="service-overlay">
+                                    <p>
+                                        Ofrecemos diseño estructural, proyectos viales, gestión de proyectos y
+                                        elaboración de pliegos licitatorios, garantizando soluciones técnicas completas,
+                                        eficientes y ajustadas a los más altos estándares de calidad.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h3>Ingeniería Civil</h3>
+                                <a class="btn" href="../Civil.html" target="_blank">+</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="../paginav2/main-simu_converted.webp" alt="Simulación Hídrica" width="300"
+                                    height="300" loading="lazy" decoding="async">
+                                <div class="service-overlay">
+                                    <p>
+                                        Optimiza el diseño y análisis de infraestructuras hidráulicas con herramientas
+                                        avanzadas como HEC-RAS, SWMM, EPANET y HEC-HMS. Desde la modelación de sistemas
+                                        de drenaje urbano hasta el estudio de inundaciones y redes de agua potable,
+                                        ofrecemos soluciones precisas para garantizar la eficiencia y seguridad de tus
+                                        proyectos.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h3>Simulación Hidráulica</h3>
+                                <a class="btn" href="../Simulacion.html" target="_blank">+</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
 
 
        <!-- Footer Start -->
