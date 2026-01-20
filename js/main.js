@@ -78,11 +78,13 @@
     $('.testimonial-slider').slick({
         infinite: true,
         autoplay: true,
-        arrows: false,
+        arrows: true,
         dots: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        asNavFor: '.testimonial-slider-nav'
+        asNavFor: '.testimonial-slider-nav',
+        prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
     });
     $('.testimonial-slider-nav').slick({
         arrows: false,
