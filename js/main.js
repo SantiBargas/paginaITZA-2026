@@ -1,10 +1,11 @@
 (function ($) {
     "use strict";
-    
+
     // Initiate the wowjs
-    new WOW().init();
-    
-    
+    if (typeof WOW === 'function') {
+        new WOW().init();
+    }
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
@@ -17,20 +18,20 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
-    
-    
+
+
     // Sticky Navbar
     $(window).scroll(function () {
         if ($(this).scrollTop() > 90) {
             $('.nav-bar').addClass('nav-sticky');
-            $('.carousel, .page-header').css("margin-top", "73px");
+            $('.carousel, .page-header, .page-header-area').css("margin-top", "73px");
         } else {
             $('.nav-bar').removeClass('nav-sticky');
-            $('.carousel, .page-header').css("margin-top", "0");
+            $('.carousel, .page-header, .page-header-area').css("margin-top", "0");
         }
     });
-    
-    
+
+
     // Dropdown on mouse hover
     $(document).ready(function () {
         function toggleNavbarMethod() {
@@ -47,22 +48,23 @@
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
-    
-    
+
+
     // jQuery counterUp
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
-    });
-    
-    
+    if ($('[data-toggle="counter-up"]').length) {
+        $('[data-toggle="counter-up"]').counterUp({
+            delay: 10,
+            time: 2000
+        });
+    }
+
+
     // Modal Video
     $(document).ready(function () {
         var $videoSrc;
         $('.btn-play').click(function () {
             $videoSrc = $(this).data("src");
         });
-        console.log($videoSrc);
 
         $('#videoModal').on('shown.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
@@ -74,67 +76,92 @@
     });
 
 
-    // Testimonial Slider
-    $('.testimonial-slider').slick({
-        infinite: true,
-        autoplay: true,
-        arrows: true,
-        dots: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        asNavFor: '.testimonial-slider-nav',
-        prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-        nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
-    });
-    $('.testimonial-slider-nav').slick({
-        arrows: false,
-        dots: false,
-        focusOnSelect: true,
-        centerMode: true,
-        centerPadding: '22px',
-        slidesToShow: 5,
-        asNavFor: '.testimonial-slider'
-    });
-    $('.testimonial .slider-nav').css({"position": "relative", "height": "160px"});
-    
-    
+    // FIX: Testimonial Slider (Solo se ejecuta si existen los elementos)
+    if ($('.testimonial-slider').length && $('.testimonial-slider-nav').length) {
+        $('.testimonial-slider').slick({
+            infinite: true,
+            autoplay: true,
+            arrows: true,
+            dots: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            asNavFor: '.testimonial-slider-nav',
+            prevArrow: '<button type="button" class="slick-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>'
+        });
+        $('.testimonial-slider-nav').slick({
+            arrows: false,
+            dots: false,
+            focusOnSelect: true,
+            centerMode: true,
+            centerPadding: '22px',
+            slidesToShow: 5,
+            asNavFor: '.testimonial-slider'
+        });
+        $('.testimonial .slider-nav').css({"position": "relative", "height": "160px"});
+    }
+
+
     // Blogs carousel
-    $(".related-slider").owlCarousel({
-        autoplay: true,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
+    if ($(".related-slider").length) {
+        $(".related-slider").owlCarousel({
+            autoplay: true,
+            dots: false,
+            loop: true,
+            nav : true,
+            navText : [
+                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+            ],
+            responsive: {
+                0:{ items:1 },
+                576:{ items:1 },
+                768:{ items:2 }
             }
-        }
-    });
-    
-    
+        });
+    }
+
+
     // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
+    if ($('.portfolio-container').length) {
+        var portfolioIsotope = $('.portfolio-container').isotope({
+            itemSelector: '.portfolio-item',
+            layoutMode: 'fitRows'
+        });
+
+        $('#portfolio-flters li').on('click', function () {
+            $("#portfolio-flters li").removeClass('filter-active');
+            $(this).addClass('filter-active');
+            portfolioIsotope.isotope({filter: $(this).data('filter')});
+        });
+    }
+
+    // --- GENERIC FIX PARA ACCESIBILIDAD Y SEO (Centralizado) ---
+    $(document).ready(function() {
+        const fixAccesibilidad = () => {
+            // 1. Fix Lightbox: Evita el error de "Vínculos no rastreables"
+            const lbLinks = $('.lb-close, .lb-prev, .lb-next');
+            lbLinks.each(function() {
+                if (!$(this).attr('href')) {
+                    $(this).attr('href', 'javascript:void(0)');
+                    $(this).attr('role', 'button');
+                    if ($(this).hasClass('lb-close')) $(this).attr('aria-label', 'Cerrar galería');
+                }
+            });
+
+            // 2. Fix Botones Vacíos: Asegura nombre accesible para botones de slider o iconos
+            $('.slick-prev, .slick-next').each(function() {
+                if (!$(this).attr('aria-label')) {
+                    $(this).attr('aria-label', $(this).hasClass('slick-prev') ? 'Anterior' : 'Siguiente');
+                }
+            });
+        };
+
+        fixAccesibilidad();
+        // Ejecutar de nuevo tras un delay por si Lightbox tarda en cargar su DOM
+        setTimeout(fixAccesibilidad, 2000);
     });
 
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('filter-active');
-        $(this).addClass('filter-active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
-    
 })(jQuery);
 
 

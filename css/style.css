@@ -219,6 +219,7 @@ a:focus {
 /* Ítems del menú (BLANCO) */
 .nav-bar .dropdown-item {
     color: #ffffff !important;
+    background-color: transparent;
     padding: 10px 20px;
     font-size: 15px;
     transition: .3s;
@@ -227,8 +228,8 @@ a:focus {
 /* Hover en el menú (Fondo AZUL, Texto BLANCO) */
 .nav-bar .dropdown-item:hover,
 .nav-bar .dropdown-item.active {
-    background: var(--main-color) !important;
     color: #ffffff !important;
+    background-color: var(--main-color) !important; /* Tu azul ITZA */
 }
 
 /* Botón de la Nav-Bar (BLANCO y Transparente) */
