@@ -167,7 +167,7 @@ a:focus {
 /**********************************/
 .nav-bar {
     position: relative;
-    background: var(--main-color);
+    background: var(--main-color); /* El azul ITZA de fondo */
     transition: .3s;
 }
 
@@ -179,30 +179,36 @@ a:focus {
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 1366px;
+    max-width: 100%; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
     z-index: 999;
 }
 
+/* Color MARRÓN OSCURO de la barra */
 .nav-bar .navbar {
     height: 100%;
-    background: var(--secondary-color) !important;
+    background: var(--secondary-color) !important; 
 }
 
+/* Texto BLANCO de los enlaces */
 .navbar-dark .navbar-nav .nav-link,
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
     padding: 10px 10px 8px 10px;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
+/* Cambio a AZUL al pasar el mouse */
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    color: var(--main-color);
+    color: var(--main-color) !important;
     transition: none;
 }
 
+/* --- FIX DEL MENÚ DESPLEGABLE (ÁREAS) --- */
+
+/* Fondo del cuadro (MARRÓN OSCURO) */
 .nav-bar .dropdown-menu {
     margin-top: 0;
     border: 0;
@@ -210,6 +216,22 @@ a:focus {
     background: var(--secondary-color);
 }
 
+/* Ítems del menú (BLANCO) */
+.nav-bar .dropdown-item {
+    color: #ffffff !important;
+    padding: 10px 20px;
+    font-size: 15px;
+    transition: .3s;
+}
+
+/* Hover en el menú (Fondo AZUL, Texto BLANCO) */
+.nav-bar .dropdown-item:hover,
+.nav-bar .dropdown-item.active {
+    background: var(--main-color) !important;
+    color: #ffffff !important;
+}
+
+/* Botón de la Nav-Bar (BLANCO y Transparente) */
 .nav-bar .btn {
     color: #ffffff;
     border: 2px solid #ffffff;
@@ -217,7 +239,7 @@ a:focus {
 }
 
 .nav-bar .btn:hover {
-    color: var(--secondary-color);
+    color: #ffffff;
     background: var(--main-color);
     border-color: var(--main-color);
 }
@@ -263,7 +285,6 @@ a:focus {
         display: none;
     }
 }
-
 
 /*******************************/
 /******** Carousel CSS *********/
@@ -420,6 +441,10 @@ a:focus {
     position: absolute;
     inset: 0;
     z-index: 1;
+}
+
+.page-header-area .header-overlay.overlay-dark {
+    background: rgba(0, 0, 0, 0.7); /* Oscurece al 50% */
 }
 
 /* Contenedor de Texto y Títulos */
