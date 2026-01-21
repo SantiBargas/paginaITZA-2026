@@ -92,13 +92,12 @@
                 </nav>
             </div>
         </div>
-        <div class="page-header" style="position:relative;overflow:hidden;min-height:380px;">
-            <img src="paginav2/agr-banner_converted.webp" alt="Servicios de Agrimensura" width="1920" height="800"
-                fetchpriority="high" decoding="async"
-                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-            <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));"></div>
+        <div class="page-header-area">
+            <img src="paginav2/agr-banner_converted.webp" alt="Servicios de Agrimensura" class="header-bg" fetchpriority="high">
+            
+            <div class="header-overlay"></div>
 
-            <div class="container" style="position:relative;z-index:1;">
+            <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <h2>SERVICIOS DE AGRIMENSURA</h2>
@@ -107,14 +106,17 @@
                         <h5>Ing. Agrimensor Joaquín Alegre</h5>
                     </div>
                 </div>
-                <div style="display:block !important;">
-                    <div class="tags">Mensuras</div>
-                    <div class="tags">Verificaciones parcelarias (VEP)</div>
-                    <div class="tags">Amojonamientos</div>
-                    <div class="tags">Posesiones</div>
-                    <div class="tags">Loteos</div>
+                
+                <div class="tags-container">
+                    <span class="tag-box">Mensuras</span>
+                    <span class="tag-box">Verificaciones parcelarias (VEP)</span>
+                    <span class="tag-box">Amojonamientos</span>
+                    <span class="tag-box">Posesiones</span>
+                    <span class="tag-box">Loteos</span>
                 </div>
-                <a class="btn" href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20sobre%20los%20servicios%20de%20agrimensura" target="_blank">Contactar</a>
+                
+                <a href="https://api.whatsapp.com/send/?phone=5493425687429&text=Hola,%20me%20comunico%20para%20saber%20mas%20sobre%20los%20servicios%20de%20agrimensura" 
+                   class="btn btn-outline-white" target="_blank">Contactar</a>
             </div>
         </div>
         <div class="portfolio">
@@ -129,8 +131,8 @@
                             <div class="portfolio-img">
                                 <img src="paginav2/agr-mensura_converted.webp" alt="Mensura Urbana y Rural" loading="lazy">
                                 <div class="portfolio-overlay">
-                                    <div class="overlay-content">
-                                        <p>Se realiza el análisis del parcelario de un terreno mediante la medición, el estudio de títulos y antecedentes catastrales para determinar la situación jurídica en el territorio. Te acompañamos desde el inicio del análisis, hasta la registración de tu inmueble.</p>
+                                    <div class="overlay-content" style="padding: 20px; color: white;">
+                                        <p>Se realiza el análisis del parcelario de un terreno mediante la medición, el estudio de títulos y antecedentes catastrales para determinar la situación jurídica en el territorio.</p>
                                     </div>
                                 </div>
                             </div>
@@ -146,8 +148,8 @@
                             <div class="portfolio-img">
                                 <img src="paginav2/agr-subdivision_converted.webp" alt="Subdivisión" loading="lazy">
                                 <div class="portfolio-overlay">
-                                    <div class="overlay-content">
-                                        <p>Se realiza la división de un terreno en las partes necesarias para generar nuevos títulos. Te acompañamos en el acuerdo de subdivisión y elaboración del expediente, hasta su registro final.</p>
+                                    <div class="overlay-content" style="padding: 20px; color: white;">
+                                        <p>Se realiza la división de un terreno en las partes necesarias para generar nuevos títulos. Te acompañamos desde el acuerdo de subdivisión hasta su registro final.</p>
                                     </div>
                                 </div>
                             </div>
@@ -163,8 +165,8 @@
                             <div class="portfolio-img">
                                 <img src="paginav2/agr-usucapion_converted.webp" alt="Posesiones / Usucapiones" loading="lazy">
                                 <div class="portfolio-overlay">
-                                    <div class="overlay-content">
-                                        <p>Se confecciona un plano de mensura de posesión, que sera utilizado como prueba en un futuro juicio de usucapión. Te asesoramos en los pasos a seguir y acompañamos hasta la registración final del expediente.</p>
+                                    <div class="overlay-content" style="padding: 20px; color: white;">
+                                        <p>Se confecciona un plano de mensura de posesión para juicio de usucapión. Asesoramos y acompañamos hasta la registración final.</p>
                                     </div>
                                 </div>
                             </div>
@@ -180,8 +182,8 @@
                             <div class="portfolio-img">
                                 <img src="paginav2/agr-ph_converted.webp" alt="Propiedad Horizontal (PH)" loading="lazy">
                                 <div class="portfolio-overlay">
-                                    <div class="overlay-content">
-                                        <p>Se realiza para dividir una propiedad construida, en unidades mas pequeñas; sean casas familiares, duplex, departamentos o similares. Te asesoramos en los pasos a seguir y acompañamos hasta la registración final del expediente.</p>
+                                    <div class="overlay-content" style="padding: 20px; color: white;">
+                                        <p>División de propiedades construidas en unidades funcionales (casas, deptos). Gestión completa hasta la registración del expediente.</p>
                                     </div>
                                 </div>
                             </div>
@@ -197,8 +199,8 @@
                             <div class="portfolio-img">
                                 <img src="paginav2/agr-vep_converted.webp" alt="Verificación Parcelaria (VEP)" loading="lazy">
                                 <div class="portfolio-overlay">
-                                    <div class="overlay-content">
-                                        <p>Se realiza para constatar la subsistencia del estado parcelario previo a una transferencia. Realizamos el expediente y lo registramos para que puedas avanzar en tu proyecto.</p>
+                                    <div class="overlay-content" style="padding: 20px; color: white;">
+                                        <p>Constatación de subsistencia del estado parcelario previo a transferencias. Realizamos y registramos el expediente.</p>
                                     </div>
                                 </div>
                             </div>
@@ -214,8 +216,8 @@
                             <div class="portfolio-img">
                                 <img src="paginav2/agr-tasacion_converted.webp" alt="Tasaciones" loading="lazy">
                                 <div class="portfolio-overlay">
-                                    <div class="overlay-content">
-                                        <p>Conocé el valor de mercado de tu terreno, o vivienda, de forma certificada.</p>
+                                    <div class="overlay-content" style="padding: 20px; color: white;">
+                                        <p>Conocé el valor de mercado de tu terreno o vivienda de forma certificada y profesional.</p>
                                     </div>
                                 </div>
                             </div>
