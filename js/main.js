@@ -196,3 +196,23 @@ function sendForm() {
     })
     .catch(error => console.error("Error:", error));
 }
+
+function loadInstagram() {
+    const container = document.getElementById('insta-embed-container');
+    const facade = document.getElementById('insta-facade');
+    
+    // Inyectamos el iframe solo al hacer clic
+    const iframeHtml = `
+        <iframe 
+            src="https://www.instagram.com/itzaingenieria/embed/"
+            title="Publicaciones de Instagram de ITZA" 
+            loading="lazy"
+            scrolling="yes" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-popups"
+            style="width: 100%; height: 600px; display: block;">
+        </iframe>`;
+    
+    container.innerHTML = iframeHtml;
+    facade.style.display = 'none'; // Desaparece la fachada
+}
