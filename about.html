@@ -19,20 +19,31 @@
 
     <link href="paginav2/main-ico.jpg" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="lib/slick/slick.css" rel="stylesheet">
-    <link href="lib/slick/slick-theme.css" rel="stylesheet">
+    <link rel="preload" href="lib/slick/slick.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="lib/slick/slick-theme.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+    </noscript>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/fontello.css" rel="stylesheet">
-    <link href="css/global.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="css/fontello.css" rel="stylesheet"></noscript>
+    <link href="css/global.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="css/global.css" rel="stylesheet"></noscript>
+
+    <link rel="preload" href="font/fontello.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="lib/flaticon/font/Flaticon.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
@@ -195,8 +206,6 @@
     <script src="lib/slick/slick.min.js"></script>
     <script src="js/stats-loader.js"></script>
     <script src="js/equipo-loader.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
     <script src="js/components.js"></script>
 </body>
