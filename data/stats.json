@@ -1,0 +1,30 @@
+[
+  {
+    "id": "profesionales",
+    "numero": 10,
+    "texto": "Profesionales en red",
+    "icono": "flaticon-worker",
+    "delay": "0.1s"
+  },
+  {
+    "id": "clientes",
+    "numero": 50,
+    "texto": "Clientes",
+    "icono": "flaticon-building",
+    "delay": "0.3s"
+  },
+  {
+    "id": "trabajos",
+    "numero": 80,
+    "texto": "Trabajos completados",
+    "icono": "flaticon-address",
+    "delay": "0.1s"
+  },
+  {
+    "id": "proyectos",
+    "numero": 10,
+    "texto": "Proyectos en curso",
+    "icono": "flaticon-crane",
+    "delay": "0.3s"
+  }
+]

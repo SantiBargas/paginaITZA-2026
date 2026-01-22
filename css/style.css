@@ -1499,3 +1499,100 @@ a:focus {
     color: #666;
     font-size: 18px;
 }
+
+/*******************************/
+/********* EQUIPO CSS (NOSOTROS) **********/
+/*******************************/
+/* --- Sección Equipo ITZA (Versión Full Color) --- */
+
+/* 1. Estilo base de las fotos */
+.team-item .team-img img {
+    width: 100%;
+    height: 320px; /* Altura fija para mantener la simetría */
+    object-fit: cover; /* Recorta la imagen manteniendo la proporción */
+    object-position: center; /* Asegura que el rostro quede centrado */
+    /* filter: grayscale(100%);  <- LINEA ELIMINADA PARA QUE SE VEA EN COLOR */
+    transition: transform 0.6s ease; /* Solo animamos la transformación (zoom) */
+    border-radius: 4px;
+}
+
+/* 2. Efecto de interacción (Hover) */
+.team-item:hover .team-img img {
+    /* filter: grayscale(0%); <- YA NO ES NECESARIO */
+    transform: scale(1.05); /* Mantenemos el zoom suave para dar profundidad */
+}
+
+/* ... (el resto del CSS para textos e iconos sigue igual) ... */
+.team-text {
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.team-text h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #121518;
+}
+
+.team-text p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-social {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 153, 255, 0.7);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.team-item:hover .team-social {
+    opacity: 1;
+}
+
+.team-social a {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background: #ffffff;
+    color: #0099ff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* --- Estilo de Ubicación en Tarjeta de Equipo --- */
+.team-location {
+    display: block;
+    font-size: 11px; /* Más pequeña */
+    color: #fdbe33; /* Amarillo ITZA */
+    margin-top: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    opacity: 0; /* Oculta por defecto */
+    transition: 0.4s ease-in-out; /* Aparición suave */
+    transform: translateY(5px); /* Pequeño movimiento hacia arriba al aparecer */
+}
+
+/* Solo se muestra cuando pasamos el mouse por encima de la tarjeta */
+.team-item:hover .team-location {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-location i {
+    margin-right: 4px;
+    font-size: 10px;
+}
