@@ -1,0 +1,123 @@
+[
+    {
+        "id": "afip",
+        "nombre": "AFIP",
+        "lugar": "San Isidro, Buenos Aires",
+        "img": "img/cli-afip_converted.webp",
+        "alt": "AFIP",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "river-plate",
+        "nombre": "River Plate",
+        "lugar": "Predio Cantilo, CABA",
+        "img": "img/cli-river_converted.webp",
+        "alt": "River Plate",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "salto-grande",
+        "nombre": "Comisión Técnica Mixta de Salto Grande",
+        "lugar": "Concordia, Entre Ríos / Salto, Uruguay",
+        "img": "img/cli_saltogrande.png",
+        "alt": "Salto Grande",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "molinos",
+        "nombre": "Molinos Rio de La Plata",
+        "lugar": "Planta Santa Clara, Rosario, Argentina",
+        "img": "img/cli-molinos_converted.webp",
+        "alt": "Molinos Rio de La Plata",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "epe",
+        "nombre": "Empresa Provincial de la Energía",
+        "lugar": "Rafaela, Santa Fe / El Trebol, Santa Fe",
+        "img": "img/cli-epe_converted.webp",
+        "alt": "EPE",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "muni-santa-fe",
+        "nombre": "Municipalidad de Santa Fe",
+        "lugar": "Santa Fe, Santa Fe",
+        "img": "img/cli-sfe_converted.webp",
+        "alt": "Santa Fe",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "piramide",
+        "nombre": "Pirámide S.A.",
+        "lugar": "Recreo, Santa Fe",
+        "img": "img/cli-piramide_converted.webp",
+        "alt": "Piramide constructora",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "depaoli-trosce",
+        "nombre": "Depaoli & Trosce Constructora",
+        "lugar": "Recreo, Santa Fe / Coronda, Santa Fe",
+        "img": "img/cli-depaoli_converted.webp",
+        "alt": "DePaoli constructora",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "vicoer",
+        "nombre": "VICOER Ltda",
+        "lugar": "Paraná, Entre Ríos",
+        "img": "img/cli-vicoer_converted.webp",
+        "alt": "Testimonial",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "grupo-szczech",
+        "nombre": "Grupo Szczech",
+        "lugar": "Paraná, Entre Ríos / Gualeguaychú, Entre Ríos",
+        "img": "img/cli-sch_converted.webp",
+        "alt": "Testimonial",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    },
+    {
+        "id": "speedagro",
+        "nombre": "SpeedAgro",
+        "lugar": "Sauce Viejo, Santa Fe",
+        "img": "img/cli-speedagro_converted.webp",
+        "alt": "SpeedAgro",
+        "categoria": "",
+        "descripcion_corta": "",
+        "servicios_prestados": [],
+        "slug": ""
+    }
+]

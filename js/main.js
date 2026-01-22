@@ -78,34 +78,7 @@
         })
     });
 
-
-    // FIX: Testimonial Slider (Solo se ejecuta si existen los elementos)
-    if ($('.testimonial-slider').length && $('.testimonial-slider-nav').length) {
-        $('.testimonial-slider').slick({
-            infinite: true,
-            autoplay: true,
-            arrows: true,
-            dots: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            asNavFor: '.testimonial-slider-nav',
-            prevArrow: '<button type="button" class="slick-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>',
-            nextArrow: '<button type="button" class="slick-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>'
-        });
-        $('.testimonial-slider-nav').slick({
-            arrows: false,
-            dots: false,
-            focusOnSelect: true,
-            centerMode: true,
-            centerPadding: '22px',
-            slidesToShow: 5,
-            asNavFor: '.testimonial-slider'
-        });
-        $('.testimonial .slider-nav').css({"position": "relative", "height": "160px"});
-    }
-
-
-    // Blogs carousel
+   // Blogs carousel
     if ($(".related-slider").length) {
         $(".related-slider").owlCarousel({
             autoplay: true,

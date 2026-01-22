@@ -929,97 +929,137 @@ a:focus {
     transition: .3s .3s;
 }
 
-
 /*******************************/
 /******* Testimonial CSS *******/
 /*******************************/
 .testimonial {
     position: relative;
-    height: calc(100vh - 70px);
-    margin: 45px 0;
-    padding: 90px 0;
+    padding: 100px 0 140px 0;
     text-align: center;
     background: linear-gradient(rgba(3, 15, 39, .9), rgba(3, 15, 39, .9)), url(../img/carousel-1.jpg);
     background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 .testimonial .container {
-    max-width: 760px;
-}
-
-.about-page .testimonial {
-    padding-bottom: 90px;
-}
-
-.testimonial .testimonial-slider-nav {
-    position: relative;
-    width: 300px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
-.testimonial .testimonial-slider-nav .slick-slide {
+/* Área central restringida (Líneas rojas) */
+.testimonial .testimonial-slider-nav {
     position: relative;
-    opacity: 0;
-    transition: .5s;
+    width: 100%;
+    max-width: 280px; /* Ancho compacto para logos más juntos */
+    margin: 0 auto;
 }
 
-.testimonial .testimonial-slider-nav .slick-active {
-    opacity: 1;
-    transform: scale(1.3);
+/* FIX: Evita que el logo scale(2.5) se corte arriba o abajo */
+.testimonial .testimonial-slider-nav .slick-list {
+    overflow: visible !important;
+    padding: 65px 0 !important; 
 }
 
-.testimonial .testimonial-slider-nav .slick-center {
-    transform: scale(2.5);
+/* Logos que están "atrás" */
+.testimonial .testimonial-slider-nav .slick-slide {
+    opacity: 0.2;
+    transform: scale(0.8);
+    transition: all 0.8s ease-in-out;
+    margin: 0 -35px; /* Mayor compactación para centrar más */
     z-index: 1;
+    outline: none;
+}
+
+/* LOGO ADELANTE (Efecto ITZA 3D) */
+.testimonial .testimonial-slider-nav .slick-center {
+    opacity: 1;
+    transform: scale(2.5); /* Tu escala original impactante */
+    z-index: 10; /* Siempre al frente de los otros */
 }
 
 .testimonial .testimonial-slider-nav .slick-slide img {
-    position: relative;
     display: block;
-    margin-top: 60px;
-    width: 100%;
-    height: auto;
-    border-radius: 100px;
+    width: 80px; 
+    height: 80px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 12px;
+    object-fit: contain;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
+.testimonial .testimonial-slider-nav .slick-center img {
+    border: 2px solid var(--main-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo de Textos */
 .testimonial .testimonial-slider {
-    position: relative;
-    margin-top: 15px;
-    padding-top: 50px;
-}
-
-.testimonial .testimonial-slider::before {
-    position: absolute;
-    content: "";
-    width: 60px;
-    height: 50px;
-    top: 0;
-    left: calc(50% - 30px);
-  /*  background: url(../img/quote.png) top center no-repeat;*/
+    margin-top: 45px;
 }
 
 .testimonial .testimonial-slider h3 {
     color: var(--main-color);
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .testimonial .testimonial-slider h4 {
-    font-size: 14px;
-    font-weight: 300;
-    color: #ffffff;
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.testimonial .testimonial-slider p {
     color: #ffffff;
     font-size: 16px;
-    font-weight: 300;
-    margin: 0;
+    font-style: italic;
+}
+
+/* Estilo para las flechas de navegación laterales */
+.testimonial .slick-prev, .testimonial .slick-next {
+    z-index: 15;
+    width: 40px;
+    height: 40px;
+}
+
+.testimonial .slick-prev:before, .testimonial .slick-next:before {
+    color: #ffffff;
+    font-size: 30px;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.testimonial .slick-prev:hover:before, .testimonial .slick-next:hover:before {
+    opacity: 1;
+    color: var(--main-color);
+}
+
+/* --- AJUSTES RESPONSIVE PARA ITZA --- */
+@media (max-width: 576px) {
+    .testimonial {
+        padding: 60px 0 100px 0; /* Reducimos aire en móvil */
+    }
+
+    .testimonial .testimonial-slider-nav {
+        max-width: 220px; /* Estrechamos aún más el área central */
+    }
+
+    .testimonial .testimonial-slider-nav .slick-center {
+        /* Bajamos de 2.5 a 1.8 para que no tape el texto en pantallas chicas */
+        transform: scale(1.8); 
+    }
+
+    .testimonial .testimonial-slider-nav .slick-slide {
+        /* Reducimos el margen negativo para que no se peguen tanto */
+        margin: 0 -20px; 
+    }
+
+    .testimonial .testimonial-slider-nav .slick-slide img {
+        width: 70px; /* Logos ligeramente más chicos */
+        height: 70px;
+    }
+
+    .testimonial .testimonial-slider h3 {
+        font-size: 20px; /* Texto más cómodo para leer en móvil */
+    }
 }
 
 /*******************************/
@@ -1480,7 +1520,7 @@ a:focus {
 }
 
 /*******************************/
-/********* MAPA CSS **********/
+/********* MAPA PROYECTO CSS **********/
 /*******************************/
 .mapa-placeholder {
     background-color: #f8f9fa; /* Gris muy claro */
@@ -1512,6 +1552,47 @@ a:focus {
     color: #666;
     font-size: 18px;
 }
+
+/*******************************/
+/********* MAPAS ITZA *********/
+/*******************************/
+
+.container-maps-wide {
+    max-width: 1350px !important;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.map-container-real {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #212529;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.map-container-real:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(2, 147, 231, 0.3) !important;
+}
+
+.map-header-top, .map-footer-address {
+    background: #212529;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.map-footer-address {
+    font-style: italic;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 
 /*******************************/
 /********* EQUIPO CSS (NOSOTROS) **********/
@@ -1609,3 +1690,5 @@ a:focus {
     margin-right: 4px;
     font-size: 10px;
 }
+
+
