@@ -2,9 +2,13 @@
     "use strict";
 
     // Initiate the wowjs
-    if (typeof WOW === 'function') {
-        new WOW().init();
-    }
+    $(window).on('load', function () {
+            if (typeof WOW === 'function') {
+                setTimeout(function() {
+                    new WOW().init();
+                }, 100);
+            }
+        });
 
     // Back to top button
     $(window).scroll(function () {
@@ -22,13 +26,12 @@
 
     // Sticky Navbar
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 90) {
-            $('.nav-bar').addClass('nav-sticky');
-            $('.carousel, .page-header, .page-header-area').css("margin-top", "73px");
-        } else {
-            $('.nav-bar').removeClass('nav-sticky');
-            $('.carousel, .page-header, .page-header-area').css("margin-top", "0");
-        }
+            if ($(this).scrollTop() > 90) {
+                $('.nav-bar').addClass('nav-sticky');
+                // Quitamos el .css() de aquí para moverlo a style.css
+            } else {
+                $('.nav-bar').removeClass('nav-sticky');
+            }
     });
 
 
