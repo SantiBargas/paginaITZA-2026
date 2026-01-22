@@ -184,6 +184,19 @@ a:focus {
     z-index: 999;
 }
 
+/* --- FIX DE RENDIMIENTO: Evita el salto visual y el reprocesamiento forzado --- */
+.nav-bar.nav-sticky + .carousel,
+.nav-bar.nav-sticky + .page-header,
+.nav-bar.nav-sticky + .page-header-area {
+    margin-top: 73px; /* El alto de tu barra para que el contenido no se esconda debajo */
+}
+
+/* Fix para el slider de testimonios que también marcaba error de diseño */
+.nav-slider-fixed {
+    position: relative;
+    height: 160px;
+}
+
 /* Color MARRÓN OSCURO de la barra */
 .nav-bar .navbar {
     height: 100%;
