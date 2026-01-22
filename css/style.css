@@ -571,7 +571,7 @@ a:focus {
 }
 
 .section-header p {
-    color: var(--main-color);
+    color: #454545; 
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
