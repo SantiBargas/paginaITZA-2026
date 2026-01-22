@@ -1,0 +1,367 @@
+{
+  "principales": [
+    {
+      "id": "main-hidrica",
+      "titulo": "Ingeniería Hídrica",
+      "descripcion": "Soluciones en estudios hídricos, factibilidades, diseño hidráulico, agua subterránea y servicios sanitarios.",
+      "imagen": "paginav2/main-hid_converted.webp",
+      "fotos": ["paginav2/main-hid_converted.webp"],
+      "enlace": "RecursosHidricos.html",
+      "delay": "0.1s"
+    },
+    {
+      "id": "main-agrimensura",
+      "titulo": "Agrimensura",
+      "descripcion": "Mensura, subdivisión, posesiones, propiedad horizontal y tasaciones con acompañamiento profesional.",
+      "imagen": "img/imgAgr_converted.webp",
+      "fotos": ["img/imgAgr_converted.webp"],
+      "enlace": "Agrimensura.html",
+      "delay": "0.2s"
+    },
+    {
+      "id": "main-topografia",
+      "titulo": "Topografía",
+      "descripcion": "Relevamientos, replanteos, nivelaciones y fotogrametría con drones aplicando tecnología avanzada.",
+      "imagen": "img/imgTopo_converted.webp",
+      "fotos": ["img/imgTopo_converted.webp"],
+      "enlace": "Topografia.html",
+      "delay": "0.3s"
+    },
+    {
+      "id": "main-ambiental",
+      "titulo": "Ingeniería Ambiental",
+      "descripcion": "Estudios de impacto ambiental, tratamiento de efluentes, gestión de residuos y asesoría agroindustrial.",
+      "imagen": "paginav2/main-amb_converted.webp",
+      "fotos": ["paginav2/main-amb_converted.webp"],
+      "enlace": "Ambiental.html",
+      "delay": "0.4s"
+    },
+    {
+      "id": "main-civil",
+      "titulo": "Ingeniería Civil",
+      "descripcion": "Diseño estructural, proyectos viales, gestión de proyectos y elaboración de pliegos licitatorios.",
+      "imagen": "paginav2/main-civil_converted.webp",
+      "fotos": ["paginav2/main-civil_converted.webp"],
+      "enlace": "Civil.html",
+      "delay": "0.5s"
+    },
+    {
+      "id": "main-simulacion",
+      "titulo": "Simulación Hidráulica",
+      "descripcion": "Optimización y diseño de infraestructuras hidráulicas con herramientas avanzadas como HEC-RAS y SWMM.",
+      "imagen": "paginav2/main-simu_converted.webp",
+      "fotos": ["paginav2/main-simu_converted.webp"],
+      "enlace": "Simulacion.html",
+      "delay": "0.6s"
+    }
+  ],
+  "agrimensura": [
+    {
+      "id": "agr-mensura",
+      "titulo": "Mensura Urbana y Rural",
+      "descripcion": "Se realiza el análisis del parcelario de un terreno mediante la medición, el estudio de títulos y antecedentes catastrales para determinar la situación jurídica en el territorio.",
+      "imagen": "paginav2/agr-mensura_converted.webp",
+      "fotos": ["paginav2/main-simu_converted.webp"],
+      "delay": "0.1s"
+    },
+    {
+      "id": "agr-subdivision",
+      "titulo": "Subdivisión",
+      "descripcion": "Se realiza la división de un terreno en las partes necesarias para generar nuevos títulos. Te acompañamos desde el acuerdo de subdivisión hasta su registro final.",
+      "imagen": "paginav2/agr-subdivision_converted.webp",
+      "fotos": ["paginav2/agr-subdivision_converted.webp"],
+      "delay": "0.2s"
+    },
+    {
+      "id": "agr-posesiones",
+      "titulo": "<span style='font-size: 15.5px; line-height: 1.1; display: block;'>Posesiones / Usucapiones</span>",
+      "descripcion": "Se confecciona un plano de mensura de posesión para juicio de usucapión. Asesoramos y acompañamos hasta la registración final.",
+      "imagen": "paginav2/agr-usucapion_converted.webp",
+      "fotos": ["paginav2/agr-usucapion_converted.webp"],
+      "delay": "0.3s"
+    },
+    {
+      "id": "agr-ph",
+      "titulo": "Propiedad Horizontal (PH)",
+      "descripcion": "División de propiedades construidas en unidades funcionales (casas, deptos). Gestión completa hasta la registración del expediente.",
+      "imagen": "paginav2/agr-ph_converted.webp",
+      "fotos": ["paginav2/agr-ph_converted.webp"],
+      "delay": "0.4s"
+    },
+    {
+      "id": "agr-vep",
+      "titulo": "Verificación Parcelaria (VEP)",
+      "descripcion": "Constatación de subsistencia del estado parcelario previo a transferencias. Realizamos y registramos el expediente.",
+      "imagen": "paginav2/agr-vep_converted.webp",
+      "fotos": ["paginav2/agr-vep_converted.webp"],
+      "delay": "0.5s"
+    },
+    {
+      "id": "agr-tasacion",
+      "titulo": "Tasaciones",
+      "descripcion": "Conocé el valor de mercado de tu terreno o vivienda de forma certificada y profesional.",
+      "imagen": "paginav2/agr-tasacion_converted.webp",
+      "fotos": ["paginav2/agr-tasacion_converted.webp"],
+      "delay": "0.6s"
+    }
+  ],
+  "civil": [
+    {
+      "id": "civ-calculo",
+      "titulo": "Diseño y Cálculo Estructural",
+      "descripcion": "El diseño estructural es clave para seguridad y economía en construcción. Ofrecemos proyectos personalizados empleando software específicos como Cype 3d, Cypecad, Ram elements, Tekla y Revit. Garantizando el cumplimiento normativo, generando toda la documentación técnica requerida.",
+      "imagen": "paginav2/civ-calc_converted.webp",
+      "fotos": ["paginav2/civ-calc_converted.webp"],
+      "delay": "0.1s"
+    },
+    {
+      "id": "civ-planos",
+      "titulo": "Planos Municipales",
+      "descripcion": "Tramitamos planos municipales, relevando construcciones existentes y presentando la documentación necesaria para su aprobación. Esto asegura el cumplimiento normativo y facilita trámites de venta, alquiler, remodelación o habilitación de negocios.",
+      "imagen": "paginav2/civ-planos_converted.webp",
+      "fotos": ["paginav2/civ-planos_converted.webp"],
+      "delay": "0.2s"
+    },
+    {
+      "id": "civ-vial",
+      "titulo": "Proyectos viales e Infraestructura",
+      "descripcion": "Nos especializamos en diseñar infraestructura y vías de comunicación para mejorar la movilidad y los servicios básicos para industrias, urbanizaciones y actividades productivas. Ofrecemos proyectos integrales, considerando los últimos paradigmas de desarrollo.",
+      "imagen": "paginav2/civ-vial_converted.webp",
+      "fotos": ["paginav2/civ-vial_converted.webp"],
+      "delay": "0.3s"
+    },
+    {
+      "id": "civ-licitatorios",
+      "titulo": "Pliegos Licitatorios",
+      "descripcion": "En ITZA, elaboramos la documentación técnica completa para proyectos de ingeniería, incluyendo pliegos, cómputos, presupuestos y redeterminaciones de precios. Toda esta información es esencial para licitaciones y gestión de financiamientos.",
+      "imagen": "paginav2/civ-licit_converted.webp",
+      "fotos": ["paginav2/civ-licit_converted.webp"],
+      "delay": "0.4s"
+    },
+    {
+      "id": "civ-instalaciones",
+      "titulo": "Proyectos de instalaciones de servicios",
+      "descripcion": "Elaboramos proyectos de infraestructura sanitaria, pluvial, eléctrica y de gas. Desarrollamos todos los cálculos para su dimensionamiento y brindamos toda la documentación técnica para su ejecución.",
+      "imagen": "paginav2/civ-sanitaria_converted.webp",
+      "fotos": ["paginav2/civ-sanitaria_converted.webp"],
+      "delay": "0.5s"
+    },
+    {
+      "id": "civ-computos",
+      "titulo": "Cómputos y presupuestos",
+      "descripcion": "Realizamos cálculos precisos y desarrollamos presupuestos detallados para proyectos ejecutivos, garantizando una planificación financiera óptima y la viabilidad de cada obra.",
+      "imagen": "paginav2/civ-cp_converted.webp",
+      "fotos": ["paginav2/civ-cp_converted.webp"],
+      "delay": "0.6s"
+    }
+  ],
+  "hidricos": [
+    {
+      "id": "irh-estudios",
+      "titulo": "Estudios Hidrológicos e Hidráulicos",
+      "descripcion": "Determinación de riesgos hídricos, tormentas de diseño, caudales, inundaciones y factibilidad hídrica.",
+      "imagen": "paginav2/irh-EH_converted.webp",
+      "fotos": ["paginav2/irh-EH_converted.webp"],
+      "delay": "0.1s"
+    },
+    {
+      "id": "irh-obras",
+      "titulo": "Proyectos de Obras Hidráulicas",
+      "descripcion": "Diseño de alcantarillas y puentes, canales y conductos, estudios hidrogeológicos y redes de agua.",
+      "imagen": "paginav2/irh-obrah_converted.webp",
+      "fotos": ["paginav2/irh-obrah_converted.webp"],
+      "delay": "0.2s"
+    },
+    {
+      "id": "irh-factibilidad",
+      "titulo": "Estudios de factibilidad hídrica",
+      "descripcion": "Factibilidad hídrica para loteos y subdivisiones: análisis, diseño y gestión de certificados y drenajes.",
+      "imagen": "paginav2/irh-fact_converted.webp",
+      "fotos": ["paginav2/irh-fact_converted.webp"],
+      "delay": "0.3s"
+    },
+    {
+      "id": "irh-riego",
+      "titulo": "Diseño de Riego Agrícola",
+      "descripcion": "Evaluación de fuentes de agua, dotaciones y dimensionamiento integral para un uso eficiente del recurso.",
+      "imagen": "paginav2/irh-riego_converted.webp",
+      "fotos": ["paginav2/irh-riego_converted.webp"],
+      "delay": "0.4s"
+    },
+    {
+      "id": "irh-batimetria",
+      "titulo": "Batimetrías y Aforos",
+      "descripcion": "Mediciones precisas de profundidades, volúmenes y caudales con tecnología de vanguardia.",
+      "imagen": "paginav2/irh-bati_converted.webp",
+      "fotos": ["paginav2/irh-bati_converted.webp"],
+      "delay": "0.5s"
+    },
+    {
+      "id": "irh-pozos",
+      "titulo": "Estudios y homologación de pozos",
+      "descripcion": "Estudios e informes hidrogeológicos, diseño de captaciones y homologación de pozos.",
+      "imagen": "paginav2/irh-subte_converted.webp",
+      "fotos": ["paginav2/irh-subte_converted.webp"],
+      "delay": "0.6s"
+    },
+    {
+      "id": "irh-terrazas",
+      "titulo": "Sistematización de campos",
+      "descripcion": "Diseño, ejecución y mantenimiento de terrazas agrícolas para evitar erosión y mejorar productividad.",
+      "imagen": "paginav2/irh-terraza_converted.webp",
+      "fotos": ["paginav2/irh-terraza_converted.webp"],
+      "delay": "0.7s"
+    }
+  ],
+  "ambiental": [
+    {
+      "id": "amb-eia",
+      "titulo": "Estudios de Impacto Ambiental",
+      "descripcion": "Confeccionamos el Estudio de Impacto Ambiental solicitado por entes de control para evaluar potenciales impactos y desarrollar Planes de Gestión Ambiental.",
+      "imagen": "paginav2/amb-eia.jpg",
+      "fotos": ["paginav2/amb-eia.jpg"],
+      "delay": "0.1s"
+    },
+    {
+      "id": "amb-efluentes",
+      "titulo": "Tratamiento de efluentes",
+      "descripcion": "Diseño de sistemas de tratamiento para efluentes industriales y cloacales, optimización de plantas existentes y control de lagunas.",
+      "imagen": "paginav2/amb-efluen.jpg",
+      "fotos": ["paginav2/amb-efluen.jpg"],
+      "delay": "0.2s"
+    },
+    {
+      "id": "amb-pga",
+      "titulo": "Sistemas de Gestión Ambiental",
+      "descripcion": "Confección y seguimiento de planes de gestión ambiental, auditorías de control y capacitación al personal para promover la sostenibilidad.",
+      "imagen": "paginav2/amb-pga.jpg",
+      "fotos": ["paginav2/amb-pga.jpg"],
+      "delay": "0.3s"
+    },
+    {
+      "id": "amb-residuos",
+      "titulo": "Manejo de residuos",
+      "descripcion": "Asesoramiento integral en gestión de residuos sólidos: planes de separación, reducción, reciclaje y diseño de plantas GIRSU.",
+      "imagen": "paginav2/amb-res.jpg",
+      "fotos": ["paginav2/amb-res.jpg"],
+      "delay": "0.4s"
+    },
+    {
+      "id": "amb-agro",
+      "titulo": "Asesoría agroindustrial",
+      "descripcion": "Manejo ambiental de actividades agroindustriales: drenajes, tratamiento de líquidos y gestión de purines con fines agronómicos.",
+      "imagen": "paginav2/amb-agro.jpg",
+      "fotos": ["paginav2/amb-agro.jpg"],
+      "delay": "0.5s"
+    },
+    {
+      "id": "amb-consultoria",
+      "titulo": "Consultoría y trámites",
+      "descripcion": "Informes ambientales, registros de residuos peligrosos, cálculo de complejidad ambiental y seguimiento ante entes de control.",
+      "imagen": "paginav2/amb-tram.jpg",
+      "fotos": ["paginav2/amb-tram.jpg"],
+      "delay": "0.6s"
+    },
+    {
+      "id": "amb-lad",
+      "titulo": "Licencia Ambiental Digital",
+      "descripcion": "Gestión completa para la obtención de la Licencia Ambiental Digital requerida por la Provincia de Santa Fe.",
+      "imagen": "paginav2/amb-LAD.jpg",
+      "fotos": ["paginav2/amb-LAD.jpg"],
+      "enlace": "blog/Licencia-Ambiental-Digital.html",
+      "delay": "0.7s"
+    }
+  ],
+  "topografia": [
+    {
+      "id": "top-relevamientos",
+      "titulo": "Relevamientos Topográficos",
+      "descripcion": "Integramos tecnología avanzada y software específico para obtener datos precisos en proyectos civiles, viales y productivos.",
+      "imagen": "paginav2/top-relev.jpg",
+      "fotos": ["paginav2/top-relev.jpg"],
+      "delay": "0.1s"
+    },
+    {
+      "id": "top-replanteo",
+      "titulo": "Replanteo de Obras",
+      "descripcion": "Relevamientos detallados y determinación de posiciones para obras civiles, viales e industriales.",
+      "imagen": "paginav2/top-replanteo.jpg",
+      "fotos": ["paginav2/top-replanteo.jpg"],
+      "delay": "0.2s"
+    },
+    {
+      "id": "top-nivelacion",
+      "titulo": "Nivelación de Terrenos",
+      "descripcion": "Relevamiento, cálculo y dirección para movimientos de suelos y plateas; precisión y optimización de recursos.",
+      "imagen": "paginav2/top-nivelacion.jpg",
+      "fotos": ["paginav2/top-nivelacion.jpg"],
+      "delay": "0.3s"
+    },
+    {
+      "id": "top-drone",
+      "titulo": "Relev. Fotogramétricos",
+      "descripcion": "Topografía con drone, modelos de elevación, volúmenes y ortomosaicos para mejorar precisión y rapidez.",
+      "imagen": "paginav2/top-drone.jpg",
+      "fotos": ["paginav2/top-drone.jpg"],
+      "delay": "0.4s"
+    },
+    {
+      "id": "top-sig",
+      "titulo": "<span style='font-size: 15.5px; line-height: 1.1; display: block;'>Sistemas de información geográfica</span>",
+      "descripcion": "Sistemas de información geográfica para la gestión y análisis de datos territoriales complejos.",
+      "imagen": "paginav2/top-sig.jpg",
+      "fotos": ["paginav2/top-sig.jpg"],
+      "delay": "0.5s"
+    }
+  ],
+  "simulacion": [
+    {
+      "id": "sim-hidrologica",
+      "titulo": "Simulación Hidrológica",
+      "descripcion": "Estudiamos el ciclo hidrológico para analizar el comportamiento de cuencas rurales y urbanas. Calculamos precipitación, escorrentía, infiltración y almacenamiento, utilizando modelos como HEC-HMS y SWMM.",
+      "imagen": "paginav2/sim-hec.jpg",
+      "fotos": ["paginav2/sim-hec.jpg"],
+      "delay": "0.1s"
+    },
+    {
+      "id": "sim-canales",
+      "titulo": "Simulación de Canales y Conductos",
+      "descripcion": "Modelamos el flujo de agua en canales abiertos y redes de conductos con herramientas como HEC-RAS y SWMM. Analizamos caudales, velocidades y estructuras hidráulicas como alcantarillas, puentes y represas.",
+      "imagen": "paginav2/sim-canal.jpg",
+      "fotos": ["paginav2/sim-canal.jpg"],
+      "delay": "0.2s"
+    },
+    {
+      "id": "sim-inundaciones",
+      "titulo": "Simulación de Inundaciones",
+      "descripcion": "Realizamos análisis de áreas inundables considerando eventos extremos y tormentas de diseño, empleando modelos como HEC-RAS (2D y 1D) y SWMM. Proponemos medidas de mitigación.",
+      "imagen": "paginav2/sim-flood.png",
+      "fotos": ["paginav2/sim-flood.png"],
+      "delay": "0.3s"
+    },
+    {
+      "id": "sim-drenaje",
+      "titulo": "<span style='font-size: 15.5px; line-height: 1.1; display: block;'>Simulación de Sistemas de Drenaje Urbano</span>",
+      "imagen": "paginav2/sim-swmm.jpeg",
+      "fotos": ["paginav2/sim-swmm.jpeg"],
+      "descripcion": "Optimizamos sistemas de drenaje urbano e industrial con herramientas como SWMM. Evaluamos la capacidad de conductos, reservorios y bocas de tormenta para prevenir acumulaciones de agua.",
+      "delay": "0.4s"
+    },
+    {
+      "id": "sim-agua",
+      "titulo": "<span style='font-size: 15.5px; line-height: 1.1; display: block;'>Modelado de Sistemas de Agua Potable</span>",
+      "imagen": "paginav2/sim-epanet.png",
+      "fotos": ["paginav2/sim-epanet.png"],
+      "descripcion": "Diseñamos y analizamos redes de agua potable utilizando EPANET. Calculamos flujo, presión y funcionamiento de bombas, tanques y válvulas para sistemas eficientes.",
+      "delay": "0.5s"
+    },
+    {
+      "id": "sim-dem",
+      "titulo": "Modelos Digitales de Elevación (DEM)",
+      "descripcion": "Generamos modelos topográficos precisos mediante técnicas avanzadas de levantamiento y herramientas GIS para delimitar cuencas y diseñar canales con máxima precisión.",
+      "imagen": "paginav2/sim-dem.png",
+      "fotos": ["paginav2/sim-dem.png"],
+      "delay": "0.6s"
+    }
+  ]
+}

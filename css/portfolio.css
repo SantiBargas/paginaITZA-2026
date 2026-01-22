@@ -135,3 +135,29 @@
     margin-bottom: 10px;
     color: #fdbe33; /* Tu color amarillo */
 }
+
+/*------------------------------------------------*/
+/*----------BOTON CARGAR MAS / VER MENOS----------*/
+/*------------------------------------------------*/
+/* Estilos para el botón Cargar más / Ver menos */
+.col-12.text-center #btn-load-more {
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: #0099ff; /* Azul ITZA */
+    color: #ffffff;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.col-12.text-center #btn-load-more:hover {
+    background: #fdbe33; /* Amarillo ITZA */
+    color: #121518;
+}
+
+/* Clase de utilidad para el control por JS */
+.hidden-project {
+    display: none !important;
+}
