@@ -112,7 +112,16 @@ body {
     animation: bounce 1.5s infinite;
 }
 .btn-wsp:hover{
-    background: lightcyan;
+    background: #0293e7;
+}
+
+.btn-wsp i,
+.btn-wsp:visited i,
+.btn-wsp:hover i,
+.btn-wsp:focus i,
+.btn-wsp:active i {
+    color: #FFF !important;
+    text-decoration: none !important;
 }
 
 /* Animación de rebote */
