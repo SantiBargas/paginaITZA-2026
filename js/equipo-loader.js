@@ -1,21 +1,4 @@
-// Defer loading until page is idle
-if (document.readyState === 'loading') {
-    document.addEventListener("DOMContentLoaded", () => {
-        if (typeof requestIdleCallback !== 'undefined') {
-            requestIdleCallback(() => cargarEquipo());
-        } else {
-            setTimeout(() => cargarEquipo(), 1000);
-        }
-    });
-} else {
-    if (typeof requestIdleCallback !== 'undefined') {
-        requestIdleCallback(() => cargarEquipo());
-    } else {
-        setTimeout(() => cargarEquipo(), 1000);
-    }
-}
-
-function cargarEquipo() {
+document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById('equipo-container');
     let equipoGlobal = [];
     let expandido = false;
@@ -72,13 +55,7 @@ function cargarEquipo() {
         contenedor.innerHTML = html;
         configurarBotonEquipo();
         
-        if (typeof WOW === 'function') {
-            if (typeof requestIdleCallback !== 'undefined') {
-                requestIdleCallback(() => new WOW().init());
-            } else {
-                setTimeout(() => new WOW().init(), 500);
-            }
-        }
+        if (typeof WOW === 'function') new WOW().init();
     }
 
     // 3. Lógica de Botón y Scroll (Tu referencia de Proyecto)
@@ -101,4 +78,4 @@ function cargarEquipo() {
             }
         });
     }
-}
+});

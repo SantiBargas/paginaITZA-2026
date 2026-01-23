@@ -2,22 +2,10 @@
    GESTOR DE COMPONENTES (Footer y Menú)
    ========================================= */
 
-// Usar requestIdleCallback para no bloquear el main thread
-if (document.readyState === 'loading') {
-    document.addEventListener("DOMContentLoaded", function() {
-        if (typeof requestIdleCallback !== 'undefined') {
-            requestIdleCallback(loadFooter);
-        } else {
-            setTimeout(loadFooter, 600);
-        }
-    });
-} else {
-    if (typeof requestIdleCallback !== 'undefined') {
-        requestIdleCallback(loadFooter);
-    } else {
-        setTimeout(loadFooter, 600);
-    }
-}
+document.addEventListener("DOMContentLoaded", function() {
+    loadFooter();
+    // Aquí pondremos el Navbar en el futuro
+});
 
 function loadFooter() {
     const footerHTML = `

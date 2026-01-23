@@ -1,24 +1,6 @@
 /* =========================================
    CARGA DINÁMICA DE CLIENTES (ITZA)
 ========================================= */
-
-// Defer the loading of clients until page is idle
-if (document.readyState === 'loading') {
-    document.addEventListener("DOMContentLoaded", () => {
-        if (typeof requestIdleCallback !== 'undefined') {
-            requestIdleCallback(cargarSeccionClientes);
-        } else {
-            setTimeout(cargarSeccionClientes, 1000);
-        }
-    });
-} else {
-    if (typeof requestIdleCallback !== 'undefined') {
-        requestIdleCallback(cargarSeccionClientes);
-    } else {
-        setTimeout(cargarSeccionClientes, 1000);
-    }
-}
-
 async function cargarSeccionClientes() {
     try {
         const response = await fetch('data/clientes.json');
