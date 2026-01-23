@@ -29,7 +29,12 @@ async function cargarSeccionClientes() {
             `);
         });
 
-        setTimeout(iniciarSlidersClientes, 150);
+        // Usar requestAnimationFrame para evitar forced reflow
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                iniciarSlidersClientes();
+            });
+        });
 
     } catch (error) {
         console.error("Error técnico en la carga de clientes:", error);
@@ -37,8 +42,15 @@ async function cargarSeccionClientes() {
 }
 
 function iniciarSlidersClientes() {
+    // Evitar forced reflow: verificar que elementos existan y tengan contenido
+    const $textSlider = $('.testimonial-slider');
+    const $navSlider = $('.testimonial-slider-nav');
+    
+    if (!$textSlider.length || !$navSlider.length) return;
+    if (!$textSlider.children().length || !$navSlider.children().length) return;
+    
     // 1. Slider de textos (Principal)
-    $('.testimonial-slider').slick({
+    $textSlider.slick({
         infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
@@ -49,11 +61,12 @@ function iniciarSlidersClientes() {
         arrows: true,
         fade: true,
         cssEase: 'ease-in-out',
-        pauseOnHover: true // Detiene el giro si el usuario lee un testimonio
+        pauseOnHover: true,
+        waitForAnimate: false // Mejora el performance
     });
 
     // 2. Slider de logos (Navegación con Adaptación Móvil)
-    $('.testimonial-slider-nav').slick({
+    $navSlider.slick({
         slidesToShow: 1, 
         centerMode: true,
         centerPadding: '0px',
@@ -63,18 +76,19 @@ function iniciarSlidersClientes() {
         infinite: true,
         speed: 900,
         cssEase: 'cubic-bezier(0.77, 0, 0.175, 1)',
+        waitForAnimate: false, // Mejora el performance
         responsive: [
             {
-                breakpoint: 768, // Tablets y celulares grandes
+                breakpoint: 768,
                 settings: {
                     centerPadding: '0px',
-                    slidesToShow: 1 // Mantenemos el foco central
+                    slidesToShow: 1
                 }
             },
             {
-                breakpoint: 480, // Celulares pequeños
+                breakpoint: 480,
                 settings: {
-                    speed: 600, // Un poco más rápido en móvil para mayor agilidad
+                    speed: 600,
                     centerPadding: '0px'
                 }
             }
