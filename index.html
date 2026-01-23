@@ -368,16 +368,13 @@
         <script src="lib/counterup/counterup.min.js" defer></script>
         <script src="lib/slick/slick.min.js" defer></script>
 
-        <script src="js/equipo-loader.js" defer></script>
-        <script src="js/services-loader.js" defer></script>
-        <script src="js/stats-loader.js" defer></script>
-
         <script src="js/main.js" defer></script>
         <script src="js/components.js" defer></script>
         
-        <!-- Carga lazy de clientes solo cuando sea necesario -->
+        <!-- Lazy loading de todos los loaders para máximo rendimiento -->
         <script>
         if ('IntersectionObserver' in window) {
+            // Lazy load clientes cuando testimonial sea visible
             const testimonialObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -391,12 +388,40 @@
             
             const testimonial = document.querySelector('.testimonial');
             if (testimonial) testimonialObserver.observe(testimonial);
+            
+            // Lazy load services cuando portfolio sea visible
+            const portfolioObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const script = document.createElement('script');
+                        script.src = 'js/services-loader.js';
+                        document.body.appendChild(script);
+                        portfolioObserver.disconnect();
+                    }
+                });
+            }, { rootMargin: '100px' });
+            
+            const portfolio = document.querySelector('.portfolio');
+            if (portfolio) portfolioObserver.observe(portfolio);
+            
+            // Cargar stats y equipo después de que la página esté lista
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    ['js/stats-loader.js', 'js/equipo-loader.js'].forEach(src => {
+                        const script = document.createElement('script');
+                        script.src = src;
+                        document.body.appendChild(script);
+                    });
+                }, 100);
+            });
         } else {
             // Fallback para navegadores antiguos
-            const script = document.createElement('script');
-            script.src = 'js/clientes-loader.js';
-            script.defer = true;
-            document.body.appendChild(script);
+            ['js/clientes-loader.js', 'js/services-loader.js', 'js/stats-loader.js', 'js/equipo-loader.js'].forEach(src => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.defer = true;
+                document.body.appendChild(script);
+            });
         }
         </script>
     </body>
