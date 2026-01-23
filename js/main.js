@@ -1,38 +1,49 @@
 (function ($) {
     "use strict";
 
-    // Initiate the wowjs
+    // Iniciar WOW con configuración liviana para minimizar reflows
     $(window).on('load', function () {
-            if (typeof WOW === 'function') {
-                setTimeout(function() {
-                    new WOW().init();
-                }, 100);
-            }
-        });
-
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
+        if (typeof WOW === 'function') {
+            // Desactiva mutaciones en vivo y en móviles para reducir cálculos
+            setTimeout(function () {
+                new WOW({ mobile: false, live: false }).init();
+            }, 100);
         }
     });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+
+    // Back to top: evita animaciones jQuery; usa clase + CSS
+    (function () {
+        var ticking = false;
+        function onScroll() {
+            var y = window.pageYOffset || document.documentElement.scrollTop;
+            var btn = document.querySelector('.back-to-top');
+            if (btn) {
+                if (y > 200) btn.classList.add('show'); else btn.classList.remove('show');
+            }
+            // Sticky navbar también aquí para leer scroll una sola vez
+            var nav = document.querySelector('.nav-bar');
+            if (nav) {
+                if (y > 90) nav.classList.add('nav-sticky'); else nav.classList.remove('nav-sticky');
+            }
+            ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(onScroll);
+            }
+        }, { passive: true });
+        // Estado inicial
+        onScroll();
+    })();
+
+    $('.back-to-top').on('click', function () {
+        $('html, body').animate({ scrollTop: 0 }, 600, 'easeInOutExpo');
         return false;
     });
 
 
-    // Sticky Navbar
-    $(window).scroll(function () {
-            if ($(this).scrollTop() > 90) {
-                $('.nav-bar').addClass('nav-sticky');
-                // Quitamos el .css() de aquí para moverlo a style.css
-            } else {
-                $('.nav-bar').removeClass('nav-sticky');
-            }
-    });
+    // Sticky Navbar manejado junto al back-to-top (ver arriba)
 
 
     // Dropdown on mouse hover
@@ -49,7 +60,12 @@
             }
         }
         toggleNavbarMethod();
-        $(window).resize(toggleNavbarMethod);
+        // Debounce de resize para evitar ejecuciones excesivas
+        var resizeTimeout;
+        $(window).on('resize', function () {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(toggleNavbarMethod, 150);
+        });
     });
 
 
