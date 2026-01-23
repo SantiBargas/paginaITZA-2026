@@ -24,58 +24,120 @@ body {
     box-shadow: none !important; /* Quita sombras de caja */
 }
 
-/* =========================================
-   ALINEACIÓN DE TARJETAS FEATURE (INDEX)
-   ========================================= */
+/*******************************/
+/********* FEATURE FIX TOTAL *********/
+/*******************************/
 
-/* 1. Forzamos que la fila use Flexbox para nivelar las columnas */
+/* 1. La Fila: Motor de nivelación para PC y TV */
 .feature .row {
     display: flex !important;
-    flex-wrap: wrap;
-    align-items: stretch; /* Estira las columnas para que midan lo mismo */
+    flex-wrap: wrap !important;
+    align-items: stretch !important; /* Estira las columnas al mismo nivel */
 }
 
-/* 2. La tarjeta ocupa el 100% del alto de la columna */
+/* 2. La Columna: Puente de estiramiento */
+.feature .col-lg-4 {
+    display: flex !important;
+    padding: 0;
+}
+
+/* 3. La Tarjeta: Altura total y alineación */
 .feature-item {
     display: flex !important;
-    flex-direction: row; /* Mantiene icono a la izquierda y texto a la derecha */
-    height: 100%;
-    margin-bottom: 0; /* El espaciado lo maneja la columna */
-    padding: 30px;
-    background: var(--secondary-color); /* Fondo marrón oscuro */
+    flex-direction: row; 
+    align-items: center; 
+    width: 100%;
+    height: 100% !important; 
+    padding: 30px 10px; 
+    min-height: 180px; 
+    border-radius: 0; 
+    
+    background: #1C110A;
 }
 
-/* 3. El contenedor de texto se expande para empujar el diseño */
-.feature-text {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
-}
-
-/* 4. Alineación de títulos para evitar saltos visuales */
-.feature-text h3 {
-    margin-top: 0;
-    min-height: 50px; /* Espacio reservado para títulos de 2 líneas */
+/* 4. ICONOS GRANDES (Lo que se te había achicado) */
+.feature .feature-icon {
+    position: relative;
+    flex-shrink: 0; /* PROHIBIDO QUE SE ACHIQUE */
+    width: 120px;   /* Aumentamos de 100 a 120 para que impacte */
+    height: 120px;
+    margin-right: 25px;
     display: flex;
     align-items: center;
-    color: var(--main-color) !important; /* Azul ITZA */
+    justify-content: center;
+    z-index: 5;
+}
+
+/* Círculo decorativo (Agrandado para el nuevo icono) */
+.feature .feature-icon::before {
+    position: absolute;
+    content: "";
+    width: 120px;  
+    height: 120px; 
+    border: 2px dotted #ffffff; /* Mantenemos el borde original */
+    border-radius: 50%;
+    z-index: 1;
+    -webkit-mask-image: conic-gradient(from 0deg, transparent 0%, black 10%, black 40%, transparent 50%, transparent 50%, black 60%, black 90%, transparent 100%);
+    mask-image: conic-gradient(from 0deg, transparent 0%, black 10%, black 40%, transparent 50%, transparent 50%, black 60%, black 90%, transparent 100%);
+    animation: rotate-circle 15s linear infinite;
+}
+
+/* El Icono (Aumentamos el font-size para que se vea como querés) */
+.feature .feature-icon i::before {
+    position: relative;
+    margin: 0;
+    font-size: 65px !important; /* ¡Acá está el tamaño real! */
+    line-height: 1;
+    z-index: 3;
+    color: #0293e7; 
+}
+
+/* 5. Textos y Contraste */
+.feature-text {
+    flex-grow: 1;
+}
+
+.feature-text h3 {
+    margin: 0 0 10px 0;
+    color: #0293e7;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .feature-text p {
-    margin-bottom: 0;
+    margin: 0;
     color: #ffffff;
+    font-size: 17px;
+    line-height: 1.4;
 }
 
-/* 5. Ajuste para el color alternado (Si lo usás) */
-.feature .col-lg-4:nth-child(2n) .feature-item {
-    background: var(--main-color);
-}
-.feature .col-lg-4:nth-child(2n) .feature-text h3,
-.feature .col-lg-4:nth-child(2n) .feature-text p {
-    color: var(--secondary-color) !important;
+/* 6. CAJA DEL MEDIO (AZUL) */
+.feature .col-lg-4:nth-child(2) .feature-item {
+    background: #0293e7 !important;
 }
 
+.feature .col-lg-4:nth-child(2) .feature-text h3,
+.feature .col-lg-4:nth-child(2) .feature-text p,
+.feature .col-lg-4:nth-child(2) .feature-icon i::before {
+    color: #1C110A !important; /* Todo a marrón oscuro */
+}
+
+.feature .col-lg-4:nth-child(2) .feature-icon::before {
+    border-color: #1C110A !important;
+}
+
+@keyframes rotate-circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*******************************/
+/********* CAROUSEL FIX *********/
+/*******************************/
 /* 3. Ajustes del Carrusel Principal */
 .carousel-item img {
     width: 100%;
@@ -915,6 +977,7 @@ a:focus {
     position: relative;
     margin-bottom: 30px;
     overflow: hidden;
+    background: #1C110A; /* Fondo base ITZA */
 }
 
 .team .team-img {
@@ -929,36 +992,42 @@ a:focus {
     position: relative;
     padding: 25px 15px;
     text-align: center;
-    background: var(--secondary-color);
+    background: #121518; 
     transition: .5s;
 }
 
 @media (max-width: 768px) {
     .team .team-text {
-        font-size: 0.8rem; /* Ajusta este valor según lo necesites */
+        font-size: 0.8rem;
     }
 }
 
 .team .team-text h2 {
     font-size: 20px;
     font-weight: 600;
-    color: var(--main-color);
+    color: #ffffff; /* Texto en blanco para contraste profesional */
     transition: .5s;
 }
 
 .team .team-text p {
     margin: 0;
-    color: #ffffff;
+    color: #0293e7; 
 }
 
 .team .team-item:hover .team-text {
-    background: var(--main-color);
+    background: #0293e7; /* El bloque pasa a Azul ITZA */
 }
 
 .team .team-item:hover .team-text h2 {
-    color: var(--secondary-color);
+    color: #1C110A; /* El nombre pasa a Marrón Oscuro */
     letter-spacing: 1px;
 }
+
+.team .team-item:hover .team-text p {
+    color: #ffffff; /* El cargo pasa a Blanco */
+}
+
+/* --- REDES SOCIALES: Estilo Unificado --- */
 
 .team .team-social {
     position: absolute;
@@ -979,31 +1048,43 @@ a:focus {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    color: #ffffff;
+    color: #ffffff; /* Icono blanco */
+    background: #0293e7; /* Fondo azul por defecto */
+    transition: .3s;
 }
 
+/* Mantengo tus tiempos de entrada pero unifico el color a ITZA */
 .team .team-item:hover .team-social a:first-child {
-    background: #00acee;
+    background: #0293e7; 
     left: 50px;
     transition: .3s 0s;
 }
 
 .team .team-item:hover .team-social a:nth-child(2) {
-    background: #3b5998;
+    background: #0293e7;
+    filter: brightness(90%); /* Variación sutil para separar botones */
     left: 50px;
     transition: .3s .1s;
 }
 
 .team .team-item:hover .team-social a:nth-child(3) {
-    background: #0e76a8;
+    background: #0293e7;
+    filter: brightness(80%);
     left: 50px;
     transition: .3s .2s;
 }
 
 .team .team-item:hover .team-social a:nth-child(4) {
-    background: #3f729b;
+    background: #0293e7;
+    filter: brightness(70%);
     left: 50px;
     transition: .3s .3s;
+}
+
+/* Hover individual en cada icono */
+.team .team-social a:hover {
+    background: #ffffff !important;
+    color: #1C110A !important;
 }
 
 /*******************************/
