@@ -2,14 +2,20 @@
     "use strict";
 
     // Iniciar WOW con configuración liviana para minimizar reflows
-    $(window).on('load', function () {
-        if (typeof WOW === 'function') {
-            // Desactiva mutaciones en vivo y en móviles para reducir cálculos
+    // Usar requestIdleCallback para no bloquear el main thread
+    if (typeof WOW === 'function' && typeof requestIdleCallback !== 'undefined') {
+        $(window).on('load', function () {
+            requestIdleCallback(function () {
+                new WOW({ mobile: false, live: false }).init();
+            });
+        });
+    } else if (typeof WOW === 'function') {
+        $(window).on('load', function () {
             setTimeout(function () {
                 new WOW({ mobile: false, live: false }).init();
-            }, 100);
-        }
-    });
+            }, 500);
+        });
+    }
 
     // Back to top: evita animaciones jQuery; usa clase + CSS
     (function () {
@@ -46,14 +52,14 @@
     // Sticky Navbar manejado junto al back-to-top (ver arriba)
 
 
-    // Dropdown on mouse hover
+    // Dropdown on mouse hover - Optimizado sin jQuery click triggers
     $(document).ready(function () {
         function toggleNavbarMethod() {
             if ($(window).width() > 992) {
                 $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
+                    $(this).find('.dropdown-toggle').addClass('show').next().addClass('show');
                 }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
+                    $(this).find('.dropdown-toggle').removeClass('show').next().removeClass('show');
                 });
             } else {
                 $('.navbar .dropdown').off('mouseover').off('mouseout');
@@ -69,12 +75,23 @@
     });
 
 
-    // jQuery counterUp
+    // jQuery counterUp - Lazy load en idle callback
     if ($('[data-toggle="counter-up"]').length) {
-        $('[data-toggle="counter-up"]').counterUp({
-            delay: 10,
-            time: 2000
-        });
+        if (typeof requestIdleCallback !== 'undefined') {
+            requestIdleCallback(function() {
+                $('[data-toggle="counter-up"]').counterUp({
+                    delay: 10,
+                    time: 2000
+                });
+            });
+        } else {
+            setTimeout(function() {
+                $('[data-toggle="counter-up"]').counterUp({
+                    delay: 10,
+                    time: 2000
+                });
+            }, 800);
+        }
     }
 
 
@@ -114,45 +131,67 @@
     }
 
 
-    // Portfolio isotope and filter
+    // Portfolio isotope and filter - Lazy load en idle callback
     if ($('.portfolio-container').length) {
-        var portfolioIsotope = $('.portfolio-container').isotope({
-            itemSelector: '.portfolio-item',
-            layoutMode: 'fitRows'
-        });
+        if (typeof requestIdleCallback !== 'undefined') {
+            requestIdleCallback(function() {
+                var portfolioIsotope = $('.portfolio-container').isotope({
+                    itemSelector: '.portfolio-item',
+                    layoutMode: 'fitRows'
+                });
 
-        $('#portfolio-flters li').on('click', function () {
-            $("#portfolio-flters li").removeClass('filter-active');
-            $(this).addClass('filter-active');
-            portfolioIsotope.isotope({filter: $(this).data('filter')});
-        });
+                $('#portfolio-flters li').on('click', function () {
+                    $("#portfolio-flters li").removeClass('filter-active');
+                    $(this).addClass('filter-active');
+                    portfolioIsotope.isotope({filter: $(this).data('filter')});
+                });
+            });
+        } else {
+            setTimeout(function() {
+                var portfolioIsotope = $('.portfolio-container').isotope({
+                    itemSelector: '.portfolio-item',
+                    layoutMode: 'fitRows'
+                });
+
+                $('#portfolio-flters li').on('click', function () {
+                    $("#portfolio-flters li").removeClass('filter-active');
+                    $(this).addClass('filter-active');
+                    portfolioIsotope.isotope({filter: $(this).data('filter')});
+                });
+            }, 800);
+        }
     }
 
     // --- GENERIC FIX PARA ACCESIBILIDAD Y SEO (Centralizado) ---
-    $(document).ready(function() {
-        const fixAccesibilidad = () => {
-            // 1. Fix Lightbox: Evita el error de "Vínculos no rastreables"
-            const lbLinks = $('.lb-close, .lb-prev, .lb-next');
-            lbLinks.each(function() {
-                if (!$(this).attr('href')) {
-                    $(this).attr('href', 'javascript:void(0)');
-                    $(this).attr('role', 'button');
-                    if ($(this).hasClass('lb-close')) $(this).attr('aria-label', 'Cerrar galería');
-                }
-            });
+    // Optimizado: evitar .each() y usar selectores más eficientes
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fixAccesibilidad);
+    } else {
+        requestAnimationFrame(fixAccesibilidad);
+    }
 
-            // 2. Fix Botones Vacíos: Asegura nombre accesible para botones de slider o iconos
-            $('.slick-prev, .slick-next').each(function() {
-                if (!$(this).attr('aria-label')) {
-                    $(this).attr('aria-label', $(this).hasClass('slick-prev') ? 'Anterior' : 'Siguiente');
+    function fixAccesibilidad() {
+        // 1. Fix Lightbox: Evita el error de "Vínculos no rastreables"
+        document.querySelectorAll('.lb-close, .lb-prev, .lb-next').forEach(el => {
+            if (!el.hasAttribute('href')) {
+                el.setAttribute('href', 'javascript:void(0)');
+                el.setAttribute('role', 'button');
+                if (el.classList.contains('lb-close')) {
+                    el.setAttribute('aria-label', 'Cerrar galería');
                 }
-            });
-        };
+            }
+        });
 
-        fixAccesibilidad();
-        // Ejecutar de nuevo tras un delay por si Lightbox tarda en cargar su DOM
-        setTimeout(fixAccesibilidad, 2000);
-    });
+        // 2. Fix Botones Vacíos: Asegura nombre accesible para botones de slider o iconos
+        document.querySelectorAll('.slick-prev, .slick-next').forEach(el => {
+            if (!el.hasAttribute('aria-label')) {
+                el.setAttribute('aria-label', el.classList.contains('slick-prev') ? 'Anterior' : 'Siguiente');
+            }
+        });
+    }
+
+    // Ejecutar de nuevo tras un delay por si Lightbox tarda en cargar su DOM (sin jQuery)
+    setTimeout(fixAccesibilidad, 2000);
 
 })(jQuery);
 
