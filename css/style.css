@@ -894,6 +894,65 @@ a:focus {
     text-align: justify;
 }
 
+/* 1. Definición de los Motores de Movimiento */
+@keyframes slideFromTop {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 2. Aplicación a los Títulos ITZA */
+.page-header-area h1.animate-top {
+    opacity: 0; /* Empieza invisible */
+    animation: slideFromTop 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    font-size: 60px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.page-header-area h2.animate-bottom {
+    opacity: 0; /* Empieza invisible */
+    animation: slideFromBottom 1.2s ease-out forwards;
+    animation-delay: 0.5s; /* Un poquito después para efecto cascada */
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 15px;
+}
+
+/* 3. Estilo del Divisor (Opcional, para que también aparezca) */
+.header-divider {
+    width: 100px;
+    height: 3px;
+    background: #ffffff;
+    margin: 20px auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
 
 /*******************************/
 /********** Fact CSS ********LOS PROFESIONALES CLIENTES TRABAJOS COMPLETADOS ETC***/
@@ -1446,6 +1505,60 @@ a:focus {
     color: #121518;
 }
 
+/* 1. Contenedor con Azul ITZA */
+.page-header-area {
+    background: #0293e7 !important;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden; /* Clave para que el texto no se vea "viniendo" de afuera */
+}
+
+/* 2. Definición de Keyframes (Motores de movimiento) */
+@keyframes portfolioSlideDown {
+    from { transform: translateY(-80px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes portfolioSlideUp {
+    from { transform: translateY(80px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes portfolioFadeIn {
+    to { opacity: 1; }
+}
+
+/* 3. Aplicación de animaciones */
+.animate-portfolio-top {
+    opacity: 0;
+    animation: portfolioSlideDown 1s ease-out forwards;
+    animation-delay: 0.2s;
+    font-size: 55px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.animate-portfolio-bottom {
+    opacity: 0;
+    animation: portfolioSlideUp 1s ease-out forwards;
+    animation-delay: 0.4s;
+    font-size: 22px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 15px;
+}
+
+.animate-divider {
+    width: 80px;
+    height: 3px;
+    background: #ffffff;
+    margin: 20px auto;
+    opacity: 0;
+    animation: portfolioFadeIn 0.8s ease-in forwards;
+    animation-delay: 0.8s;
+}
+
 /*******************************/
 /********* Contact CSS *********/
 /*******************************/
@@ -1575,6 +1688,47 @@ a:focus {
     list-style-type: none;
 }
 
+/* 2. Motores de Movimiento (Keyframes) */
+@keyframes contactSlideDown {
+    from { transform: translateY(-70px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes contactSlideUp {
+    from { transform: translateY(70px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 3. Aplicación a los Textos */
+.animate-contact-top {
+    opacity: 0;
+    animation: contactSlideDown 1s ease-out forwards;
+    animation-delay: 0.2s; /* Arranca casi inmediato */
+    font-size: 55px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.animate-contact-bottom {
+    opacity: 0;
+    animation: contactSlideUp 1s ease-out forwards;
+    animation-delay: 0.4s; /* Un poco después para dinamismo */
+    font-size: 22px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.animate-divider {
+    width: 80px;
+    height: 3px;
+    background: #ffffff;
+    opacity: 0;
+    animation: portfolioFadeIn 0.8s ease-in forwards;
+    animation-delay: 0.7s;
+    margin: 20px auto;
+}
 
 /*******************************/
 /********* Footer CSS **********/
