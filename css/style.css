@@ -898,6 +898,9 @@ a:focus {
 /*******************************/
 /********** Fact CSS ********LOS PROFESIONALES CLIENTES TRABAJOS COMPLETADOS ETC***/
 /*******************************/
+/*******************************/
+/*********** Fact CSS **********/
+/*******************************/
 .fact {
     position: relative;
     width: 100%;
@@ -918,17 +921,21 @@ a:focus {
     justify-content: center;
 }
 
+/* Iconos de la izquierda (Sobre fondo negro) */
 .fact .fact-icon [class^="flaticon-"]::before {
     margin: 0;
     font-size: 60px;
     line-height: 60px;
-    background-image: linear-gradient(#ffffff, var(--main-color));
+    /* Degradado de blanco a azul ITZA */
+    background-image: linear-gradient(#ffffff, #0293e7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* Iconos de la derecha (Sobre fondo azul) */
 .fact .fact-right .fact-icon [class^="flaticon-"]::before {
-    background-image: linear-gradient(#ffffff, var(--secondary-color));
+    /* Degradado de blanco a negro ITZA */
+    background-image: linear-gradient(#ffffff, #121518);
 }
 
 .fact .fact-left,
@@ -949,20 +956,25 @@ a:focus {
     text-transform: uppercase;
 }
 
+/* BLOQUE IZQUIERDO: Negro ITZA */
 .fact .fact-left {
-    color: var(--main-color);
-    background: var(--secondary-color);
-}
-
-.fact .fact-right {
-    color: var(--secondary-color);
-    background: var(--main-color);
+    background: #121518; /* Negro solicitado */
+    color: #ffffff;      /* Texto base en blanco */
 }
 
 .fact .fact-left h2 {
-    color: var(--main-color);
+    color: #0293e7;      /* Números en azul ITZA */
 }
 
+/* BLOQUE DERECHO: Azul ITZA */
+.fact .fact-right {
+    background: #0293e7; /* Azul solicitado */
+    color: #121518;      /* Texto y números en negro para contraste */
+}
+
+.fact .fact-right h2 {
+    color: #121518;
+}
 
 /*******************************/
 /*********** Team CSS **********/
@@ -1085,6 +1097,67 @@ a:focus {
 .team .team-social a:hover {
     background: #ffffff !important;
     color: #1C110A !important;
+}
+
+/* Estética exacta de tu referencia de Proyecto */
+.btn-load-more-style {
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: #0099ff; /* Azul ITZA */
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 0; /* Rectangular como pediste */
+    text-transform: uppercase;
+}
+
+.btn-load-more-style:hover {
+    background: #fdbe33; /* Amarillo/Dorado ITZA */
+    color: #121518;
+}
+
+/* Blindaje para las fotos de equipo */
+.team .team-img {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.team .team-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* ENCABEZADO DE SECCIÓN: Ancho Completo (Full Width) */
+.team .section-header {
+    background: #121518 !important; 
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 60px 0;     
+    margin-bottom: 60px; 
+    text-align: center;
+}
+
+.team .section-header p {
+    color: #0293e7 !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.team .section-header h2 {
+    color: #ffffff !important;
+    font-size: 40px; 
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
 }
 
 /*******************************/
@@ -1388,7 +1461,7 @@ a:focus {
 }
 
 .contact .col-md-6:first-child {
-    background: var(--secondary-color);
+    background: #121518 !important; 
 }
 
 .contact .col-md-6:last-child {
@@ -1485,7 +1558,7 @@ a:focus {
     font-size: 16px;
     font-weight: 600;
     color: var(--main-color);
-    background: var(--secondary-color);
+    background: #121518 !important;  
     border: none;
     border-radius: 0;
     transition: .3s;
