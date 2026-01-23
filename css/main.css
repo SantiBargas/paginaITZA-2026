@@ -1,0 +1,2292 @@
+/*************************/
+/******FONTELLO.CSS******/
+/*************************/
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?9756180');
+  src: url('../font/fontello.eot?9756180#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?9756180') format('woff2'),
+       url('../font/fontello.woff?9756180') format('woff'),
+       url('../font/fontello.ttf?9756180') format('truetype'),
+       url('../font/fontello.svg?9756180#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?9756180#fontello') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-whatsapp:before { content: '\f232'; } /* '' */
+
+/*************************/
+/******FONTELLO.CSS******/
+/*************************/
+
+
+/*************************/
+/******ANIMATION.CSS******/
+/*************************/
+
+/*
+   Animation example, for spinners
+*/
+.animate-spin {
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/*************************/
+/******ANIMATION.CSS******/
+/*************************/
+
+/*************************/
+/******MAIN.CSS******/
+/*************************/
+:root {
+    --main-color: #0293e7;
+
+    --secondary-color: #1C110A;
+    --terciary-color: #817F82;
+    --quarter-color: #2ecc71;
+    --quinth-color: #181f1a;
+    --negro-itza: #121518;  
+    --font-size-large: 1.5rem;
+  }
+  
+/* =========================================
+   global.css - Estilos que aplican a TODA la web
+   ========================================= */
+
+/* 1. Forzar Ancho Completo (Full Width) */
+body {
+    background: #fff !important; /* Fondo blanco siempre */
+}
+
+.wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-shadow: none !important; /* Quita sombras de caja */
+}
+
+/*******************************/
+/********* FEATURE FIX TOTAL *********/
+/*******************************/
+
+/* 1. La Fila: Motor de nivelación para PC y TV */
+.feature .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important; /* Estira las columnas al mismo nivel */
+}
+
+/* 2. La Columna: Puente de estiramiento */
+.feature .col-lg-4 {
+    display: flex !important;
+    padding: 0;
+}
+
+/* 3. La Tarjeta: Altura total y alineación */
+.feature-item {
+    display: flex !important;
+    flex-direction: row; 
+    align-items: center; 
+    width: 100%;
+    height: 100% !important; 
+    padding: 30px 10px; 
+    min-height: 180px; 
+    border-radius: 0; 
+    background: #121518;  
+}
+
+/* 4. ICONOS GRANDES (Lo que se te había achicado) */
+.feature .feature-icon {
+    position: relative;
+    flex-shrink: 0; /* PROHIBIDO QUE SE ACHIQUE */
+    width: 120px;   /* Aumentamos de 100 a 120 para que impacte */
+    height: 120px;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+/* Círculo decorativo (Agrandado para el nuevo icono) */
+.feature .feature-icon::before {
+    position: absolute;
+    content: "";
+    width: 120px;  
+    height: 120px; 
+    border: 2px dotted #ffffff; /* Mantenemos el borde original */
+    border-radius: 50%;
+    z-index: 1;
+    -webkit-mask-image: conic-gradient(from 0deg, transparent 0%, black 10%, black 40%, transparent 50%, transparent 50%, black 60%, black 90%, transparent 100%);
+    mask-image: conic-gradient(from 0deg, transparent 0%, black 10%, black 40%, transparent 50%, transparent 50%, black 60%, black 90%, transparent 100%);
+    animation: rotate-circle 15s linear infinite;
+}
+
+/* El Icono (Aumentamos el font-size para que se vea como querés) */
+.feature .feature-icon i::before {
+    position: relative;
+    margin: 0;
+    font-size: 65px !important; /* ¡Acá está el tamaño real! */
+    line-height: 1;
+    z-index: 3;
+    color: #0293e7; 
+}
+
+/* 5. Textos y Contraste */
+.feature-text {
+    flex-grow: 1;
+}
+
+.feature-text h1 {
+    margin: 0 0 10px 0;
+    color: #0293e7;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.feature-text p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+/* 6. CAJA DEL MEDIO (AZUL) */
+.feature .col-lg-4:nth-child(2) .feature-item {
+    background: #0293e7 !important;
+}
+
+.feature .col-lg-4:nth-child(2) .feature-text h1,
+.feature .col-lg-4:nth-child(2) .feature-text p,
+.feature .col-lg-4:nth-child(2) .feature-icon i::before {
+    color: #1C110A !important; /* Todo a marrón oscuro */
+}
+
+.feature .col-lg-4:nth-child(2) .feature-icon::before {
+    border-color: #1C110A !important;
+}
+
+@keyframes rotate-circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*******************************/
+/********* CAROUSEL FIX *********/
+/*******************************/
+/* 3. Ajustes del Carrusel Principal */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1920/900; 
+    object-fit: cover;
+}
+
+#carousel .carousel-caption {
+    position: absolute; 
+    inset: 0;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    padding: 0 1rem;
+    pointer-events: none; 
+}
+
+#carousel .carousel-caption .btn { 
+    pointer-events: auto; 
+}
+
+/* =========================================
+   MENU SCROLL (Sticky Navbar)
+   ========================================= */
+
+.nav-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.nav-sticky {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+}
+.nav-bar .container,
+.nav-bar .container-fluid {
+    max-width: 100% !important;
+    width: 100% !important;
+
+}
+
+/* =========================================
+    BOTÓN FLOTANTE DE WHATSAPP - ITZA
+========================================= */
+.btn-wsp {
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366; /* Verde Oficial */
+    color: #FFF !important;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 60px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    transition: all 300ms ease;
+    /* Usamos itza-bounce para evitar que Animate.css lo pise */
+    animation: itza-bounce 1.5s infinite; 
+}
+
+.btn-wsp:hover {
+    background: #0293e7; /* Azul ITZA */
+    color: #FFF !important;
+    text-decoration: none !important;
+}
+
+/* Forzamos que el icono siempre sea blanco */
+.btn-wsp i {
+    color: #FFF !important;
+    display: inline-block;
+    line-height: 90px;
+}
+
+/* Definición Única de Animación */
+@keyframes itza-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Ajuste Responsivo: Mejoramos el tamaño para móviles y PageSpeed */
+@media only screen and (max-width: 768px) {
+    .btn-wsp {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 45px;
+        bottom: 15px;
+        right: 15px;
+    }
+    .btn-wsp i {
+        line-height: 70px;
+    }
+}
+
+/*******************************/
+/********* General CSS *********/
+/*******************************/
+body {
+    color: var(--terciary-color);
+    background: #dddddd;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1,
+h2, 
+h3, 
+h4,
+h5, 
+h6 {
+    color: var(--secondary-color);
+}
+
+a {
+    color: var(--terciary-color);
+    transition: .3s;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: var(--main-color);
+    outline: none;
+    text-decoration: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    background: var(--main-color);
+    color: #121518;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 1;
+    font-size: 22px;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+    z-index: 9;
+}
+
+.back-to-top:hover {
+    color: var(--main-color);
+    background: #121518;
+}
+
+.back-to-top i {
+    padding-top: 10px;
+}
+
+.btn {
+    transition: .3s;
+}
+
+
+/**********************************/
+/********** Top Bar CSS ***********/
+/**********************************/
+.top-bar {
+    position: relative;
+    height: 90px;
+    background: var(--main-color);
+}
+
+.top-bar .logo {
+    padding: 15px 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+.top-bar .logo h1 {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 700;
+}
+
+.top-bar .logo img {
+    max-width: 100%;
+    max-height: 60px;
+}
+
+.top-bar .top-bar-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.top-bar .top-bar-icon {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-bar .top-bar-icon [class^="flaticon-"]::before {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 40px;
+}
+
+.top-bar .top-bar-text {
+    padding-left: 15px;
+}
+
+.top-bar .top-bar-text h3 {
+    margin: 0 0 5px 0;
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.top-bar .top-bar-text p {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+@media (min-width: 992px) {
+    .top-bar {
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .top-bar .logo {
+        text-align: center;
+    }
+}
+
+
+/**********************************/
+/*********** Nav Bar CSS **********/
+/**********************************/
+.nav-bar {
+    position: relative;
+    background: var(--main-color); /* El azul ITZA de fondo */
+    transition: .3s;
+}
+
+.nav-bar .container-fluid {
+    padding: 0;
+}
+
+.nav-bar.nav-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 100%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    z-index: 999;
+}
+
+/* --- FIX DE RENDIMIENTO: Evita el salto visual y el reprocesamiento forzado --- */
+.nav-bar.nav-sticky + .carousel,
+.nav-bar.nav-sticky + .page-header,
+.nav-bar.nav-sticky + .page-header-area {
+    margin-top: 73px; /* El alto de tu barra para que el contenido no se esconda debajo */
+}
+
+/* Fix para el slider de testimonios que también marcaba error de diseño */
+.nav-slider-fixed {
+    position: relative;
+    height: 160px;
+}
+
+/* Color MARRÓN OSCURO de la barra */
+.nav-bar .navbar {
+    height: 100%;
+    background: var(--secondary-color) !important; 
+}
+
+/* Texto BLANCO de los enlaces */
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    padding: 10px 10px 8px 10px;
+    color: #ffffff !important;
+}
+
+/* Cambio a AZUL al pasar el mouse */
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--main-color) !important;
+    transition: none;
+}
+
+/* --- FIX DEL MENÚ DESPLEGABLE (ÁREAS) --- */
+
+/* Fondo del cuadro (MARRÓN OSCURO) */
+.nav-bar .dropdown-menu {
+    margin-top: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--secondary-color);
+}
+
+/* Ítems del menú (BLANCO) */
+.nav-bar .dropdown-item {
+    color: #ffffff !important;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-size: 15px;
+    transition: .3s;
+}
+
+/* Hover en el menú (Fondo AZUL, Texto BLANCO) */
+.nav-bar .dropdown-item:hover,
+.nav-bar .dropdown-item.active {
+    color: #ffffff !important;
+    background-color: var(--main-color) !important; /* Tu azul ITZA */
+}
+
+/* Botón de la Nav-Bar (BLANCO y Transparente) */
+.nav-bar .btn {
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+}
+
+.nav-bar .btn:hover {
+    color: #ffffff;
+    background: var(--main-color);
+    border-color: var(--main-color);
+}
+
+@media (min-width: 992px) {
+    .nav-bar {
+        padding: 0 75px;
+    }
+    
+    .nav-bar.nav-sticky {
+        padding: 0;
+    }
+    
+    .nav-bar .navbar {
+        padding: 20px;
+    }
+    
+    .nav-bar .navbar-brand {
+        display: none;
+    }
+    
+    .nav-bar a.nav-link {
+        padding: 8px 15px;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .nav-bar .navbar {
+        padding: 15px;
+    }
+    
+    .nav-bar a.nav-link {
+        padding: 5px;
+    }
+    
+    .nav-bar .dropdown-menu {
+        box-shadow: none;
+    }
+    
+    .nav-bar .btn {
+        display: none;
+    }
+}
+
+/*******************************/
+/******** Carousel CSS *********/
+/*******************************/
+.carousel {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 170px);
+    min-height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.carousel .carousel-inner,
+.carousel .carousel-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel .carousel-item::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .3);
+    z-index: 1;
+}
+
+.carousel .carousel-caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh - 170px);
+    min-height: 400px;
+}
+
+.carousel .carousel-caption p {
+    color: #ffffff;
+    font-size: 30px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.carousel .carousel-caption h1 {
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.carousel .carousel-caption .btn {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    transition: .3s;
+}
+
+.carousel .carousel-caption .btn:hover {
+    color: var(--secondary-color);
+    background: var(--main-color);
+    border-color: var(--main-color);
+}
+
+@media (max-width: 767.98px) {
+    .carousel .carousel-caption h1 {
+        font-size: 40px;
+        font-weight: 700;
+    }
+    
+    .carousel .carousel-caption p {
+        font-size: 20px;
+    }
+    
+    .carousel .carousel-caption .btn {
+        padding: 12px 30px;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .carousel .carousel-caption h1 {
+        font-size: 30px;
+        font-weight: 500;
+    }
+    
+    .carousel .carousel-caption p {
+        font-size: 16px;
+    }
+    
+    .carousel .carousel-caption .btn {
+        padding: 10px 25px;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+    }
+}
+
+.carousel .animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+
+/*******************************/
+/******* Page Header CSS *******/
+/*******************************/
+.page-header-area {
+    position: relative;
+    overflow: hidden;
+    /* Altura dinámica: 100% de la pantalla menos el menú */
+    height: calc(100vh - 165px); 
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0293e7;
+    text-align: center;
+}
+
+/* Imagen de Fondo (Se activa si incluyes una img en el HTML) */
+.page-header-area .header-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.page-header-area .header-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.page-header-area .header-overlay.overlay-dark {
+    background: rgba(0, 0, 0, 0.7); /* Oscurece al 50% */
+}
+
+/* Contenedor de Texto y Títulos */
+.page-header-area .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+.page-header-area h1 {
+    color: #ffffff !important;
+    font-size: 70px !important; /* Tamaño de impacto visual */
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+/* Título Principal (NUESTRO TRABAJO / QUIENES SOMOS) */
+.page-header-area h2 {
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+/* Línea decorativa blanca */
+.header-divider {
+    width: 100px;
+    height: 3px;
+    background: #ffffff;
+    margin: 0 auto 20px auto;
+}
+
+/* Subtítulos y descripciones del header */
+.page-header-area h5, 
+.page-header-area h4 {
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+/* Etiquetas (Tags) con borde blanco */
+.tag-box {
+    display: inline-block;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 8px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.tag-box:hover {
+    background: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Botón Contactar (Estilo borde blanco) */
+.btn-outline-white {
+    display: inline-block;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    background: transparent;
+    padding: 12px 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn-outline-white:hover {
+    background: #ffffff;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+/* Flecha de Scroll animada */
+.scroll-down {
+    position: absolute; 
+    bottom: 40px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 2; 
+    color: #ffffff; 
+    font-size: 32px; 
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+    40% {transform: translateY(-10px) translateX(-50%);}
+    60% {transform: translateY(-5px) translateX(-50%);}
+}
+
+/* Espaciado global para secciones de contenido */
+.content-section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* Ajustes Responsivos para Dispositivos Móviles */
+@media (max-width: 768px) {
+    .page-header-area { 
+        height: auto; 
+        min-height: 450px; 
+        padding: 80px 0; 
+    }
+    .page-header-area h2 { 
+        font-size: 38px !important; /* Ajuste para que el título entre en móviles */
+    }
+}
+
+
+/*******************************/
+/******* Section Header ********/
+/*******************************/
+.section-header {
+    position: relative;
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+.section-header p {
+    color: #454545; 
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.section-header h2 {
+    margin: 0;
+    position: relative;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+    .section-header h2 {
+        font-size: 30px;
+    }
+}
+
+
+/*******************************/
+/********** About CSS **********/
+/*******************************/
+.about {
+    position: relative;
+    width: 100%;
+    padding: 45px 0;
+}
+
+.about .section-header {
+    margin-bottom: 30px;
+}
+
+.about .about-img {
+    position: relative;
+    height: 100%;
+}
+
+.about .about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about .about-text p {
+    font-size: 16px;
+}
+
+.about .about-text a.btn {
+    position: relative;
+    margin-top: 15px;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--secondary-color);
+    border-radius: 0;
+    background: var(--main-color);
+    transition: .3s;
+}
+
+.about .about-text a.btn:hover {
+    color: var(--main-color);
+    background: var(--secondary-color);
+}
+
+@media (max-width: 767.98px) {
+    .about .about-img {
+        margin-bottom: 30px;
+        height: auto;
+    }
+}
+
+.about p {
+    text-align: justify;
+}
+
+/* 1. Definición de los Motores de Movimiento */
+@keyframes slideFromTop {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 2. Aplicación a los Títulos ITZA */
+.page-header-area h1.animate-top {
+    opacity: 0; /* Empieza invisible */
+    animation: slideFromTop 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    font-size: 60px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.page-header-area h2.animate-bottom {
+    opacity: 0; /* Empieza invisible */
+    animation: slideFromBottom 1.2s ease-out forwards;
+    animation-delay: 0.5s; /* Un poquito después para efecto cascada */
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 15px;
+}
+
+/* 3. Estilo del Divisor (Opcional, para que también aparezca) */
+.header-divider {
+    width: 100px;
+    height: 3px;
+    background: #ffffff;
+    margin: 20px auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+/*******************************/
+/********** Fact CSS ********LOS PROFESIONALES CLIENTES TRABAJOS COMPLETADOS ETC***/
+/*******************************/
+/*******************************/
+/*********** Fact CSS **********/
+/*******************************/
+.fact {
+    position: relative;
+    width: 100%;
+    padding: 45px 0;
+}
+
+.fact .col-6 {
+    display: flex;
+    align-items: flex-start;
+}
+
+.fact .fact-icon {
+    position: relative;
+    margin: 7px 15px 0 15px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Iconos de la izquierda (Sobre fondo negro) */
+.fact .fact-icon [class^="flaticon-"]::before {
+    margin: 0;
+    font-size: 60px;
+    line-height: 60px;
+    /* Degradado de blanco a azul ITZA */
+    background-image: linear-gradient(#ffffff, #0293e7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Iconos de la derecha (Sobre fondo azul) */
+.fact .fact-right .fact-icon [class^="flaticon-"]::before {
+    /* Degradado de blanco a negro ITZA */
+    background-image: linear-gradient(#ffffff, #121518);
+}
+
+.fact .fact-left,
+.fact .fact-right {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.fact .fact-text h2 {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.fact .fact-text p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* BLOQUE IZQUIERDO: Negro ITZA */
+.fact .fact-left {
+    background: #121518; /* Negro solicitado */
+    color: #ffffff;      /* Texto base en blanco */
+}
+
+.fact .fact-left h2 {
+    color: #0293e7;      /* Números en azul ITZA */
+}
+
+/* BLOQUE DERECHO: Azul ITZA */
+.fact .fact-right {
+    background: #0293e7; /* Azul solicitado */
+    color: #121518;      /* Texto y números en negro para contraste */
+}
+
+.fact .fact-right h2 {
+    color: #121518;
+}
+
+/*******************************/
+/*********** Team CSS **********/
+/*******************************/
+.team {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+}
+
+.team .team-item {
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #1C110A; /* Fondo base ITZA */
+}
+
+.team .team-img {
+    position: relative;
+}
+
+.team .team-img img {
+    width: 100%;
+}
+
+.team .team-text {
+    position: relative;
+    padding: 25px 15px;
+    text-align: center;
+    background: #121518; 
+    transition: .5s;
+}
+
+@media (max-width: 768px) {
+    .team .team-text {
+        font-size: 0.8rem;
+    }
+}
+
+.team .team-text h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff; /* Texto en blanco para contraste profesional */
+    transition: .5s;
+}
+
+.team .team-text p {
+    margin: 0;
+    color: #0293e7; 
+}
+
+.team .team-item:hover .team-text {
+    background: #0293e7; /* El bloque pasa a Azul ITZA */
+}
+
+.team .team-item:hover .team-text h2 {
+    color: #1C110A; /* El nombre pasa a Marrón Oscuro */
+    letter-spacing: 1px;
+}
+
+.team .team-item:hover .team-text p {
+    color: #ffffff; /* El cargo pasa a Blanco */
+}
+
+/* --- REDES SOCIALES: Estilo Unificado --- */
+
+.team .team-social {
+    position: absolute;
+    width: 100px;
+    top: 0;
+    left: -50px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0;
+}
+
+.team .team-social a {
+    position: relative;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #ffffff; /* Icono blanco */
+    background: #0293e7; /* Fondo azul por defecto */
+    transition: .3s;
+}
+
+/* Mantengo tus tiempos de entrada pero unifico el color a ITZA */
+.team .team-item:hover .team-social a:first-child {
+    background: #0293e7; 
+    left: 50px;
+    transition: .3s 0s;
+}
+
+.team .team-item:hover .team-social a:nth-child(2) {
+    background: #0293e7;
+    filter: brightness(90%); /* Variación sutil para separar botones */
+    left: 50px;
+    transition: .3s .1s;
+}
+
+.team .team-item:hover .team-social a:nth-child(3) {
+    background: #0293e7;
+    filter: brightness(80%);
+    left: 50px;
+    transition: .3s .2s;
+}
+
+.team .team-item:hover .team-social a:nth-child(4) {
+    background: #0293e7;
+    filter: brightness(70%);
+    left: 50px;
+    transition: .3s .3s;
+}
+
+/* Hover individual en cada icono */
+.team .team-social a:hover {
+    background: #ffffff !important;
+    color: #1C110A !important;
+}
+
+/* Estética exacta de tu referencia de Proyecto */
+.btn-load-more-style {
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: #0099ff; /* Azul ITZA */
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 0; /* Rectangular como pediste */
+    text-transform: uppercase;
+}
+
+.btn-load-more-style:hover {
+    background: #fdbe33; /* Amarillo/Dorado ITZA */
+    color: #121518;
+}
+
+/* Blindaje para las fotos de equipo */
+.team .team-img {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
+.team .team-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* ENCABEZADO DE SECCIÓN: Ancho Completo (Full Width) */
+.team .section-header {
+    background: #121518 !important; 
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 60px 0;     
+    margin-bottom: 60px; 
+    text-align: center;
+}
+
+.team .section-header p {
+    color: #0293e7 !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.team .section-header h2 {
+    color: #ffffff !important;
+    font-size: 40px; 
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/*******************************/
+/******* Testimonial CSS *******/
+/*******************************/
+.testimonial {
+    position: relative;
+    padding: 100px 0 140px 0;
+    text-align: center;
+    background: linear-gradient(rgba(3, 15, 39, .9), rgba(3, 15, 39, .9)), url(../img/carousel-1.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.testimonial .container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Área central restringida (Líneas rojas) */
+.testimonial .testimonial-slider-nav {
+    position: relative;
+    width: 100%;
+    max-width: 280px; /* Ancho compacto para logos más juntos */
+    margin: 0 auto;
+}
+
+/* FIX: Evita que el logo scale(2.5) se corte arriba o abajo */
+.testimonial .testimonial-slider-nav .slick-list {
+    overflow: visible !important;
+    padding: 65px 0 !important; 
+}
+
+/* Logos que están "atrás" */
+.testimonial .testimonial-slider-nav .slick-slide {
+    opacity: 0.2;
+    transform: scale(0.8);
+    transition: all 0.8s ease-in-out;
+    margin: 0 -35px; /* Mayor compactación para centrar más */
+    z-index: 1;
+    outline: none;
+}
+
+/* LOGO ADELANTE (Efecto ITZA 3D) */
+.testimonial .testimonial-slider-nav .slick-center {
+    opacity: 1;
+    transform: scale(2.5); /* Tu escala original impactante */
+    z-index: 10; /* Siempre al frente de los otros */
+}
+
+.testimonial .testimonial-slider-nav .slick-slide img {
+    display: block;
+    width: 80px; 
+    height: 80px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 12px;
+    object-fit: contain;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.testimonial .testimonial-slider-nav .slick-center img {
+    border: 2px solid var(--main-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo de Textos */
+.testimonial .testimonial-slider {
+    margin-top: 45px;
+}
+
+.testimonial .testimonial-slider h3 {
+    color: var(--main-color);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.testimonial .testimonial-slider h4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* Estilo para las flechas de navegación laterales */
+.testimonial .slick-prev, .testimonial .slick-next {
+    z-index: 15;
+    width: 40px;
+    height: 40px;
+}
+
+.testimonial .slick-prev:before, .testimonial .slick-next:before {
+    color: #ffffff;
+    font-size: 30px;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.testimonial .slick-prev:hover:before, .testimonial .slick-next:hover:before {
+    opacity: 1;
+    color: var(--main-color);
+}
+
+/* --- AJUSTES RESPONSIVE PARA ITZA --- */
+@media (max-width: 576px) {
+    .testimonial {
+        padding: 60px 0 100px 0; /* Reducimos aire en móvil */
+    }
+
+    .testimonial .testimonial-slider-nav {
+        max-width: 220px; /* Estrechamos aún más el área central */
+    }
+
+    .testimonial .testimonial-slider-nav .slick-center {
+        /* Bajamos de 2.5 a 1.8 para que no tape el texto en pantallas chicas */
+        transform: scale(1.8); 
+    }
+
+    .testimonial .testimonial-slider-nav .slick-slide {
+        /* Reducimos el margen negativo para que no se peguen tanto */
+        margin: 0 -20px; 
+    }
+
+    .testimonial .testimonial-slider-nav .slick-slide img {
+        width: 70px; /* Logos ligeramente más chicos */
+        height: 70px;
+    }
+
+    .testimonial .testimonial-slider h3 {
+        font-size: 20px; /* Texto más cómodo para leer en móvil */
+    }
+}
+
+/*******************************/
+/******** Portfolio CSS ********/
+/*******************************/
+
+.portfolio {
+    position: relative;
+    padding: 45px 0;
+}
+
+/* 1. FILTROS (Estilo exacto de tu imagen) */
+.portfolio #portfolio-flters {
+    padding: 0;
+    margin: 0 0 35px 0;
+    list-style: none;
+    text-align: center;
+}
+
+.portfolio #portfolio-flters li {
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    padding: 12px 25px;
+    color: #ffffff;             /* Texto blanco para los botones azules */
+    background: #0099ff;        /* Azul ITZA (Fondo inactivo) */
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: .3s;
+    border-radius: 0;           /* Esquinas rectas como en la foto */
+}
+
+/* Botón activo o al pasar el mouse (Fondo negro) */
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
+    background: #121518;        /* Negro ITZA */
+    color: #0099ff;             /* El texto cambia a azul como en tu imagen */
+}
+
+/* 2. CONTENEDOR DE PROYECTOS */
+#contenedor-proyectos {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    min-height: 400px;
+}
+
+.portfolio .portfolio-wrap {
+    position: relative;
+    width: 100%;
+    background: #121518; 
+    margin-bottom: 30px;
+    transition: .5s;
+}
+
+.portfolio .portfolio-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio .portfolio-img img {
+    width: 100%;
+    transition: .5s;
+}
+
+.portfolio .portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* 3. OVERLAY (Descripción sobre la imagen) */
+.portfolio .portfolio-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: .5s;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio .portfolio-overlay p {
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    font-size: 15px;
+}
+
+/* 4. TEXTO Y BOTÓN DE ACCIÓN (+) */
+.portfolio .portfolio-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background: #121518; /* Fondo de la barra inferior */
+    padding-left: 20px;
+}
+
+.portfolio .portfolio-text h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+/* Botón azul cuadrado con el + */
+.portfolio .portfolio-text .btn {
+    width: 60px;
+    height: 60px;
+    background: #0099ff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 100;
+    border-radius: 0;
+    transition: .3s;
+}
+
+.portfolio .portfolio-text .btn:hover {
+    background: #fdbe33; /* Amarillo ITZA en hover */
+    color: #121518;
+}
+
+/* 5. UTILIDADES (Carga más y Mapa) */
+.hidden-project {
+    display: none !important;
+}
+
+#btn-load-more {
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: #0099ff;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#btn-load-more:hover {
+    background: #fdbe33;
+    color: #121518;
+}
+
+/* 1. Contenedor con Azul ITZA */
+.page-header-area {
+    background: #0293e7 !important;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden; /* Clave para que el texto no se vea "viniendo" de afuera */
+}
+
+/* 2. Definición de Keyframes (Motores de movimiento) */
+@keyframes portfolioSlideDown {
+    from { transform: translateY(-80px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes portfolioSlideUp {
+    from { transform: translateY(80px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes portfolioFadeIn {
+    to { opacity: 1; }
+}
+
+/* 3. Aplicación de animaciones */
+.animate-portfolio-top {
+    opacity: 0;
+    animation: portfolioSlideDown 1s ease-out forwards;
+    animation-delay: 0.2s;
+    font-size: 55px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.animate-portfolio-bottom {
+    opacity: 0;
+    animation: portfolioSlideUp 1s ease-out forwards;
+    animation-delay: 0.4s;
+    font-size: 22px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 15px;
+}
+
+.animate-divider {
+    width: 80px;
+    height: 3px;
+    background: #ffffff;
+    margin: 20px auto;
+    opacity: 0;
+    animation: portfolioFadeIn 0.8s ease-in forwards;
+    animation-delay: 0.8s;
+}
+
+/*******************************/
+/********* Contact CSS *********/
+/*******************************/
+.contact {
+    position: relative;
+    width: 100%;
+    padding: 45px 0;
+}
+
+.contact .col-md-6 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.contact .col-md-6:first-child {
+    background: #121518 !important; 
+}
+
+.contact .col-md-6:last-child {
+    background: var(--main-color);
+}
+
+.contact .contact-info {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.contact .contact-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    border: 1px solid rgba(256, 256, 256, .2);
+}
+
+.contact .contact-item [class^="flaticon-"]::before {
+    margin: 0;
+    color: var(--main-color);
+    font-size: 40px;
+}
+
+.contact .contact-text {
+    position: relative;
+    width: auto;
+    padding-left: 20px;
+}
+
+.contact .contact-text h2 {
+    color: var(--main-color);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact .contact-text p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.contact .contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact .contact-form {
+    position: relative;
+    padding: 0 15px;
+}
+
+.contact .contact-form input {
+    color: #ffffff;
+    height: 40px;
+    border-radius: 0;
+    border-width: 1px;
+    border-color: rgba(256, 256, 256, .4);
+    background: transparent;
+}
+
+.contact .contact-form textarea {
+    color: #ffffff;
+    height: 185px;
+    border-radius: 0;
+    border-width: 1px;
+    border-color: rgba(256, 256, 256, .4);
+    background: transparent;
+}
+
+.contact .contact-form input:focus,
+.contact .contact-form textarea {
+    box-shadow: none;
+}
+
+.contact .contact-form .form-control::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.contact .contact-form .form-control::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.contact .contact-form .form-control::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.contact .contact-form .btn {
+    padding: 16px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--main-color);
+    background: #121518 !important;  
+    border: none;
+    border-radius: 0;
+    transition: .3s;
+}
+
+.contact .contact-form .btn:hover {
+    color: var(--secondary-color);
+    background: #ffffff;
+}
+
+.contact .help-block ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* 2. Motores de Movimiento (Keyframes) */
+@keyframes contactSlideDown {
+    from { transform: translateY(-70px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes contactSlideUp {
+    from { transform: translateY(70px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 3. Aplicación a los Textos */
+.animate-contact-top {
+    opacity: 0;
+    animation: contactSlideDown 1s ease-out forwards;
+    animation-delay: 0.2s; /* Arranca casi inmediato */
+    font-size: 55px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.animate-contact-bottom {
+    opacity: 0;
+    animation: contactSlideUp 1s ease-out forwards;
+    animation-delay: 0.4s; /* Un poco después para dinamismo */
+    font-size: 22px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.animate-divider {
+    width: 80px;
+    height: 3px;
+    background: #ffffff;
+    opacity: 0;
+    animation: portfolioFadeIn 0.8s ease-in forwards;
+    animation-delay: 0.7s;
+    margin: 20px auto;
+}
+
+/*******************************/
+/********* Footer CSS **********/
+/*******************************/
+.footer {
+    position: relative;
+    margin-top: 45px;
+    padding-top: 90px;
+    background: var(--secondary-color);
+    color: #ffffff;
+}
+
+.footer .footer-contact,
+.footer .footer-link,
+.footer .newsletter {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.footer h2 {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+.footer h2::after {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: var(--main-color);
+}
+
+.footer .footer-link a {
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+    transition: .3s;
+}
+
+.footer .footer-link a::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .footer-link a:hover {
+    color: var(--main-color);
+    letter-spacing: 1px;
+}
+
+.footer .footer-contact p i {
+    width: 25px;
+}
+
+.footer .footer-social {
+    position: relative;
+    margin-top: 20px;
+}
+
+.footer .footer-social a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 7px 0;
+    text-align: center;
+    border: 1px solid rgba(256, 256, 256, .3);
+    border-radius: 60px;
+    transition: .3s;
+}
+
+.footer .footer-social a i {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.footer .footer-social a:hover {
+    background: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.footer .footer-social a:hover i {
+    color: var(--secondary-color);
+}
+
+.footer .newsletter .form {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.footer .newsletter input {
+    height: 50px;
+    border: 2px solid #121518;
+    border-radius: 0;
+}
+
+.footer .newsletter .btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 40px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--main-color);
+    background: #121518;
+    border-radius: 0;
+    border: 2px solid var(--main-color);
+    transition: .3s;
+}
+
+.footer .newsletter .btn:hover {
+    color: #121518;
+    background: var(--main-color);
+}
+
+.footer .footer-menu .f-menu {
+    position: relative;
+    padding: 15px 0;
+    font-size: 0;
+    text-align: center;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+    border-bottom: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .footer-menu .f-menu a {
+    color: #ffffff;
+    font-size: 16px;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, .1);
+}
+
+.footer .footer-menu .f-menu a:hover {
+    color: var(--main-color);
+}
+
+.footer .footer-menu .f-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
+
+
+.footer .copyright {
+    padding: 30px 15px;
+}
+
+.footer .copyright p {
+    margin: 0;
+    color: #ffffff;
+}
+
+.footer .copyright .col-md-6:last-child p {
+    text-align: right;
+}
+
+.footer .copyright p a {
+    color: var(--main-color);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.footer .copyright p a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .footer .copyright p,
+    .footer .copyright .col-md-6:last-child p {
+        margin: 5px 0;
+        text-align: center;
+    }
+}
+
+/*******************************/
+/********* MAPA PROYECTO CSS **********/
+/*******************************/
+.mapa-placeholder {
+    background-color: #f8f9fa; /* Gris muy claro */
+    border: 2px dashed #dee2e6; /* Borde punteado */
+    border-radius: 15px;
+    padding: 60px 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.mapa-placeholder:hover {
+    background-color: #f1f3f5;
+    border-color: var(--main-color); /* Cambia al azul #0293e7 al pasar el mouse */
+}
+
+.mensaje-mapa i {
+    font-size: 50px;
+    color: var(--main-color); /* Usa tu azul #0293e7 */
+    margin-bottom: 20px;
+}
+
+.mensaje-mapa h3 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.mensaje-mapa p {
+    color: #666;
+    font-size: 18px;
+}
+
+/*******************************/
+/********* MAPAS ITZA *********/
+/*******************************/
+
+.container-maps-wide {
+    max-width: 1350px !important;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.map-container-real {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #212529;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.map-container-real:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(2, 147, 231, 0.3) !important;
+}
+
+.map-header-top, .map-footer-address {
+    background: #212529;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.map-footer-address {
+    font-style: italic;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/*******************************/
+/********* EQUIPO CSS (NOSOTROS) **********/
+/*******************************/
+/* --- Sección Equipo ITZA (Versión Full Color) --- */
+
+/* 1. Estilo base de las fotos */
+.team-item .team-img img {
+    width: 100%;
+    height: 320px; /* Altura fija para mantener la simetría */
+    object-fit: cover; /* Recorta la imagen manteniendo la proporción */
+    object-position: center; /* Asegura que el rostro quede centrado */
+    /* filter: grayscale(100%);  <- LINEA ELIMINADA PARA QUE SE VEA EN COLOR */
+    transition: transform 0.6s ease; /* Solo animamos la transformación (zoom) */
+    border-radius: 4px;
+}
+
+/* 2. Efecto de interacción (Hover) */
+.team-item:hover .team-img img {
+    /* filter: grayscale(0%); <- YA NO ES NECESARIO */
+    transform: scale(1.05); /* Mantenemos el zoom suave para dar profundidad */
+}
+
+/* ... (el resto del CSS para textos e iconos sigue igual) ... */
+.team-text {
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.team-text h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #121518;
+}
+
+.team-text p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-social {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 153, 255, 0.7);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.team-item:hover .team-social {
+    opacity: 1;
+}
+
+.team-social a {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background: #ffffff;
+    color: #0099ff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* --- Estilo de Ubicación en Tarjeta de Equipo --- */
+.team-location {
+    display: block;
+    font-size: 11px; /* Más pequeña */
+    color: #fdbe33; /* Amarillo ITZA */
+    margin-top: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    opacity: 0; /* Oculta por defecto */
+    transition: 0.4s ease-in-out; /* Aparición suave */
+    transform: translateY(5px); /* Pequeño movimiento hacia arriba al aparecer */
+}
+
+/* Solo se muestra cuando pasamos el mouse por encima de la tarjeta */
+.team-item:hover .team-location {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-location i {
+    margin-right: 4px;
+    font-size: 10px;
+}
+
+
+/* Estética de la tarjeta de Instagram */
+.insta-card {
+    max-width: 100%;
+    height: 600px; /* Alto fijo para forzar el scroll */
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Diseño de la Fachada (Placeholder) */
+.insta-facade-content {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.insta-facade-content:hover {
+    filter: brightness(1.1);
+}
+
+.facade-overlay {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo del Iframe cuando carga */
+#insta-embed-container iframe {
+    width: 100% !important;
+    height: 600px !important;
+    border: none !important;
+}
+/***************************/
+/*********STYLES.CSS ENDS**********/
+/***************************/
