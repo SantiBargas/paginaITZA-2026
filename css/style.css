@@ -5,6 +5,7 @@
     --terciary-color: #817F82;
     --quarter-color: #2ecc71;
     --quinth-color: #181f1a;
+    --negro-itza: #121518;  
     --font-size-large: 1.5rem;
   }
   
@@ -51,8 +52,7 @@ body {
     padding: 30px 10px; 
     min-height: 180px; 
     border-radius: 0; 
-    
-    background: #1C110A;
+    background: #121518;  
 }
 
 /* 4. ICONOS GRANDES (Lo que se te había achicado) */
@@ -97,7 +97,7 @@ body {
     flex-grow: 1;
 }
 
-.feature-text h3 {
+.feature-text h1 {
     margin: 0 0 10px 0;
     color: #0293e7;
     font-size: 24px;
@@ -116,7 +116,7 @@ body {
     background: #0293e7 !important;
 }
 
-.feature .col-lg-4:nth-child(2) .feature-text h3,
+.feature .col-lg-4:nth-child(2) .feature-text h1,
 .feature .col-lg-4:nth-child(2) .feature-text p,
 .feature .col-lg-4:nth-child(2) .feature-icon i::before {
     color: #1C110A !important; /* Todo a marrón oscuro */
