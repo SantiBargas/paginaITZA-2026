@@ -273,6 +273,8 @@ body {
     background: #dddddd;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    margin: 0;
+    padding: 0;
 }
 
 h1,
@@ -355,6 +357,9 @@ a:focus {
     position: relative;
     height: 90px;
     background: var(--main-color);
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
 .top-bar .logo {
@@ -433,6 +438,9 @@ a:focus {
     position: relative;
     background: var(--main-color); /* El azul ITZA de fondo */
     transition: .3s;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
 .nav-bar .container-fluid {
