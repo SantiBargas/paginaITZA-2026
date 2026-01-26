@@ -4,8 +4,8 @@
       "id": "main-hidrica",
       "titulo": "Ingeniería Hídrica",
       "descripcion": "Soluciones en estudios hídricos, factibilidades, diseño hidráulico, agua subterránea y servicios sanitarios.",
-      "imagen": "paginav2/main-hid_converted.webp",
-      "fotos": ["paginav2/main-hid_converted.webp"],
+      "imagen": "imagenes/servicios/rec-hidricos/main-hid_converted.webp",
+      "fotos": ["imagenes/servicios/rec-hidricos/main-hid_converted.webp"],
       "enlace": "RecursosHidricos.html",
       "delay": "0.1s"
     },
@@ -13,8 +13,8 @@
       "id": "main-agrimensura",
       "titulo": "Agrimensura",
       "descripcion": "Mensura, subdivisión, posesiones, propiedad horizontal y tasaciones con acompañamiento profesional.",
-      "imagen": "img/imgAgr_converted.webp",
-      "fotos": ["img/imgAgr_converted.webp"],
+      "imagen": "imagenes/servicios/agrimensura/imgAgr_converted.webp",
+      "fotos": ["imagenes/servicios/agrimensura/imgAgr_converted.webp"],
       "enlace": "Agrimensura.html",
       "delay": "0.2s"
     },
@@ -22,8 +22,8 @@
       "id": "main-topografia",
       "titulo": "Topografía",
       "descripcion": "Relevamientos, replanteos, nivelaciones y fotogrametría con drones aplicando tecnología avanzada.",
-      "imagen": "img/imgTopo_converted.webp",
-      "fotos": ["img/imgTopo_converted.webp"],
+      "imagen": "imagenes/servicios/topografia/imgTopo_converted.webp",
+      "fotos": ["imagenes/servicios/topografia/imgTopo_converted.webp"],
       "enlace": "Topografia.html",
       "delay": "0.3s"
     },
@@ -31,8 +31,8 @@
       "id": "main-ambiental",
       "titulo": "Ingeniería Ambiental",
       "descripcion": "Estudios de impacto ambiental, tratamiento de efluentes, gestión de residuos y asesoría agroindustrial.",
-      "imagen": "paginav2/main-amb_converted.webp",
-      "fotos": ["paginav2/main-amb_converted.webp"],
+      "imagen": "imagenes/servicios/ambiental/main-amb_converted.webp",
+      "fotos": ["imagenes/servicios/ambiental/main-amb_converted.webp"],
       "enlace": "Ambiental.html",
       "delay": "0.4s"
     },
@@ -40,8 +40,8 @@
       "id": "main-civil",
       "titulo": "Ingeniería Civil",
       "descripcion": "Diseño estructural, proyectos viales, gestión de proyectos y elaboración de pliegos licitatorios.",
-      "imagen": "paginav2/main-civil_converted.webp",
-      "fotos": ["paginav2/main-civil_converted.webp"],
+      "imagen": "imagenes/servicios/civil/main-civil_converted.webp",
+      "fotos": ["imagenes/servicios/civil/main-civil_converted.webp"],
       "enlace": "Civil.html",
       "delay": "0.5s"
     },
@@ -49,8 +49,8 @@
       "id": "main-simulacion",
       "titulo": "Simulación Hidráulica",
       "descripcion": "Optimización y diseño de infraestructuras hidráulicas con herramientas avanzadas como HEC-RAS y SWMM.",
-      "imagen": "paginav2/main-simu_converted.webp",
-      "fotos": ["paginav2/main-simu_converted.webp"],
+      "imagen": "imagenes/servicios/simulacion/main-simu_converted.webp",
+      "fotos": ["imagenes/servicios/simulacion/main-simu_converted.webp"],
       "enlace": "Simulacion.html",
       "delay": "0.6s"
     }
@@ -60,48 +60,48 @@
       "id": "agr-mensura",
       "titulo": "Mensura Urbana y Rural",
       "descripcion": "Se realiza el análisis del parcelario de un terreno mediante la medición, el estudio de títulos y antecedentes catastrales para determinar la situación jurídica en el territorio.",
-      "imagen": "paginav2/agr-mensura_converted.webp",
-      "fotos": ["paginav2/main-simu_converted.webp"],
+      "imagen": "imagenes/servicios/agrimensura/agr-mensura_converted.webp",
+      "fotos": ["imagenes/servicios/agrimensura/agr-mensura_converted.webp"],
       "delay": "0.1s"
     },
     {
       "id": "agr-subdivision",
       "titulo": "Subdivisión",
       "descripcion": "Se realiza la división de un terreno en las partes necesarias para generar nuevos títulos. Te acompañamos desde el acuerdo de subdivisión hasta su registro final.",
-      "imagen": "paginav2/agr-subdivision_converted.webp",
-      "fotos": ["paginav2/agr-subdivision_converted.webp"],
+      "imagen": "imagenes/servicios/agrimensura/agr-subdivision_converted.webp",
+      "fotos": ["imagenes/servicios/agrimensura/agr-subdivision_converted.webp"],
       "delay": "0.2s"
     },
     {
       "id": "agr-posesiones",
       "titulo": "<span style='font-size: 15.5px; line-height: 1.1; display: block;'>Posesiones / Usucapiones</span>",
       "descripcion": "Se confecciona un plano de mensura de posesión para juicio de usucapión. Asesoramos y acompañamos hasta la registración final.",
-      "imagen": "paginav2/agr-usucapion_converted.webp",
-      "fotos": ["paginav2/agr-usucapion_converted.webp"],
+      "imagen": "imagenes/servicios/agrimensura/agr-usucapion_converted.webp",
+      "fotos": ["imagenes/servicios/agrimensura/agr-usucapion_converted.webp"],
       "delay": "0.3s"
     },
     {
       "id": "agr-ph",
       "titulo": "Propiedad Horizontal (PH)",
       "descripcion": "División de propiedades construidas en unidades funcionales (casas, deptos). Gestión completa hasta la registración del expediente.",
-      "imagen": "paginav2/agr-ph_converted.webp",
-      "fotos": ["paginav2/agr-ph_converted.webp"],
+      "imagen": "imagenes/servicios/agrimensura/agr-ph_converted.webp",
+      "fotos": ["imagenes/servicios/agrimensura/agr-ph_converted.webp"],
       "delay": "0.4s"
     },
     {
       "id": "agr-vep",
       "titulo": "Verificación Parcelaria (VEP)",
       "descripcion": "Constatación de subsistencia del estado parcelario previo a transferencias. Realizamos y registramos el expediente.",
-      "imagen": "paginav2/agr-vep_converted.webp",
-      "fotos": ["paginav2/agr-vep_converted.webp"],
+      "imagen": "imagenes/servicios/agrimensura/agr-vep_converted.webp",
+      "fotos": ["imagenes/servicios/agrimensura/agr-vep_converted.webp"],
       "delay": "0.5s"
     },
     {
       "id": "agr-tasacion",
       "titulo": "Tasaciones",
       "descripcion": "Conocé el valor de mercado de tu terreno o vivienda de forma certificada y profesional.",
-      "imagen": "paginav2/agr-tasacion_converted.webp",
-      "fotos": ["paginav2/agr-tasacion_converted.webp"],
+      "imagen": "imagenes/servicios/agrimensura/agr-tasacion_converted.webp",
+      "fotos": ["imagenes/servicios/agrimensura/agr-tasacion_converted.webp"],
       "delay": "0.6s"
     }
   ],
@@ -110,48 +110,48 @@
       "id": "civ-calculo",
       "titulo": "Diseño y Cálculo Estructural",
       "descripcion": "El diseño estructural es clave para seguridad y economía en construcción. Ofrecemos proyectos personalizados empleando software específicos como Cype 3d, Cypecad, Ram elements, Tekla y Revit. Garantizando el cumplimiento normativo, generando toda la documentación técnica requerida.",
-      "imagen": "paginav2/civ-calc_converted.webp",
-      "fotos": ["paginav2/civ-calc_converted.webp"],
+      "imagen": "imagenes/servicios/civil/civ-calc_converted.webp",
+      "fotos": ["imagenes/servicios/civil/civ-calc_converted.webp"],
       "delay": "0.1s"
     },
     {
       "id": "civ-planos",
       "titulo": "Planos Municipales",
       "descripcion": "Tramitamos planos municipales, relevando construcciones existentes y presentando la documentación necesaria para su aprobación. Esto asegura el cumplimiento normativo y facilita trámites de venta, alquiler, remodelación o habilitación de negocios.",
-      "imagen": "paginav2/civ-planos_converted.webp",
-      "fotos": ["paginav2/civ-planos_converted.webp"],
+      "imagen": "imagenes/servicios/civil/civ-planos_converted.webp",
+      "fotos": ["imagenes/servicios/civil/civ-planos_converted.webp"],
       "delay": "0.2s"
     },
     {
       "id": "civ-vial",
       "titulo": "Proyectos viales e Infraestructura",
       "descripcion": "Nos especializamos en diseñar infraestructura y vías de comunicación para mejorar la movilidad y los servicios básicos para industrias, urbanizaciones y actividades productivas. Ofrecemos proyectos integrales, considerando los últimos paradigmas de desarrollo.",
-      "imagen": "paginav2/civ-vial_converted.webp",
-      "fotos": ["paginav2/civ-vial_converted.webp"],
+      "imagen": "imagenes/servicios/civil/civ-vial_converted.webp",
+      "fotos": ["imagenes/servicios/civil/civ-vial_converted.webp"],
       "delay": "0.3s"
     },
     {
       "id": "civ-licitatorios",
       "titulo": "Pliegos Licitatorios",
       "descripcion": "En ITZA, elaboramos la documentación técnica completa para proyectos de ingeniería, incluyendo pliegos, cómputos, presupuestos y redeterminaciones de precios. Toda esta información es esencial para licitaciones y gestión de financiamientos.",
-      "imagen": "paginav2/civ-licit_converted.webp",
-      "fotos": ["paginav2/civ-licit_converted.webp"],
+      "imagen": "imagenes/servicios/civil/civ-licit_converted.webp",
+      "fotos": ["imagenes/servicios/civil/civ-licit_converted.webp"],
       "delay": "0.4s"
     },
     {
       "id": "civ-instalaciones",
       "titulo": "Proyectos de instalaciones de servicios",
       "descripcion": "Elaboramos proyectos de infraestructura sanitaria, pluvial, eléctrica y de gas. Desarrollamos todos los cálculos para su dimensionamiento y brindamos toda la documentación técnica para su ejecución.",
-      "imagen": "paginav2/civ-sanitaria_converted.webp",
-      "fotos": ["paginav2/civ-sanitaria_converted.webp"],
+      "imagen": "imagenes/servicios/civil/civ-sanitaria_converted.webp",
+      "fotos": ["imagenes/servicios/civil/civ-sanitaria_converted.webp"],
       "delay": "0.5s"
     },
     {
       "id": "civ-computos",
       "titulo": "Cómputos y presupuestos",
       "descripcion": "Realizamos cálculos precisos y desarrollamos presupuestos detallados para proyectos ejecutivos, garantizando una planificación financiera óptima y la viabilidad de cada obra.",
-      "imagen": "paginav2/civ-cp_converted.webp",
-      "fotos": ["paginav2/civ-cp_converted.webp"],
+      "imagen": "imagenes/servicios/civil/civ-cp_converted.webp",
+      "fotos": ["imagenes/servicios/civil/civ-cp_converted.webp"],
       "delay": "0.6s"
     }
   ],

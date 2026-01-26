@@ -4,7 +4,7 @@
     "nombre": "Ing. Joaquin Alegre",
     "cargo": "Ing. Agrimensor",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-joaco.png",
+    "foto": "imagenes/equipo/ab-joaco_converted.webp",
     "linkedin": "https://www.linkedin.com/in/joaquin-alegre-346420a4/",
     "delay": "0.1s"
   },
@@ -13,7 +13,7 @@
     "nombre": "Ing. Fabian Minotti",
     "cargo": "Ing. en Recursos Hídricos",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-mino.png",
+    "foto": "imagenes/equipo/ab-mino_converted.webp",
     "linkedin": "https://www.linkedin.com/in/fabianminotti/",
     "delay": "0.2s"
   },
@@ -22,7 +22,7 @@
     "nombre": "Lic. Ignacio Olguin",
     "cargo": "Lic. en administración",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-nacho.png",
+    "foto": "imagenes/equipo/ab-nacho_converted.webp",
     "linkedin": "https://www.linkedin.com/in/juan-ignacio-olguin-11916b202/",
     "delay": "0.3s"
   },
@@ -31,7 +31,7 @@
     "nombre": "Leonardo Minchiotti",
     "cargo": "Ing. Ambiental",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-leo.jpg",
+    "foto": "imagenes/equipo/ab-leo_converted.webp",
     "linkedin": "https://www.linkedin.com/in/leonardo-luis-minchiotti/",
     "delay": "0.4s"
   },
@@ -40,7 +40,7 @@
     "nombre": "Ing. Ignacio Millesimo",
     "cargo": "Ing. Civil",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-ignacio.jpg",
+    "foto": "imagenes/equipo/ab-ignacio_converted.webp",
     "linkedin": "#",
     "delay": "0.1s"
   },
@@ -49,7 +49,7 @@
     "nombre": "Lic. Micaela Baustian",
     "cargo": "Lic. Administración",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-mica.png",
+    "foto": "imagenes/equipo/ab-mica_converted.webp",
     "linkedin": "https://www.linkedin.com/in/micaela-baustian/",
     "delay": "0.2s"
   },
@@ -58,7 +58,7 @@
     "nombre": "Ignacio Gregorutti",
     "cargo": "Lic. en comunicación",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-nachi.png",
+    "foto": "imagenes/equipo/ab-nachi_converted.webp",
     "linkedin": "https://www.linkedin.com/in/ignaciogregorutti/",
     "delay": "0.3s"
   },
@@ -67,7 +67,7 @@
     "nombre": "Iara Bargas",
     "cargo": "Ing. Agrimensora",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/ab-iara.jpg",
+    "foto": "imagenes/equipo/ab-iara_converted.webp",
     "linkedin": "https://www.linkedin.com/in/iara-bargas-3782b2303/",
     "delay": "0.4s"
   },
@@ -76,7 +76,7 @@
     "nombre": "Gastón Zili",
     "cargo": "Ingeniero",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.1s"
   },
@@ -85,7 +85,7 @@
     "nombre": "Cintia Romero",
     "cargo": "Profesional",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.2s"
   },
@@ -94,7 +94,7 @@
     "nombre": "Andrés Ceratto",
     "cargo": "Profesional",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.3s"
   },
@@ -103,7 +103,7 @@
     "nombre": "Juan Carita",
     "cargo": "Profesional",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.4s"
   },
@@ -112,7 +112,7 @@
     "nombre": "Luz Olguín",
     "cargo": "Profesional",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.1s"
   },
@@ -121,7 +121,7 @@
     "nombre": "Santiago Bargas",
     "cargo": "Ing. Informática",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.2s"
   },
@@ -130,7 +130,7 @@
     "nombre": "Ro Fernández",
     "cargo": "Profesional",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.3s"
   },
@@ -139,7 +139,7 @@
     "nombre": "Imanol",
     "cargo": "Profesional",
     "ubicacion": "Paraná, Entre Ríos",
-    "foto": "paginav2/sin-foto.jpg",
+    "foto": "imagenes/equipo/sin-foto.jpg",
     "linkedin": "#",
     "delay": "0.4s"
   }

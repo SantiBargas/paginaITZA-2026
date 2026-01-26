@@ -5,7 +5,7 @@
     "descripcion": "Realizamos los estudios previos y el proyecto ejecutivo de desagües pluviales para el nuevo predio formativo de River Plate, garantizando un diseño eficiente y funcional para la infraestructura deportiva.",
     "ubicacion": "CABA",
     "categorias": ["hidraulica", "civil"],
-    "imagen": "paginav2/proy-river.jpg",
+    "imagen": "imagenes/portfolio/proyecto-river_converted.webp",
     "galeria": [
       "paginav2/proy-crauzas2.jpeg",
       "paginav2/proy-afip.jpg"
@@ -17,9 +17,9 @@
     "descripcion": "Realizamos el diseño del nuevo loteo, desarrollando las factibilidades hídricas y ambientales, junto con el proyecto ejecutivo de la infraestructura vial y de servicios, garantizando un desarrollo bien planificado y adaptable a las necesidades del entorno.",
     "ubicacion": "Paraná, Entre Ríos",
     "categorias": ["agrimensura", "civil", "ambiental"],
-    "imagen": "paginav2/proy-crauzas2.jpeg",
+    "imagen": "imagenes/portfolio/proyecto-crauzas_converted.webp",
     "galeria": [
-      "paginav2/proy-crauzas2.jpeg"
+      "imagenes/portfolio/proyecto-crauzas_converted.webp"
     ]
   },
   {
@@ -28,9 +28,9 @@
     "descripcion": "Realizamos el relevamiento topográfico y el estudio hídrico de la ciudad de Mercedes, Corrientes, modelando aproximadamente la mitad de su territorio para diseñar las obras de un desagüe maestro colector.",
     "ubicacion": "Mercedes, Corrientes",
     "categorias": ["hidraulica", "topografia"],
-    "imagen": "paginav2/proy-merc.jpg",
+    "imagen": "imagenes/portfolio/proyecto-merc_converted.webp",
     "galeria": [
-      "paginav2/proy-merc.jpg"
+      "imagenes/portfolio/proyecto-merc_converted.webp"
     ]
   },
   {
@@ -39,9 +39,9 @@
     "descripcion": "Realizamos un análisis integral de factibilidad para la habilitación del loteo, abarcando estudios hídricos, ambientales, eléctricos, de agua potable y cloacas para asegurar su viabilidad técnica y normativa. Además, desarrollamos el proyecto ejecutivo.",
     "ubicacion": "Paraná, Entre Ríos",
     "categorias": ["civil", "agrimensura"],
-    "imagen": "paginav2/proy-crauzas.jpg",
+    "imagen": "imagenes/portfolio/proyecto-crauzas_converted.webp",
     "galeria": [
-      "paginav2/proy-crauzas.jpg"
+      "imagenes/portfolio/proyecto-crauzas_converted.webp"
     ]
   },
   {
@@ -50,9 +50,9 @@
     "descripcion": "Procedimos a regularizar estudios para un barrio cerrado en Casilda, adaptando su infraestructura a las normativas vigentes. Con un análisis técnico exhaustivo, actualizamos sistemas y propusimos mejoras, garantizando la viabilidad legal.",
     "ubicacion": "Casilda, Santa Fe",
     "categorias": ["civil", "legal"],
-    "imagen": "paginav2/proy-buschi.jpg",
+    "imagen": "imagenes/portfolio/proyecto-buschi_converted.webp",
     "galeria": [
-      "paginav2/proy-buschi.jpg"
+      "imagenes/portfolio/proyecto-buschi_converted.webp"
     ]
   },
   {
@@ -61,9 +61,9 @@
     "descripcion": "Realizamos el cálculo estructural de compuertas sometidas a presión hidrostática mediante un modelado matemático avanzado. Esto permite analizar la distribución de tensiones y garantizar la solidez y seguridad de la infraestructura.",
     "ubicacion": "Varios",
     "categorias": ["civil", "hidraulica"],
-    "imagen": "paginav2/proy-comp.jpg",
+    "imagen": "imagenes/portfolio/proyecto-calc_converted.webp",
     "galeria": [
-      "paginav2/proy-comp.jpg"
+      "imagenes/portfolio/proyecto-calc_converted.webp"
     ]
   },
   {
@@ -72,9 +72,9 @@
     "descripcion": "Realizamos un exhaustivo relevamiento de un canal de desagüe de 80 km en el norte de Santa Fe, utilizando tecnología GNSS para capturar datos precisos y evaluar su integridad estructural. Esto permitió identificar mejoras para optimizar la gestión hídrica.",
     "ubicacion": "Tostado, Santa Fe",
     "categorias": ["topografia", "hidraulica"],
-    "imagen": "paginav2/proy-tostado.jpeg",
+    "imagen": "imagenes/portfolio/proyecto-tostado_converted.webp",
     "galeria": [
-      "paginav2/proy-tostado.jpeg"
+      "imagenes/portfolio/proyecto-tostado_converted.webp"
     ]
   },
   {
@@ -83,9 +83,9 @@
     "descripcion": "Realizamos ensayos especializados de suelos para determinar su capacidad portante, así como evaluaciones (cateo) de las estructuras de hormigón. Este análisis integral se llevó a cabo para la refuncionalización de un predio de la ex AFIP.",
     "ubicacion": "Buenos Aires",
     "categorias": ["civil"],
-    "imagen": "paginav2/proy-afip.jpg",
+    "imagen": "imagenes/portfolio/proyecto-afip_converted.webp",
     "galeria": [
-      "paginav2/proy-afip.jpg"
+      "imagenes/portfolio/proyecto-afip_converted.webp"
     ]
   },
   {
@@ -94,9 +94,9 @@
     "descripcion": "Realizamos el relevamiento y diseño de un sistema de terrazas agrícolas para mitigar la pérdida de suelo en Entre Rios. Nuestro equipo identificó las áreas críticas de erosión y desarrolló una solución integral que combina ingeniería agronómica y diseño sostenible.",
     "ubicacion": "Villaguay, Entre Ríos",
     "categorias": ["agrimensura", "ambiental"],
-    "imagen": "paginav2/irh-terraza.jpg",
+    "imagen": "imagenes/portfolio/proyecto-terraza_converted.webp",
     "galeria": [
-      "paginav2/irh-terraza.jpg"
+      "imagenes/portfolio/proyecto-terraza_converted.webp"
     ]
   },
   {
@@ -105,9 +105,9 @@
     "descripcion": "Realizamos un estudio hidrológico para la construcción de un complejo turístico contiguo al río Gualeguay, cerca de su desembocadura en el Paraná. Evaluamos las condiciones del río y los riesgos asociados para ofrecer información clave.",
     "ubicacion": "Gualeguay, Entre Ríos",
     "categorias": ["hidraulica", "ambiental"],
-    "imagen": "paginav2/proy-elprado.jpg",
+    "imagen": "imagenes/portfolio/proyecto-elprado_converted.webp",
     "galeria": [
-      "paginav2/proy-elprado.jpg"
+      "imagenes/portfolio/proyecto-elprado_converted.webp"
     ]
   },
   {
@@ -116,9 +116,9 @@
     "descripcion": "Realizamos el relevamiento de existencias y el amojonamiento de las estructuras a construir en la nueva Unidad Penal 9 de Recreo, usando tecnología de precisión para marcar puntos clave y asegurar el cumplimiento de las especificaciones.",
     "ubicacion": "Recreo, Santa Fe",
     "categorias": ["topografia", "civil"],
-    "imagen": "paginav2/proy-UP9.jpg",
+    "imagen": "imagenes/portfolio/proyecto-UP9_converted.webp",
     "galeria": [
-      "paginav2/proy-UP9.jpg"
+      "imagenes/portfolio/proyecto-UP9_converted.webp"
     ]
   },
   {
@@ -127,9 +127,9 @@
     "descripcion": "Realizamos las mensuras de 50 lotes en conjunto en la ciudad de Gualeguaychú, elaborando y gestionando sus expedientes hasta obtener la aprobación. Nuestra intervención abarcó la definición precisa de los límites y la coordinación con las autoridades.",
     "ubicacion": "Gualeguaychú, Entre Ríos",
     "categorias": ["agrimensura"],
-    "imagen": "paginav2/proy-iapv.jpeg",
+    "imagen": "imagenes/portfolio/proyecto-iapv_converted.webp",
     "galeria": [
-      "paginav2/proy-iapv.jpeg"
+      "imagenes/portfolio/proyecto-iapv_converted.webp"
     ]
   },
   {
@@ -138,9 +138,9 @@
     "descripcion": "Realizamos un estudio hídrico en un predio destinado a la construcción de un campo de paneles solares en Paraná, con el objetivo de identificar zonas vulnerables. Este análisis permitió determinar riesgos asociados a la disponibilidad y manejo del recurso.",
     "ubicacion": "Paraná, Entre Ríos",
     "categorias": ["hidraulica", "ambiental"],
-    "imagen": "paginav2/proy-solares.jpg",
+    "imagen": "imagenes/portfolio/proyecto-solares_converted.webp",
     "galeria": [
-      "paginav2/proy-solares.jpg"
+      "imagenes/portfolio/proyecto-solares_converted.webp"
     ]
   },
   {
@@ -149,9 +149,9 @@
     "descripcion": "Realizamos el diseño del nuevo loteo, desarrollando las factibilidades hídricas y ambientales, junto con el proyecto ejecutivo de la infraestructura vial y de servicios, garantizando un desarrollo bien planificado.",
     "ubicacion": "Paraná, Entre Ríos",
     "categorias": ["civil", "agrimensura"],
-    "imagen": "paginav2/proy-arca.jpg",
+    "imagen": "imagenes/portfolio/proyecto-arca_converted.webp",
     "galeria": [
-      "paginav2/proy-arca.jpg"
+      "imagenes/portfolio/proyecto-arca_converted.webp"
     ]
   }
 ]
