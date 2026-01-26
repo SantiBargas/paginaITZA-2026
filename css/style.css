@@ -139,6 +139,14 @@ body {
 /********* CAROUSEL FIX *********/
 /*******************************/
 /* 3. Ajustes del Carrusel Principal */
+#carousel {
+    background-image: url('../imagenes/index/carousel-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
 .carousel-item img {
     width: 100%;
     height: auto;
