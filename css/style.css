@@ -1439,7 +1439,9 @@ a:focus {
 }
 
 .portfolio .portfolio-img img {
-    width: 100%;
+    width: 350px !important;
+    height: 350px !important;
+    object-fit: cover;
     transition: .5s;
 }
 
