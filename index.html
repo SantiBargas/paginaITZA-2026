@@ -20,23 +20,6 @@
 
     <link rel="icon" href="imagenes/index/main-ico_converted.webp">
     
-    <script>
-      if (window.innerWidth < 768) {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.fetchPriority = 'high';
-        link.href = 'imagenes/index/main-banner1_converted-mobile.webp';
-        document.head.appendChild(link);
-      } else {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.fetchPriority = 'high';
-        link.href = 'imagenes/index/main-banner1_converted.webp';
-        document.head.appendChild(link);
-      }
-    </script>
 
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -48,9 +31,14 @@
     <link rel="preload" as="image" fetchpriority="high" href="imagenes/carousel-1.webp">
 
     <!-- CSS Críticos (Renderizado) -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/fontello.css" media="print" onload="this.media='all'">
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/fontello.css">
+    </noscript>
     
     <!-- CSS No-Críticos (Carga Asincrónica) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" media="print" onload="this.media='all'">
