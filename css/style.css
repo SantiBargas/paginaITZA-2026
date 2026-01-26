@@ -140,10 +140,11 @@ body {
 /*******************************/
 /* 3. Ajustes del Carrusel Principal */
 #carousel {
-    background-image: url('../imagenes/index/carousel-1.jpg');
+    background-image: url('../imagenes/carousel-1.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
+    background-color: #121518;
     position: relative;
 }
 
