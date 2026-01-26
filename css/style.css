@@ -155,21 +155,6 @@ body {
     object-fit: cover;
 }
 
-#carousel .carousel-caption {
-    position: absolute; 
-    inset: 0;
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-    padding: 0 1rem;
-    pointer-events: none; 
-}
-
-#carousel .carousel-caption .btn { 
-    pointer-events: auto; 
-}
-
 /* =========================================
    MENU SCROLL (Sticky Navbar)
    ========================================= */
@@ -196,26 +181,44 @@ body {
     BOTÓN FLOTANTE DE WHATSAPP - ITZA
 ========================================= */
 .btn-wsp {
-    position: fixed;
-    width: 90px;
-    height: 90px;
-    line-height: 90px;
-    bottom: 25px;
-    right: 25px;
-    background: #25d366; /* Verde Oficial */
+    position: fixed !important;
+    width: 90px !important;
+    height: 90px !important;
+    line-height: 90px !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    background: #25d366 !important; /* Verde Oficial */
     color: #FFF !important;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 60px;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
-    z-index: 9999; /* Asegura que esté por encima de todo */
-    transition: all 300ms ease;
+    border-radius: 50px !important;
+    text-align: center !important;
+    font-size: 60px !important;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3) !important;
+    z-index: 9999 !important; /* Asegura que esté por encima de todo */
+    transition: all 300ms ease !important;
     /* Usamos itza-bounce para evitar que Animate.css lo pise */
-    animation: itza-bounce 1.5s infinite; 
+    animation: itza-bounce 1.5s infinite !important;
+    border: none !important;
+    padding: 0 !important;
+    display: block !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    outline: none !important;
+    min-width: 90px !important;
+    min-height: 90px !important;
+    flex-shrink: 0 !important;
+}
+
+.btn-wsp,
+.btn-wsp:visited,
+.btn-wsp:active,
+.btn-wsp:focus {
+    background: #25d366 !important;
+    color: #FFF !important;
+    text-decoration: none !important;
 }
 
 .btn-wsp:hover {
-    background: #0293e7; /* Azul ITZA */
+    background: #0293e7 !important; /* Azul ITZA */
     color: #FFF !important;
     text-decoration: none !important;
 }
@@ -223,8 +226,15 @@ body {
 /* Forzamos que el icono siempre sea blanco */
 .btn-wsp i {
     color: #FFF !important;
-    display: inline-block;
-    line-height: 90px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    font-size: 60px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Definición Única de Animación */
@@ -240,15 +250,18 @@ body {
 /* Ajuste Responsivo: Mejoramos el tamaño para móviles y PageSpeed */
 @media only screen and (max-width: 768px) {
     .btn-wsp {
-        width: 70px;
-        height: 70px;
-        line-height: 70px;
-        font-size: 45px;
-        bottom: 15px;
-        right: 15px;
+        width: 70px !important;
+        height: 70px !important;
+        line-height: 70px !important;
+        font-size: 45px !important;
+        bottom: 15px !important;
+        right: 15px !important;
+        min-width: 70px !important;
+        min-height: 70px !important;
     }
     .btn-wsp i {
-        line-height: 70px;
+        line-height: 70px !important;
+        font-size: 45px !important;
     }
 }
 
@@ -595,6 +608,7 @@ a:focus {
 
 .carousel .carousel-caption {
     position: absolute;
+    inset: 0;
     top: 0;
     bottom: 0;
     display: flex;
@@ -603,6 +617,8 @@ a:focus {
     flex-direction: column;
     height: calc(100vh - 170px);
     min-height: 400px;
+    padding: 0 1rem;
+    pointer-events: none;
 }
 
 .carousel .carousel-caption p {
@@ -630,6 +646,7 @@ a:focus {
     border: 2px solid #ffffff;
     border-radius: 0;
     transition: .3s;
+    pointer-events: auto;
 }
 
 .carousel .carousel-caption .btn:hover {
@@ -679,6 +696,11 @@ a:focus {
     animation-duration: 1.5s;
 }
 
+/* Separación de flechas de navegación */
+.carousel-control-prev,
+.carousel-control-next {
+    padding: 0 40px;
+}
 
 /*******************************/
 /******* Page Header CSS *******/
@@ -917,7 +939,7 @@ a:focus {
     text-align: justify;
 }
 
-/* 1. Definición de los Motores de Movimiento */
+/* Keyframes para animaciones de headers */
 @keyframes slideFromTop {
     0% {
         transform: translateY(-100px);
@@ -940,9 +962,8 @@ a:focus {
     }
 }
 
-/* 2. Aplicación a los Títulos ITZA */
 .page-header-area h1.animate-top {
-    opacity: 0; /* Empieza invisible */
+    opacity: 0;
     animation: slideFromTop 1.2s ease-out forwards;
     animation-delay: 0.3s;
     font-size: 60px;
@@ -952,34 +973,18 @@ a:focus {
 }
 
 .page-header-area h2.animate-bottom {
-    opacity: 0; /* Empieza invisible */
+    opacity: 0;
     animation: slideFromBottom 1.2s ease-out forwards;
-    animation-delay: 0.5s; /* Un poquito después para efecto cascada */
+    animation-delay: 0.5s;
     font-size: 24px;
     font-weight: 400;
     color: #ffffff;
     margin-top: 15px;
 }
 
-/* 3. Estilo del Divisor (Opcional, para que también aparezca) */
-.header-divider {
-    width: 100px;
-    height: 3px;
-    background: #ffffff;
-    margin: 20px auto;
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-    animation-delay: 1s;
-}
-
 @keyframes fadeIn {
     to { opacity: 1; }
 }
-
-
-/*******************************/
-/********** Fact CSS ********LOS PROFESIONALES CLIENTES TRABAJOS COMPLETADOS ETC***/
-/*******************************/
 /*******************************/
 /*********** Fact CSS **********/
 /*******************************/
@@ -1536,7 +1541,7 @@ a:focus {
     overflow: hidden; /* Clave para que el texto no se vea "viniendo" de afuera */
 }
 
-/* 2. Definición de Keyframes (Motores de movimiento) */
+/* Keyframes para portfolio */
 @keyframes portfolioSlideDown {
     from { transform: translateY(-80px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -1711,7 +1716,7 @@ a:focus {
     list-style-type: none;
 }
 
-/* 2. Motores de Movimiento (Keyframes) */
+/* Keyframes para contact */
 @keyframes contactSlideDown {
     from { transform: translateY(-70px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -1722,7 +1727,7 @@ a:focus {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* 3. Aplicación a los Textos */
+/* Aplicación a los Textos */
 .animate-contact-top {
     opacity: 0;
     animation: contactSlideDown 1s ease-out forwards;
