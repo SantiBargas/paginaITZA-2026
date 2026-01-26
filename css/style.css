@@ -277,6 +277,12 @@ body {
     padding: 0;
 }
 
+main {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
 h1,
 h2, 
 h3, 
@@ -309,6 +315,11 @@ a:focus {
     max-width: 1366px;
     margin: 0 auto;
     background: #ffffff;
+    font-size: 0;
+}
+
+.wrapper > * {
+    font-size: 16px;
 }
 
 .back-to-top {
