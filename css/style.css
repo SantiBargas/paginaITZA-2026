@@ -599,6 +599,7 @@ a:focus {
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
+    aspect-ratio: 16/9;
 }
 
 .carousel .carousel-inner,
@@ -606,12 +607,14 @@ a:focus {
     position: relative;
     width: 100%;
     height: 100%;
+    aspect-ratio: 16/9;
 }
 
 .carousel .carousel-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    aspect-ratio: 16/9;
 }
 
 .carousel .carousel-item::after {
@@ -1461,6 +1464,7 @@ a:focus {
     width: 350px !important;
     height: 350px !important;
     object-fit: cover;
+    aspect-ratio: 1/1;
     transition: .5s;
 }
 
