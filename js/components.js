@@ -20,8 +20,8 @@ function loadFooter() {
                         <p><i class="fa fa-phone-alt"></i>+54 9 343 506-6172</p>
                         <p><i class="fa fa-envelope"></i>contacto@itza.com.ar</p>
                         <div class="footer-social">
-                            <a href="https://www.instagram.com/itzaingenieria/"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/company/itza-ingenieria"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/itzaingenieria/" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/itza-ingenieria" aria-label="Conéctate con nosotros en LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
