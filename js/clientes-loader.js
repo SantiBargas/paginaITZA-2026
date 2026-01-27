@@ -50,7 +50,19 @@ function iniciarSlidersClientes() {
     if (!$textSlider.children().length || !$navSlider.children().length) return;
     
     // 1. Slider de textos (Principal)
-    $textSlider.slick({
+    $textSlider.on('init reInit afterChange', function(event, slick, currentSlide) {
+        // ✅ FIX ACCESIBILIDAD: Remover tabindex de slides ocultos
+        $(this).find('.slick-slide[aria-hidden="true"]').each(function() {
+            $(this).attr('tabindex', '-1');
+            $(this).find('a, button, input').attr('tabindex', '-1');
+        });
+        
+        // Asegurar que slide visible sea enfocable
+        $(this).find('.slick-slide[aria-hidden="false"]').each(function() {
+            $(this).removeAttr('tabindex');
+            $(this).find('a, button, input').removeAttr('tabindex');
+        });
+    }).slick({
         infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
@@ -63,23 +75,23 @@ function iniciarSlidersClientes() {
         cssEase: 'ease-in-out',
         pauseOnHover: true,
         waitForAnimate: false,
-        accessibility: true // ✅ AGREGADO
-    }).on('init reInit afterChange', function(event, slick, currentSlide) {
+        accessibility: true
+    });
+
+    // 2. Slider de logos (Navegación con Adaptación Móvil)
+    $navSlider.on('init reInit afterChange', function(event, slick, currentSlide) {
         // ✅ FIX ACCESIBILIDAD: Remover tabindex de slides ocultos
         $(this).find('.slick-slide[aria-hidden="true"]').each(function() {
             $(this).attr('tabindex', '-1');
-            $(this).find('a, button, input').attr('tabindex', '-1');
+            $(this).find('img, a, button').attr('tabindex', '-1');
         });
         
         // Asegurar que slide visible sea enfocable
         $(this).find('.slick-slide[aria-hidden="false"]').each(function() {
             $(this).removeAttr('tabindex');
-            $(this).find('a, button, input').removeAttr('tabindex');
+            $(this).find('img, a, button').removeAttr('tabindex');
         });
-    });
-
-    // 2. Slider de logos (Navegación con Adaptación Móvil)
-    $navSlider.slick({
+    }).slick({
         slidesToShow: 1, 
         centerMode: true,
         centerPadding: '0px',
@@ -90,7 +102,7 @@ function iniciarSlidersClientes() {
         speed: 900,
         cssEase: 'cubic-bezier(0.77, 0, 0.175, 1)',
         waitForAnimate: false,
-        accessibility: true, // ✅ AGREGADO
+        accessibility: true,
         responsive: [
             {
                 breakpoint: 768,
@@ -107,18 +119,6 @@ function iniciarSlidersClientes() {
                 }
             }
         ]
-    }).on('init reInit afterChange', function(event, slick, currentSlide) {
-        // ✅ FIX ACCESIBILIDAD: Remover tabindex de slides ocultos
-        $(this).find('.slick-slide[aria-hidden="true"]').each(function() {
-            $(this).attr('tabindex', '-1');
-            $(this).find('img, a, button').attr('tabindex', '-1');
-        });
-        
-        // Asegurar que slide visible sea enfocable
-        $(this).find('.slick-slide[aria-hidden="false"]').each(function() {
-            $(this).removeAttr('tabindex');
-            $(this).find('img, a, button').removeAttr('tabindex');
-        });
     });
 }
 
