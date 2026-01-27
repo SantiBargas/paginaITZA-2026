@@ -17,7 +17,7 @@ async function cargarSeccionClientes() {
         clientes.forEach(cliente => {
             $navContainer.append(`
                 <div class="slider-nav">
-                    <img src="${cliente.img}" alt="${cliente.alt}" loading="lazy" decoding="async">
+                    <img src="${cliente.img}" alt="${cliente.alt}" loading="lazy" decoding="async" width="260" height="260">
                 </div>
             `);
 
@@ -62,7 +62,20 @@ function iniciarSlidersClientes() {
         fade: true,
         cssEase: 'ease-in-out',
         pauseOnHover: true,
-        waitForAnimate: false // Mejora el performance
+        waitForAnimate: false,
+        accessibility: true // ✅ AGREGADO
+    }).on('init reInit afterChange', function(event, slick, currentSlide) {
+        // ✅ FIX ACCESIBILIDAD: Remover tabindex de slides ocultos
+        $(this).find('.slick-slide[aria-hidden="true"]').each(function() {
+            $(this).attr('tabindex', '-1');
+            $(this).find('a, button, input').attr('tabindex', '-1');
+        });
+        
+        // Asegurar que slide visible sea enfocable
+        $(this).find('.slick-slide[aria-hidden="false"]').each(function() {
+            $(this).removeAttr('tabindex');
+            $(this).find('a, button, input').removeAttr('tabindex');
+        });
     });
 
     // 2. Slider de logos (Navegación con Adaptación Móvil)
@@ -76,7 +89,8 @@ function iniciarSlidersClientes() {
         infinite: true,
         speed: 900,
         cssEase: 'cubic-bezier(0.77, 0, 0.175, 1)',
-        waitForAnimate: false, // Mejora el performance
+        waitForAnimate: false,
+        accessibility: true, // ✅ AGREGADO
         responsive: [
             {
                 breakpoint: 768,
@@ -93,6 +107,18 @@ function iniciarSlidersClientes() {
                 }
             }
         ]
+    }).on('init reInit afterChange', function(event, slick, currentSlide) {
+        // ✅ FIX ACCESIBILIDAD: Remover tabindex de slides ocultos
+        $(this).find('.slick-slide[aria-hidden="true"]').each(function() {
+            $(this).attr('tabindex', '-1');
+            $(this).find('img, a, button').attr('tabindex', '-1');
+        });
+        
+        // Asegurar que slide visible sea enfocable
+        $(this).find('.slick-slide[aria-hidden="false"]').each(function() {
+            $(this).removeAttr('tabindex');
+            $(this).find('img, a, button').removeAttr('tabindex');
+        });
     });
 }
 
