@@ -2178,3 +2178,103 @@ a:focus {
     height: 600px !important;
     border: none !important;
 }
+
+/*******************************/
+/********* VIDEO PORTADA **********/
+/*******************************/
+/* Contenedor principal del video (reemplaza o envuelve a tu .carousel-item) */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    min-height: 600px; /* Evita que se colapse en pantallas muy bajas */
+    overflow: hidden;
+    background-color: #000; /* Fondo de seguridad mientras carga */
+}
+
+/* El video como fondo fluido */
+.video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Clave: ajusta el video sin deformarlo */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Detrás del contenido */
+}
+
+/* Capa oscura opcional para que el texto blanco resalte más (Overlay) */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Ajustá el 0.4 para más o menos brillo */
+    z-index: 2;
+}
+
+/* Aseguramos que el contenido (texto y botones) quede arriba de todo */
+.video-container .carousel-caption {
+    z-index: 3;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Altura del carrusel */
+.carousel-item {
+    height: 100vh;
+    min-height: 550px;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Video como fondo del slide */
+.carousel-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Capa para legibilidad del texto */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+/* Asegurar que el texto esté sobre el video */
+.carousel-caption {
+    z-index: 3;
+    bottom: 25% !important; /* Ajusta la posición vertical del texto */
+}
+/* Elevamos los controles por encima del video y el overlay */
+.carousel-control-prev, 
+.carousel-control-next {
+    z-index: 10 !important; /* Más alto que el z-index 3 de la caption */
+    opacity: 0.8; /* Asegura que sean visibles */
+}
+
+/* Evitamos que el overlay capture los clics que van a las flechas */
+.video-overlay {
+    pointer-events: none; /* Los clics "pasan a través" del overlay */
+}
+
+/* Pero queremos que el contenido del caption (botones) sí sea clickeable */
+.carousel-caption {
+    pointer-events: auto;
+}
+
