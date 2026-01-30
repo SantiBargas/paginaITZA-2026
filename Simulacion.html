@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K4Q99W75');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K4Q99W75');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">   
 
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://code.jquery.com https://stackpath.bootstrapcdn.com https://kit.fontawesome.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://region1.google-analytics.com https://www.google.com; frame-src 'self' https://www.googletagmanager.com https://www.instagram.com;">
-    <title>ITZA Ingeniería integral - Simulación Hidráulica</title>
-    
-    <meta name="description" content="Modelado hidrológico e hidráulico avanzado: simulación de inundaciones, drenaje urbano y redes de agua potable con HEC-RAS y SWMM para proyectos en Latinoamérica y España.">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://code.jquery.com https://stackpath.bootstrapcdn.com https://kit.fontawesome.com https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://maps.googleapis.com https://maps.gstatic.com *.ggpht.com *.googleapis.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://region1.google-analytics.com https://www.google.com https://maps.googleapis.com; frame-src 'self' https://www.googletagmanager.com https://www.instagram.com https://www.google.com;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagenes/logo/main-ico_converted.webp">
 
-    <link rel="preload" as="image" href="imagenes/servicios/sim-hidraulica/sim-baner._converted.webp" fetchpriority="high">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <link href="imagenes/logo/main-ico_converted.webp" rel="icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS Críticos (Renderizado) -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/fontello.css" rel="stylesheet">
-    
-    <noscript>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    </noscript>
-    
-    <!-- CSS No-Críticos (Carga Asincrónica) -->
-    <link rel="stylesheet" href="lib/animate/animate.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="lib/lightbox/css/lightbox.min.css" media="print" onload="this.media='all'">
-    
-    <noscript>
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    </noscript>
+    <title>Simulación Hidráulica | ITZA Ingeniería Integral</title>
+    <meta name="description" content="Modelado hidrológico e hidráulico avanzado: inundaciones, drenaje urbano y redes de agua potable con HEC-RAS y SWMM.">
+    <link rel="canonical" href="https://santibargas.github.io/itza-lab/Simulacion.html">
+
+    <link rel="preload" as="image" fetchpriority="high" 
+      href="imagenes/servicios/sim-hidraulica/sim-baner_converted.webp" 
+      imagesrcset="imagenes/servicios/sim-hidraulica/sim-baner_converted-mobile.webp 800w, 
+                   imagenes/servicios/sim-hidraulica/sim-baner_converted.webp 1920w" 
+      imagesizes="100vw">
+
+    <script src="js/head-loader.js"></script>
 </head>
 
 <body>
@@ -107,7 +103,15 @@
         </div>
         <main> 
             <div class="page-header-area">
-                <img src="imagenes/servicios/sim-hidraulica/sim-baner._converted.webp" alt="Servicios de Simulación Hidráulica" class="header-bg" fetchpriority="high">
+                
+                <img src="imagenes/servicios/sim-hidraulica/sim-baner_converted.webp" 
+                    srcset="imagenes/servicios/sim-hidraulica/sim-baner_converted-mobile.webp 800w, 
+                            imagenes/servicios/sim-hidraulica/sim-baner_converted.webp 1920w" 
+                    sizes="100vw" 
+                    alt="Simulación Hidráulica Avanzada" 
+                    class="header-bg" 
+                    fetchpriority="high">
+
                 <div class="header-overlay overlay-dark"></div>
 
                 <div class="container">
@@ -153,6 +157,6 @@
     <script src="lib/lightbox/js/lightbox.min.js" defer></script>
     <script src="js/services-loader.js" defer></script>
     <script src="js/main.js" defer></script>
-    <script src="js/components.js"></script>
+    <script src="js/components.js" defer></script>
 </body>
 </html>

@@ -242,8 +242,8 @@
       "id": "amb-residuos",
       "titulo": "Manejo de residuos",
       "descripcion": "Asesoramiento integral en gestión de residuos sólidos: planes de separación, reducción, reciclaje y diseño de plantas GIRSU.",
-      "imagen": "imagenes/servicios/ambiental/amb-residuos_converted.webp",
-      "fotos": ["imagenes/servicios/ambiental/amb-residuos_converted.webp"],
+      "imagen": "imagenes/servicios/ambiental/amb-res_converted.webp",
+      "fotos": ["imagenes/servicios/ambiental/amb-res_converted.webp"],
       "delay": "0.4s"
     },
     {
@@ -319,39 +319,39 @@
       "id": "sim-hidrologica",
       "titulo": "Simulación Hidrológica",
       "descripcion": "Estudiamos el ciclo hidrológico para analizar el comportamiento de cuencas rurales y urbanas. Calculamos precipitación, escorrentía, infiltración y almacenamiento, utilizando modelos como HEC-HMS y SWMM.",
-      "imagen": "imagenes/servicios/simulacion/sim-hec_converted.webp",
-      "fotos": ["imagenes/servicios/simulacion/sim-hec_converted.webp"],
+      "imagen": "imagenes/servicios/sim-hidraulica/sim-hec_converted.webp",
+      "fotos": ["imagenes/servicios/sim-hidraulica/sim-hec_converted.webp"],
       "delay": "0.1s"
     },
     {
       "id": "sim-canales",
       "titulo": "Simulación de Canales y Conductos",
       "descripcion": "Modelamos el flujo de agua en canales abiertos y redes de conductos con herramientas como HEC-RAS y SWMM. Analizamos caudales, velocidades y estructuras hidráulicas como alcantarillas, puentes y represas.",
-      "imagen": "imagenes/servicios/simulacion/sim-canal_converted.webp",
-      "fotos": ["imagenes/servicios/simulacion/sim-canal_converted.webp"],
+      "imagen": "imagenes/servicios/sim-hidraulica/sim-canal_converted.webp",
+      "fotos": ["imagenes/servicios/sim-hidraulica/sim-canal_converted.webp"],
       "delay": "0.2s"
     },
     {
       "id": "sim-inundaciones",
       "titulo": "Simulación de Inundaciones",
       "descripcion": "Realizamos análisis de áreas inundables considerando eventos extremos y tormentas de diseño, empleando modelos como HEC-RAS (2D y 1D) y SWMM. Proponemos medidas de mitigación.",
-      "imagen": "imagenes/servicios/simulacion/sim-flood_converted.webp",
-      "fotos": ["imagenes/servicios/simulacion/sim-flood_converted.webp"],
+      "imagen": "imagenes/servicios/sim-hidraulica/sim-flood_converted.webp",
+      "fotos": ["imagenes/servicios/sim-hidraulica/sim-flood_converted.webp"],
       "delay": "0.3s"
     },
     {
       "id": "sim-drenaje",
       "titulo": "<span style='font-size: 15.5px; line-height: 1.1; display: block;'>Simulación de Sistemas de Drenaje Urbano</span>",
-      "imagen": "imagenes/servicios/simulacion/sim-swmm_converted.webp",
-      "fotos": ["imagenes/servicios/simulacion/sim-swmm_converted.webp"],
+      "imagen": "imagenes/servicios/sim-hidraulica/sim-swmm_converted.webp",
+      "fotos": ["imagenes/servicios/sim-hidraulica/sim-swmm_converted.webp"],
       "descripcion": "Optimizamos sistemas de drenaje urbano e industrial con herramientas como SWMM. Evaluamos la capacidad de conductos, reservorios y bocas de tormenta para prevenir acumulaciones de agua.",
       "delay": "0.4s"
     },
     {
       "id": "sim-agua",
       "titulo": "<span style='font-size: 15.5px; line-height: 1.1; display: block;'>Modelado de Sistemas de Agua Potable</span>",
-      "imagen": "imagenes/servicios/simulacion/sim-epanet_converted.webp",
-      "fotos": ["imagenes/servicios/simulacion/sim-epanet_converted.webp"],
+      "imagen": "imagenes/servicios/sim-hidraulica/sim-epanet_converted.webp",
+      "fotos": ["imagenes/servicios/sim-hidraulica/sim-epanet_converted.webp"],
       "descripcion": "Diseñamos y analizamos redes de agua potable utilizando EPANET. Calculamos flujo, presión y funcionamiento de bombas, tanques y válvulas para sistemas eficientes.",
       "delay": "0.5s"
     },
@@ -359,8 +359,8 @@
       "id": "sim-dem",
       "titulo": "Modelos Digitales de Elevación (DEM)",
       "descripcion": "Generamos modelos topográficos precisos mediante técnicas avanzadas de levantamiento y herramientas GIS para delimitar cuencas y diseñar canales con máxima precisión.",
-      "imagen": "imagenes/servicios/simulacion/sim-dem_converted.webp",
-      "fotos": ["imagenes/servicios/simulacion/sim-dem_converted.webp"],
+      "imagen": "imagenes/servicios/sim-hidraulica/sim-dem_converted.webp",
+      "fotos": ["imagenes/servicios/sim-hidraulica/sim-dem_converted.webp"],
       "delay": "0.6s"
     }
   ]
