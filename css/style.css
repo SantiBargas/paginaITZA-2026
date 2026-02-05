@@ -730,18 +730,20 @@ a:focus {
 .page-header-area {
     position: relative;
     overflow: hidden;
-    /* Altura dinámica: 100% de la pantalla menos el menú */
-    height: calc(100vh - 165px); 
-    min-height: 500px;
+
+    /* Altura segura en móviles */
+    min-height: 70svh;
+    padding: 120px 20px 100px;
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
     background-color: #0293e7;
     text-align: center;
 }
 
-/* Imagen de Fondo (Se activa si incluyes una img en el HTML) */
+/* Imagen de fondo */
 .page-header-area .header-bg {
     position: absolute;
     inset: 0;
@@ -758,120 +760,124 @@ a:focus {
 }
 
 .page-header-area .header-overlay.overlay-dark {
-    background: rgba(0, 0, 0, 0.7); /* Oscurece al 50% */
+    background: rgba(0, 0, 0, 0.65);
 }
 
-/* Contenedor de Texto y Títulos */
+/* Contenido */
 .page-header-area .container {
     position: relative;
     z-index: 2;
+    max-width: 1100px;
     width: 100%;
 }
+
+/* H1 principal */
 .page-header-area h1 {
     color: #ffffff !important;
-    font-size: 70px !important; /* Tamaño de impacto visual */
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     line-height: 1.1;
     margin-bottom: 20px;
+
+    /* Escala automática */
+    font-size: clamp(32px, 7vw, 72px);
 }
-/* Título Principal (NUESTRO TRABAJO / QUIENES SOMOS) */
+
+/* Subtítulo */
 .page-header-area h2 {
     color: #ffffff !important;
-    font-size: 24px;
     font-weight: 300;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    font-size: clamp(16px, 3.5vw, 26px);
 }
 
-/* Línea decorativa blanca */
+/* Línea decorativa */
 .header-divider {
-    width: 100px;
+    width: 80px;
     height: 3px;
     background: #ffffff;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 25px;
 }
 
-/* Subtítulos y descripciones del header */
-.page-header-area h5, 
-.page-header-area h4 {
+/* Textos secundarios */
+.page-header-area h4,
+.page-header-area h5 {
     color: #ffffff !important;
-    font-size: 24px;
     font-weight: 300;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    font-size: clamp(16px, 3vw, 22px);
 }
 
-/* Etiquetas (Tags) con borde blanco */
+/* Tags */
 .tag-box {
     display: inline-block;
     color: #ffffff;
     border: 1px solid #ffffff;
-    padding: 8px 20px;
-    margin: 5px;
+    padding: 6px 16px;
+    margin: 4px;
     border-radius: 4px;
-    font-size: 15px;
+    font-size: 14px;
     transition: 0.3s ease;
 }
 
 .tag-box:hover {
     background: rgba(255, 255, 255, 0.2);
-    text-decoration: none;
-    color: #ffffff;
 }
 
-/* Botón Contactar (Estilo borde blanco) */
+/* Botón */
 .btn-outline-white {
     display: inline-block;
     color: #ffffff;
     border: 2px solid #ffffff;
     background: transparent;
-    padding: 12px 35px;
+    padding: 12px 30px;
     font-weight: 600;
     text-transform: uppercase;
     transition: 0.3s ease;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .btn-outline-white:hover {
     background: #ffffff;
     color: var(--main-color);
-    text-decoration: none;
 }
 
-/* Flecha de Scroll animada */
+/* Flecha scroll */
 .scroll-down {
-    position: absolute; 
-    bottom: 40px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    z-index: 2; 
-    color: #ffffff; 
-    font-size: 32px; 
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: #ffffff;
+    font-size: 26px;
     animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
-    40% {transform: translateY(-10px) translateX(-50%);}
-    60% {transform: translateY(-5px) translateX(-50%);}
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-4px);
+    }
 }
 
-/* Espaciado global para secciones de contenido */
+/* Espaciado secciones */
 .content-section-padding {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: 80px 0;
 }
 
-/* Ajustes Responsivos para Dispositivos Móviles */
-@media (max-width: 768px) {
-    .page-header-area { 
-        height: auto; 
-        min-height: 450px; 
-        padding: 80px 0; 
-    }
-    .page-header-area h2 { 
-        font-size: 38px !important; /* Ajuste para que el título entre en móviles */
+/* Ajustes extra móviles */
+@media (max-width: 480px) {
+    .page-header-area {
+        padding: 100px 15px 80px;
     }
 }
+
 
 
 /*******************************/
