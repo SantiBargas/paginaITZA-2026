@@ -110,7 +110,9 @@
         <div class="page-header-area">
 
             <!-- VIDEO DE FONDO (OPCIONAL) -->
-            <video autoplay muted loop playsinline poster="imagenes/index/main-banner1_converted.webp" class="carousel-video">
+            <video autoplay muted loop playsinline poster="imagenes/index/main-banner1_converted.webp" preload="metadata" aria-hidden="true" tabindex="-1" class="carousel-video">
+                <source media="(max-width: 767px)" src="video/rec-hid-header-480.mp4" type="video/mp4">
+                <source media="(min-width: 768px)" src="video/rec-hid-header-720.mp4" type="video/mp4">
                 <source src="video/rec-hid-header.webm" type="video/webm">
             </video>
 
