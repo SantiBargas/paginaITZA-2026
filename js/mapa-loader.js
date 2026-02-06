@@ -2,71 +2,99 @@ document.addEventListener("DOMContentLoaded", () => {
     const mapContainer = document.getElementById('mapa-proyectos');
     if (!mapContainer) return;
 
-    // 1. Inicializar el mapa
-    // fullscreenControl: true permite ampliar el mapa a pantalla completa
+    // 1. Inicializar el mapa con scroll activo y control de pantalla completa
     const mapa = L.map('mapa-proyectos', {
-        scrollWheelZoom: false,
+        scrollWheelZoom: true,
         fullscreenControl: true,
-        fullscreenControlOptions: {
-            position: 'topleft'
-        }
-    }).setView([-31.74, -60.51], 7); // Centrado en la región de Entre Ríos y Santa Fe
+        fullscreenControlOptions: { position: 'topleft' }
+    }).setView([-31.74, -60.51], 7);
 
     // 2. Capa de fondo (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; OpenStreetMap contributors'
     }).addTo(mapa);
 
-    // 3. Configuración de Iconos (Opcional: Corregir rutas si no cargan los pines)
-    delete L.Icon.Default.prototype._getIconUrl;
-    L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-    });
-
-    // 4. Grupo de Clústeres (Agrupa marcadores cercanos)
     const markersCluster = L.markerClusterGroup();
 
-    // 5. Cargar proyectos desde el JSON
+    // Función para limpiar etiquetas HTML de los títulos del JSON
+    const limpiarTexto = (html) => {
+        const tmp = document.createElement("DIV");
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || "";
+    };
+
+    // 3. Crear el Panel Lateral Interno
+    const sidebar = L.control({ position: 'topright' });
+    sidebar.onAdd = function() {
+        const div = L.DomUtil.create('div', 'map-sidebar-overlay');
+        div.innerHTML = `
+            <div class="map-sidebar-header">
+                <span>OBRAS Y PROYECTOS</span>
+                <button id="btn-toggle-list" class="toggle-sidebar-btn">Ocultar</button>
+            </div>
+            <div id="lista-mapa-interna" style="overflow-y: auto; flex-grow: 1;"></div>
+        `;
+        L.DomEvent.disableScrollPropagation(div);
+        L.DomEvent.disableClickPropagation(div);
+        return div;
+    };
+    sidebar.addTo(mapa);
+
+    // Lógica del botón Ocultar/Mostrar
+    document.getElementById('btn-toggle-list').onclick = function() {
+        const panel = document.querySelector('.map-sidebar-overlay');
+        panel.classList.toggle('collapsed');
+        this.innerText = panel.classList.contains('collapsed') ? 'Mostrar' : 'Ocultar';
+    };
+
+    // 4. Cargar proyectos y generar interacción
     fetch('data/proyectos.json')
-        .then(response => {
-            if (!response.ok) throw new Error("Error al cargar proyectos.json");
-            return response.json();
-        })
+        .then(res => res.json())
         .then(proyectos => {
+            const container = document.getElementById('lista-mapa-interna');
+            
             proyectos.forEach(proy => {
                 if (proy.coords) {
-                    
-                    // Definición del contenido de la tarjeta (Popup)
+                    const tituloLimpio = limpiarTexto(proy.titulo);
+
+                    // Diseño de la Tarjeta Detallada (Popup)
                     const popupContent = `
                         <div style="width: 220px; font-family: 'Poppins', sans-serif; padding: 5px;">
-                            <img src="${proy.imagen}" style="width:100%; border-radius:8px; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-                            <h6 style="margin:0; font-weight:700; color:#003366; text-transform: uppercase; font-size: 13px;">${proy.titulo}</h6>
+                            <img src="${proy.imagen}" style="width:100%; border-radius:8px; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h6 style="margin:0; font-weight:700; color:#003366; text-transform: uppercase; font-size: 13px;">${tituloLimpio}</h6>
                             <div style="display: flex; align-items: center; margin: 8px 0; color: #666; font-size: 11px;">
                                 <i class="fas fa-map-marker-alt" style="color: #ffce00; margin-right: 5px;"></i>
                                 <span>${proy.ubicacion}</span>
                             </div>
-                            <p style="font-size: 11px; line-height: 1.4; color: #444; margin-bottom: 10px;">
-                                ${proy.descripcion.substring(0, 85)}...
+                            <p style="font-size: 11px; line-height: 1.4; color: #444; margin-bottom: 5px;">
+                                ${proy.descripcion.substring(0, 90)}...
                             </p>
-                            <a href="portfolio.html" style="display: block; text-align: center; background: #003366; color: #fff; padding: 6px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: 600;">
-                                VER DETALLES
-                            </a>
                         </div>
                     `;
 
-                    // Crear el marcador individual
+                    // Crear marcador y vincular popup
                     const marker = L.marker([proy.coords.lat, proy.coords.lng]);
                     marker.bindPopup(popupContent);
-
-                    // Añadir el marcador al grupo de clústeres
                     markersCluster.addLayer(marker);
+
+                    // Crear ítem en la lista lateral
+                    const item = document.createElement('div');
+                    item.className = 'map-project-item';
+                    item.innerHTML = `<h6>${tituloLimpio}</h6><span>${proy.ubicacion}</span>`;
+
+                    // Acción al hacer clic: Vuelo suave + Apertura de tarjeta
+                    item.onclick = () => {
+                        mapa.flyTo([proy.coords.lat, proy.coords.lng], 15, {
+                            duration: 1.5
+                        });
+                        // Esperar a que termine el movimiento para abrir la tarjeta
+                        setTimeout(() => marker.openPopup(), 1600);
+                    };
+                    
+                    container.appendChild(item);
                 }
             });
-
-            // Añadir el grupo completo al mapa
             mapa.addLayer(markersCluster);
         })
-        .catch(err => console.error("Error cargando el mapa de proyectos ITZA:", err));
+        .catch(err => console.error("Error cargando el mapa de proyectos:", err));
 });
