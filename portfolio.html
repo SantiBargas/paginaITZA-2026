@@ -13,23 +13,32 @@
         })(window, document, 'script', 'dataLayer', 'GTM-K4Q99W75');
     </script>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://code.jquery.com https://stackpath.bootstrapcdn.com https://kit.fontawesome.com https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://maps.googleapis.com https://maps.gstatic.com *.ggpht.com *.googleapis.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://region1.google-analytics.com https://www.google.com https://maps.googleapis.com; frame-src 'self' https://www.googletagmanager.com https://www.instagram.com https://www.google.com;">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="imagenes/index/main-ico_converted.webp">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://code.jquery.com https://stackpath.bootstrapcdn.com https://kit.fontawesome.com https://maps.googleapis.com https://maps.gstatic.com https://unpkg.com https://api.mapbox.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com https://unpkg.com https://api.mapbox.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://maps.googleapis.com https://maps.gstatic.com *.ggpht.com *.googleapis.com https://unpkg.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://api.mapbox.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://region1.google-analytics.com https://www.google.com https://maps.googleapis.com; frame-src 'self' https://www.googletagmanager.com https://www.instagram.com https://www.google.com;">
 
     <title>Nuestros Proyectos | ITZA Ingeniería Integral</title>
     <meta name="description" content="Explora nuestro portfolio de ingeniería civil, hídrica, ambiental, topografía y agrimensura en Entre Ríos y Santa Fe.">
     <link rel="canonical" href="https://santibargas.github.io/itza-lab/portfolio.html">
     <meta name="keywords" content="Portfolio Ingeniería, Proyectos ITZA, Ingeniería Entre Ríos, Mensuras, Hidráulica">
+    <link rel="icon" href="imagenes/index/main-ico_converted.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 
     <link rel="preload" as="image" fetchpriority="high" href="imagenes/portfolio/banner-portfolio.webp">
 
@@ -140,19 +149,20 @@
             </div>
         </div>
 
-        <div class="container content-section-padding">
-            <div class="row">
-                <div class="col-12">
-                    <div id="mapa-proyectos" class="mapa-placeholder">
-                        <div class="mensaje-mapa">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <h3>Mapa de Proyectos</h3>
-                            <p>Próximamente podrás ver nuestras obras geolocalizadas aquí.</p>
-                        </div>
-                    </div>
+        <div class="team">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Mapa Interactivo de Proyectos</h2>
+                    <p>Visualiza la ubicación y alcance de nuestras obras en toda la región.</p>
+                </div>
+                <div class="row" id="equipo-container">
                 </div>
             </div>
         </div>
+
+        <div id="mapa-proyectos" style="height: 500px; width: 100%; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); margin-bottom: 50px;"></div>
+
+        <script src="js/mapa-loader.js" defer></script>
 
         <div id="itza-footer"></div>
     </div>
