@@ -1,0 +1,17 @@
+[
+  {
+    "id": "parana",
+    "titulo": "Sede Paraná (Casa Central)",
+    "direccion": "Pedro Balcar 233, Paraná, Entre Ríos",
+    "coords": { "lat": -31.7685831, "lng": -60.5290706 },
+    "zoom": 16
+  },
+  {
+    "id": "santafe",
+    "titulo": "Sede Santa Fe",
+    "direccion": "Rivadavia 2774, Santa Fe, Argentina",
+    "coords": { "lat": -31.644161, "lng": -60.7057612 },
+    "zoom": 16
+  }
+]
+
