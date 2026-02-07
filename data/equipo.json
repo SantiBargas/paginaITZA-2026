@@ -1,7 +1,7 @@
 [
   {
     "id": "joaquin-alegre",
-    "nombre": "Ing. Joaquin Alegre",
+    "nombre": "Joaquin Alegre",
     "cargo": "Ing. Agrimensor",
     "ubicacion": "Paraná, Entre Ríos",
     "foto": "imagenes/equipo/ab-joaco_converted.webp",
@@ -10,7 +10,7 @@
   },
   {
     "id": "fabian-minotti",
-    "nombre": "Ing. Fabian Minotti",
+    "nombre": "Fabian Minotti",
     "cargo": "Ing. en Recursos Hídricos",
     "ubicacion": "Paraná, Entre Ríos",
     "foto": "imagenes/equipo/ab-mino_converted.webp",
@@ -19,7 +19,7 @@
   },
   {
     "id": "ignacio-olguin",
-    "nombre": "Lic. Ignacio Olguin",
+    "nombre": "Ignacio Olguin",
     "cargo": "Lic. en administración",
     "ubicacion": "Paraná, Entre Ríos",
     "foto": "imagenes/equipo/ab-nacho_converted.webp",
@@ -37,7 +37,7 @@
   },
   {
     "id": "ignacio-millesimo",
-    "nombre": "Ing. Ignacio Millesimo",
+    "nombre": "Ignacio Millesimo",
     "cargo": "Ing. Civil",
     "ubicacion": "Paraná, Entre Ríos",
     "foto": "imagenes/equipo/ab-ignacio_converted.webp",
@@ -46,7 +46,7 @@
   },
   {
     "id": "micaela-baustian",
-    "nombre": "Lic. Micaela Baustian",
+    "nombre": "Micaela Baustian",
     "cargo": "Lic. Administración",
     "ubicacion": "Paraná, Entre Ríos",
     "foto": "imagenes/equipo/ab-mica_converted.webp",

@@ -1161,17 +1161,22 @@ html, body {
 /*******************************/
 /*********** Team CSS **********/
 /*******************************/
-.team {
-    position: relative;
-    width: 100%;
-    padding: 45px 0 15px 0;
+
+/* 1. Forzamos a que las tarjetas de la misma fila midan lo mismo */
+#equipo-container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 24px; /* separacion vertical entre filas */
 }
 
-.team .team-item {
-    position: relative;
-    margin-bottom: 30px;
+.team-item {
+    margin-bottom: 40px;
+    background: var(--main-color); /* Color base */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* <--- CLAVE: La tarjeta llena toda la columna */
+    transition: .5s;
     overflow: hidden;
-    background: var(--surface-dark); /* Fondo base ITZA */
 }
 
 .team .team-img {
@@ -1183,11 +1188,13 @@ html, body {
 }
 
 .team .team-text {
-    position: relative;
-    padding: 25px 15px;
+    background: var(--bg-dark) !important; /* El azul brillante #0293e7 */
+    padding: 20px 10px;
     text-align: center;
-    background: var(--bg-dark); 
-    transition: .5s;
+    flex-grow: 1; /* <--- CLAVE: Estira el fondo azul para igualar alturas */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -1197,19 +1204,40 @@ html, body {
 }
 
 .team .team-text h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-main); /* Texto en blanco para contraste profesional */
-    transition: .5s;
+    /* clamp(mínimo, preferido, máximo) */
+    font-size: clamp(14px, 2vw, 18px); 
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    
+    /* Seguridad extra: evita que el nombre salte a 3 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.2;
 }
 
 .team .team-text p {
+    font-size: clamp(11px, 1.5vw, 13px);
+    color: var(--main-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Si el cargo es muy largo (ej: Ing. en Recursos Hídricos), lo limitamos */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     margin: 0;
-    color: var(--main-color); 
 }
 
 .team .team-item:hover .team-text {
-    background: var(--main-color); /* El bloque pasa a Azul ITZA */
+    /* 1. Cambiamos el fondo al color que pediste */
+    background: var(--main-color) !important; 
+    transition: 0.4s ease;
 }
 
 .team .team-item:hover .team-text h2 {
