@@ -34,30 +34,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 L.marker([sede.coords.lat, sede.coords.lng], { icon: itzaIcon }).addTo(mapa)
-                    .bindTooltip(sede.titulo, { permanent: true, direction: 'top', offset: [0, -32], className: 'itza-label-permanent' }).openTooltip();
+                    .bindTooltip(sede.titulo, { 
+                        permanent: true, direction: 'top', offset: [0, -32], className: 'itza-label-permanent' 
+                    }).openTooltip();
 
-                // CLONAMOS LA LÓGICA DEL MAPA DE PROYECTOS
-                const toggleFullscreen = (isEntering) => {
+                // FIX DEFINITIVO DE SCROLL
+                const toggleFullscreenUI = (isEntering) => {
                     if (isEntering) {
-                        posicionScrollOriginal = window.scrollY;
+                        // Capturamos antes de cualquier cambio en el body
+                        posicionScrollOriginal = window.pageYOffset || document.documentElement.scrollTop;
                         document.body.classList.add('map-is-fullscreen');
                         mapElement.classList.add('active-fullscreen');
                     } else {
+                        // Primero devolvemos la web a su estado normal
                         document.body.classList.remove('map-is-fullscreen');
                         mapElement.classList.remove('active-fullscreen');
-                        window.scrollTo(0, posicionScrollOriginal);
+
+                        // Esperamos a que el navegador "renderice" la altura de nuevo
+                        requestAnimationFrame(() => {
+                            window.scrollTo(0, posicionScrollOriginal);
+                        });
                     }
                     
-                    // Refresco de motor Leaflet
+                    // Martillazo para refrescar el mapa
                     setTimeout(() => { mapa.invalidateSize(); }, 300);
                 };
 
-                mapa.on('enterFullscreen', () => toggleFullscreen(true));
-                mapa.on('exitFullscreen', () => toggleFullscreen(false));
+                mapa.on('enterFullscreen', () => toggleFullscreenUI(true));
+                mapa.on('exitFullscreen', () => toggleFullscreenUI(false));
                 
-                // Refuerzo para PC
                 mapa.on('fullscreenchange', () => {
-                    if (!mapa.isFullscreen()) toggleFullscreen(false);
+                    if (!mapa.isFullscreen()) toggleFullscreenUI(false);
                 });
             });
         });
