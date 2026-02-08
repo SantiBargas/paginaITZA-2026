@@ -16,9 +16,50 @@
 
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://code.jquery.com https://stackpath.bootstrapcdn.com https://kit.fontawesome.com https://unpkg.com https://api.mapbox.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com https://unpkg.com https://api.mapbox.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://unpkg.com https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://api.mapbox.com; connect-src 'self' https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://region1.google-analytics.com https://www.google.com https://stackpath.bootstrapcdn.com https://unpkg.com; frame-src 'self' https://www.googletagmanager.com https://www.instagram.com https://www.google.com;">
     
-    <title>Contacto | ITZA Ingeniería Integral</title>
-    <meta name="description" content="Comunicate con ITZA Ingeniería. Realizá tu consulta técnica o pedido para proyectos en Paraná y Santa Fe.">
-    <link rel="canonical" href="https://santibargas.github.io/itza-lab/contact.html">
+    <title>Contacto y Presupuesto de Ingeniería | ITZA Ingeniería Integral</title>
+    <meta name="description" content="Solicitá presupuesto o consulta técnica en agrimensura, topografía, hidráulica, civil y ambiental. Atendemos Paraná, Santa Fe, Rosario y región.">
+    <link rel="canonical" href="https://santibargas.github.io/paginaITZA-2026/contact.html">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contacto y Presupuesto de Ingeniería | ITZA Ingeniería Integral">
+    <meta property="og:description" content="Consultas técnicas y presupuestos para proyectos de ingeniería. Paraná, Santa Fe, Rosario y región.">
+    <meta property="og:url" content="https://santibargas.github.io/paginaITZA-2026/contact.html">
+    <meta property="og:image" content="https://santibargas.github.io/paginaITZA-2026/imagenes/index/main-banner1_converted.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contacto y Presupuesto de Ingeniería | ITZA Ingeniería Integral">
+    <meta name="twitter:description" content="Consultas técnicas y presupuestos para proyectos de ingeniería. Paraná, Santa Fe, Rosario y región.">
+    <meta name="twitter:image" content="https://santibargas.github.io/paginaITZA-2026/imagenes/index/main-banner1_converted.webp">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "ITZA Ingenieria Integral",
+            "url": "https://santibargas.github.io/paginaITZA-2026/contact.html",
+            "image": "https://santibargas.github.io/paginaITZA-2026/imagenes/index/main-banner1_converted.webp",
+            "logo": "https://santibargas.github.io/paginaITZA-2026/imagenes/logo/logo-tr.png",
+            "telephone": "+54 343 5 066 172",
+            "email": "contacto@itza.com.ar",
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Pedro Balcar 233",
+                    "addressLocality": "Parana",
+                    "addressRegion": "Entre Rios",
+                    "addressCountry": "AR"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Rivadavia 2774",
+                    "addressLocality": "Santa Fe",
+                    "addressRegion": "Santa Fe",
+                    "addressCountry": "AR"
+                }
+            ],
+            "areaServed": ["Parana", "Santa Fe", "Rosario", "Entre Rios", "Santa Fe Province", "Córdoba", "Buenos Aires"],
+            "serviceType": ["Agrimensura", "Recursos Hídricos", "Topografía", "Ambiental", "Civil", "Simulación Hidráulica"],
+            "description": "ITZA Ingeniería Integral ofrece servicios de agrimensura, topografía, recursos hídricos, ambiental, civil y simulación hidráulica. Atendemos proyectos en Paraná, Santa Fe, Rosario y toda la región. Contactanos para consultas técnicas y presupuestos."
+        }
+    </script>
     <link rel="icon" href="imagenes/index/main-ico_converted.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +73,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-    <script src="js/head-loader.js"></script>
+    <script src="js/head-loader.js" defer></script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4Q99W75" height="0" width="0"
@@ -127,14 +168,14 @@
                                     <i class="flaticon-call" aria-hidden="true"></i>
                                     <div class="contact-text">
                                         <h2>Teléfono</h2>
-                                        <p>+54 343 5 066 172</p>
+                                        <p><a href="tel:+543435066172">+54 343 5 066 172</a></p>
                                     </div>
                                 </div>
                                 <div class="contact-item">
                                     <i class="flaticon-send-mail" aria-hidden="true"></i>
                                     <div class="contact-text">
                                         <h2>Email</h2>
-                                        <p>contacto@itza.com.ar</p>
+                                        <p><a href="mailto:contacto@itza.com.ar">contacto@itza.com.ar</a></p>
                                     </div>
                                 </div>
                             </div>
