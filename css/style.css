@@ -2433,30 +2433,34 @@ body.map-is-fullscreen {
 
 /* FIX: Solo bloqueamos el scroll lateral y vertical, pero NO forzamos altura */
 body.map-is-fullscreen {
-    overflow: hidden !important; 
-    /* Eliminamos height: 100% porque eso resetea el scroll a 0 */
+    overflow: hidden !important;
+    position: relative; /* Evita que la web 'desaparezca' de fondo */
 }
 
 /* El mapa se vuelve una capa flotante sobre toda la web */
 body.map-is-fullscreen .sede-map-frame.active-fullscreen {
     position: fixed !important;
-    top: 0 !important; 
-    left: 0 !important; 
-    width: 100vw !important; 
-    height: 100vh !important;
-    height: 100dvh !important; /* Fix para Safari en iPhone */
-    z-index: 9999999 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    
+    /* EL SECRETO: 100dvh se ajusta a las barras de Safari */
+    width: 100vw !important;
+    height: 100dvh !important; 
+    
+    z-index: 9999999 !important; /* Por encima de CUALQUER cosa */
+    margin: 0 !important;
     border-radius: 0 !important;
-    background: #333 !important;
+    background: white !important;
 }
 
 /* Ocultar elementos para que no se filtren por debajo o arriba */
-body.map-is-fullscreen .nav-bar, 
-body.map-is-fullscreen .top-bar, 
-body.map-is-fullscreen .btn-wsp, 
-body.map-is-fullscreen #itza-footer,
+body.map-is-fullscreen .nav-bar,
+body.map-is-fullscreen .top-bar,
+body.map-is-fullscreen .btn-wsp,
 body.map-is-fullscreen .page-header-area,
-body.map-is-fullscreen .section-divider {
+body.map-is-fullscreen #itza-footer {
     display: none !important;
 }
 /*******************************/
