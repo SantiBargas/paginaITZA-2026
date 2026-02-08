@@ -31,7 +31,7 @@
     
     <link rel="preload" as="image" fetchpriority="high" href="imagenes/index/main-banner1_converted.webp">
 
-    <script src="js/head-loader.js"></script>
+    <script src="js/head-loader.js" defer></script>
 </head>
     <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4Q99W75" height="0" width="0"
@@ -113,10 +113,13 @@
                     
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <video autoplay muted loop playsinline poster="imagenes/index/main-banner1_converted.webp" class="carousel-video">
-                                <source src="video/portada1.webm" type="video/webm">
-                                <source src="video/portada1.mp4" type="video/mp4">
-                            </video>
+                            <div class="carousel-media">
+                                <img class="carousel-image" src="imagenes/index/main-banner1_converted.webp" alt="Ingenieria integral" width="700" height="467" loading="eager" decoding="async" fetchpriority="high">
+                                <video autoplay muted loop playsinline preload="none" poster="imagenes/index/main-banner1_converted.webp" class="carousel-video">
+                                    <source media="(min-width: 992px)" src="video/portada1.webm" type="video/webm">
+                                    <source media="(min-width: 992px)" src="video/portada1.mp4" type="video/mp4">
+                                </video>
+                            </div>
                             <div class="video-overlay"></div>
                             <div class="carousel-caption">
                                 <p class="animated fadeInRight">Rentabilidad y Calidad en tus Proyectos</p>
@@ -126,9 +129,12 @@
                         </div>
 
                         <div class="carousel-item">
-                            <video autoplay muted loop playsinline poster="imagenes/index/main-avanzarProy_converted.webp" class="carousel-video">
-                                <source src="video/portada2.webm" type="video/webm">
-                            </video>
+                            <div class="carousel-media">
+                                <img class="carousel-image" src="imagenes/index/main-avanzarProy_converted.webp" alt="Hacemos avanzar tu proyecto" width="700" height="467" loading="lazy" decoding="async">
+                                <video autoplay muted loop playsinline preload="none" poster="imagenes/index/main-avanzarProy_converted.webp" class="carousel-video">
+                                    <source media="(min-width: 992px)" src="video/portada2.webm" type="video/webm">
+                                </video>
+                            </div>
                             <div class="video-overlay"></div>
                             <div class="carousel-caption">
                                 <p class="animated fadeInRight">Confiá en Nosotros</p>
@@ -138,9 +144,12 @@
                         </div>
 
                         <div class="carousel-item">
-                            <video autoplay muted loop playsinline poster="imagenes/index/main-avanzarProy_converted.webp" class="carousel-video">
-                                <source src="video/portada2.webm" type="video/webm">
-                            </video>
+                            <div class="carousel-media">
+                                <img class="carousel-image" src="imagenes/index/main-avanzarProy_converted.webp" alt="Profesionales especializados" width="700" height="467" loading="lazy" decoding="async">
+                                <video autoplay muted loop playsinline preload="none" poster="imagenes/index/main-avanzarProy_converted.webp" class="carousel-video">
+                                    <source media="(min-width: 992px)" src="video/portada2.webm" type="video/webm">
+                                </video>
+                            </div>
                             <div class="video-overlay"></div>
                             <div class="carousel-caption">
                                 <p class="animated fadeInRight">Tecnología e Innovación</p>
