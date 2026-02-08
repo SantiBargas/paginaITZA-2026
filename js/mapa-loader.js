@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const mapContainer = document.getElementById('mapa-proyectos');
     if (!mapContainer) return;
 
+    // Variable para evitar que la página "salte" al cerrar el mapa
+    let posicionScrollOriginal = 0;
+
     // 1. Inicializar el mapa
     const mapa = L.map('mapa-proyectos', {
         scrollWheelZoom: true,
@@ -16,44 +19,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const markersCluster = L.markerClusterGroup();
 
-    // --- BLINDAJE FULLSCREEN: Gestión de clases en el Body ---
-    mapa.on('enterFullscreen', () => {
+    // --- BLINDAJE FULLSCREEN + FIX DE SCROLL ---
+
+    const activarFullscreenUI = () => {
+        // Guardamos la posición exacta donde estaba el usuario
+        posicionScrollOriginal = window.scrollY;
         document.body.classList.add('map-is-fullscreen');
-    });
+        
+        // Pequeño delay para que el mapa recalcule su nuevo tamaño gigante
+        setTimeout(() => { mapa.invalidateSize(); }, 300);
+    };
 
-    mapa.on('exitFullscreen', () => {
+    const desactivarFullscreenUI = () => {
         document.body.classList.remove('map-is-fullscreen');
-    });
+        
+        // RESTAURAMOS EL SCROLL: Evita que el iPhone vuelva arriba de todo
+        window.scrollTo(0, posicionScrollOriginal);
+        
+        setTimeout(() => { mapa.invalidateSize(); }, 300);
+    };
 
-    // >>> AGREGAR ESTO AQUÍ: REFUERZO ESPECÍFICO PARA iOS (Safari) <<<
-    const checkFullscreen = () => {
-        if (mapContainer.classList.contains('leaflet-fullscreen-on')) {
-            document.body.classList.add('map-is-fullscreen');
+    // Eventos nativos del plugin
+    mapa.on('enterFullscreen', activarFullscreenUI);
+    mapa.on('exitFullscreen', desactivarFullscreenUI);
+
+    // Refuerzo para iOS y cambios de estado manuales
+    mapa.on('fullscreenchange', () => {
+        if (mapa.isFullscreen()) {
+            activarFullscreenUI();
         } else {
-            document.body.classList.remove('map-is-fullscreen');
-        }
-    };
-
-    // Escuchamos el cambio de estado del plugin
-    mapa.on('fullscreenchange', checkFullscreen);
-
-    // Click global para forzar la detección en iPhone
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.leaflet-control-fullscreen-button')) {
-            setTimeout(checkFullscreen, 100);
+            desactivarFullscreenUI();
         }
     });
-    // >>> FIN DEL REFUERZO iOS <<<
 
-
-    // Función para limpiar etiquetas HTML
-    const limpiarTexto = (html) => {
-        const tmp = document.createElement("DIV");
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || "";
-    };
-
-    // 3. Crear el Panel Lateral Interno
+    // 3. Crear el Panel Lateral Interno (Sidebar)
     const sidebar = L.control({ position: 'topright' });
     sidebar.onAdd = function() {
         const div = L.DomUtil.create('div', 'map-sidebar-overlay');
@@ -77,7 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
         this.innerText = panel.classList.contains('collapsed') ? 'Mostrar' : 'Ocultar';
     };
 
-    // 4. Cargar proyectos
+    // Función para limpiar etiquetas HTML
+    const limpiarTexto = (html) => {
+        const tmp = document.createElement("DIV");
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || "";
+    };
+
+    // 4. Cargar proyectos desde el JSON
     fetch('data/proyectos.json')
         .then(res => res.json())
         .then(proyectos => {
