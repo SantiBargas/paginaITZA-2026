@@ -906,10 +906,11 @@ html, body {
 
     /* 2. Título principal: Más grande y con mejor interlineado */
     .page-header-area h1 {
-        font-size: 42px !important; /* Subimos de 32px a 42px para mayor impacto */
-        line-height: 1.15;
-        letter-spacing: -1px;       /* Unimos un poco las letras para que no se desparramen */
-    }
+            /* Eliminamos el !important fijo y dejamos que el clamp trabaje, 
+            pero bajamos un poco la escala para que no desborde */
+            font-size: clamp(26px, 11vw, 40px);
+            letter-spacing: -1px; /* Unimos un poco las letras para ganar espacio */
+        }
 
     /* 3. Subtítulo: Más legible y presente */
     .page-header-area h2 {
