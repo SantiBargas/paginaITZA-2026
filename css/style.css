@@ -2271,6 +2271,30 @@ html, body {
     font-size: 18px;
 }
 
+/* 1. Forzamos al contenedor del mapa a estar por encima de ABSOLUTAMENTE TODO */
+.leaflet-container.leaflet-fullscreen-on {
+    z-index: 99999 !important;
+}
+
+/* 2. Bajamos la prioridad de los elementos globales cuando el mapa está expandido */
+/* Usamos el selector de hermano o descendiente según tu estructura */
+.leaflet-fullscreen-on ~ .btn-wsp,
+.leaflet-fullscreen-on ~ .nav-bar,
+.leaflet-fullscreen-on ~ .top-bar {
+    z-index: 1 !important;
+    display: none !important; /* Recomendado: los ocultamos para que no estorben la navegación hídrica */
+}
+
+/* 3. Ajuste para el sidebar interno que creaste en el JS */
+.map-sidebar-overlay {
+    z-index: 1000 !important; /* Asegura que la lista de obras esté sobre el mapa pero bajo los controles */
+}
+
+/* 4. Fix para navegadores móviles que usan el API nativo de Fullscreen */
+:fullscreen, ::-webkit-full-screen, :ms-fullscreen {
+    z-index: 99999 !important;
+}
+
 /*******************************/
 /********* MAPAS ITZA *********/
 /*******************************/
