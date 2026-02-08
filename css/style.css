@@ -2344,17 +2344,19 @@ html, body {
 /* --- BLINDAJE FULLSCREEN ITZA (Especial para iPhone) --- */
 
 body.map-is-fullscreen #mapa-proyectos {
-    /* 1. Lo sacamos del flujo de la página para que flote sobre todo */
     position: fixed !important;
+    
+    /* Clavamos las 4 esquinas para que no quede ni un pixel blanco */
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;
+    right: 0 !important;
+    bottom: 0 !important;
     
-    /* 2. dynamic viewport height: se ajusta si aparece/desaparece la barra de Safari */
-    height: 100vh !important; 
+    /* Refuerzo de altura dinámica para Safari */
+    width: 100vw !important;
     height: 100dvh !important; 
     
-    z-index: 99999 !important;
+    z-index: 999999 !important; 
     margin: 0 !important;
     border-radius: 0 !important;
 }
