@@ -618,21 +618,22 @@ a:focus {
     aspect-ratio: 16/9;
 }
 
+/* Mantenemos tu estructura de items y videos */
 .carousel .carousel-inner,
 .carousel .carousel-item {
     position: relative;
     width: 100%;
     height: 100%;
-    aspect-ratio: 16/9;
 }
 
+.carousel .carousel-item video,
 .carousel .carousel-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 16/9;
 }
 
+/* Overlay para asegurar legibilidad del texto blanco */
 .carousel .carousel-item::after {
     position: absolute;
     content: "";
@@ -640,108 +641,102 @@ a:focus {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .5); /* Subimos un poco el contraste */
     z-index: 1;
 }
 
 .carousel .carousel-caption {
     position: absolute;
     inset: 0;
-    top: 0;
-    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: calc(100vh - 170px);
-    min-height: 400px;
-    padding: 0 1rem;
+    padding: 0 30px;
     pointer-events: none;
+    z-index: 2;
+    /* Agregamos un pequeño padding inferior para levantarlo visualmente */
+    padding-bottom: 50px; 
 }
+
+/* --- ESTILO PAGE HEADER APLICADO AL CAROUSEL --- */
 
 .carousel .carousel-caption p {
     color: var(--text-main);
-    font-size: 30px;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+    font-weight: 400; /* Peso normal para que no compita */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px; /* Menos separación */
+    /* Reducimos el rango de tamaño: de 16px a 22px */
+    font-size: clamp(16px, 3vw, 22px); 
 }
 
 .carousel .carousel-caption h1 {
     color: var(--text-main);
-    font-size: 60px;
-    font-weight: 700;
-    margin-bottom: 35px;
+    font-weight: 700; /* Bajamos de 800 a 700 */
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 25px; /* Menos separación con el botón */
+    /* Reducimos drásticamente el tamaño máximo: de 34px a 56px */
+    font-size: clamp(28px, 5vw, 56px);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra más suave */
 }
 
 .carousel .carousel-caption .btn {
-    padding: 15px 35px;
-    font-size: 18px;
-    font-weight: 500;
+    padding: 12px 30px; /* Reducimos el "aire" interno */
+    font-size: 15px;    /* Un poco más chico */
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--text-main);
     background: transparent;
     border: 2px solid var(--text-main);
-    border-radius: 0;
+    border-radius: 4px;
     transition: .3s;
     pointer-events: auto;
 }
 
 .carousel .carousel-caption .btn:hover {
-    color: var(--surface-dark);
-    background: var(--main-color);
-    border-color: var(--main-color);
+    color: var(--main-color);
+    background: var(--text-main);
+    border-color: var(--text-main);
 }
 
-@media (max-width: 767.98px) {
-    .carousel .carousel-caption h1 {
-        font-size: 40px;
-        font-weight: 700;
-    }
-    
-    .carousel .carousel-caption p {
-        font-size: 20px;
-    }
-    
-    .carousel .carousel-caption .btn {
-        padding: 12px 30px;
-        font-size: 18px;
-        font-weight: 500;
-        letter-spacing: 0;
-    }
-}
+/* --- AJUSTES ESPECÍFICOS PARA MÓVILES (Impacto ITZA) --- */
 
 @media (max-width: 575.98px) {
     .carousel .carousel-caption h1 {
-        font-size: 30px;
-        font-weight: 500;
+        /* Bajamos el tamaño fijo en móvil de 42px a 32px */
+        font-size: 32px !important; 
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+        margin-bottom: 20px;
     }
     
     .carousel .carousel-caption p {
-        font-size: 16px;
+        /* Bajamos de 20px a 16px */
+        font-size: 16px !important;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
     }
     
     .carousel .carousel-caption .btn {
-        padding: 10px 25px;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0;
+        /* Botón más pequeño y delicado en móvil */
+        padding: 10px 24px;
+        font-size: 13px;
+        border-width: 1.5px; /* Borde más fino */
     }
 }
 
+/* Animaciones */
 .carousel .animated {
     -webkit-animation-duration: 1.5s;
     animation-duration: 1.5s;
 }
 
-/* Separación de flechas de navegación */
-.carousel-control-prev,
-.carousel-control-next {
-    padding: 0 40px;
-}
-
 /*******************************/
-/******* Page Header CSS *******/
+/******** PAGE HEADER CSS ********/
 /*******************************/
 
 /* Reset básico para evitar bordes y scroll lateral */
@@ -902,9 +897,32 @@ html, body {
 }
 
 /* Ajustes móviles */
+
 @media (max-width: 480px) {
+    /* 1. Reducimos el padding lateral para ganar espacio de texto */
     .page-header-area {
-        padding: 100px 15px 80px;
+        padding: 90px 25px 70px; 
+    }
+
+    /* 2. Título principal: Más grande y con mejor interlineado */
+    .page-header-area h1 {
+        font-size: 42px !important; /* Subimos de 32px a 42px para mayor impacto */
+        line-height: 1.15;
+        letter-spacing: -1px;       /* Unimos un poco las letras para que no se desparramen */
+    }
+
+    /* 3. Subtítulo: Más legible y presente */
+    .page-header-area h2 {
+        font-size: 22px !important; /* Subimos de 16px a 22px */
+        line-height: 1.4;
+        margin-bottom: 20px;
+        font-weight: 400;           /* Le damos un pelín más de peso visual */
+    }
+
+    /* 4. Ajuste de la línea decorativa */
+    .header-divider {
+        width: 60px;                /* La hacemos un poco más corta para pantallas angostas */
+        margin-bottom: 20px;
     }
 }
 
@@ -1727,13 +1745,6 @@ html, body {
     color: var(--bg-dark);
 }
 
-/* 1. Contenedor con Azul ITZA */
-.page-header-area {
-    background: #0293e7 !important;
-    padding: 120px 0;
-    position: relative;
-    overflow: hidden; /* Clave para que el texto no se vea "viniendo" de afuera */
-}
 
 /* Keyframes para portfolio */
 @keyframes portfolioSlideDown {
