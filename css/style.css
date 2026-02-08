@@ -204,27 +204,7 @@ body {
     object-fit: cover;
 }
 
-/* =========================================
-   MENU SCROLL (Sticky Navbar)
-   ========================================= */
 
-.nav-bar {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-.nav-sticky {
-    width: 100% !important;
-    max-width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: 0 !important;
-}
-.nav-bar .container,
-.nav-bar .container-fluid {
-    max-width: 100% !important;
-    width: 100% !important;
-
-}
 
 /* =========================================
     BOTÓN FLOTANTE DE WHATSAPP - ITZA
