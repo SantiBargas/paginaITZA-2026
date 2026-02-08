@@ -2407,68 +2407,58 @@ body.map-is-fullscreen {
 /********* MAPAS Y SEDES ITZA - CSS **********/
 /*******************************************/
 
-/* 1. TARJETAS Y BASE */
-.sede-card { background: white; width: 100%; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); }
-.sede-card-header { background: #002d4b; color: white; padding: 15px 20px; font-weight: 700; text-transform: uppercase; min-height: 60px; display: flex; align-items: center; justify-content: space-between; }
-.sede-map-frame { height: 350px; width: 100%; z-index: 1; background-color: #f0f0f0; }
+/* 1. TARJETAS DE SEDES */
+.sede-card { background: white; width: 100%; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); height: 100%; transition: transform 0.3s; }
+.sede-card:hover { transform: translateY(-5px); }
+.sede-card-header { background: #002d4b; color: white; padding: 15px 20px; font-weight: 700; text-transform: uppercase; min-height: 60px; display: flex; align-items: center; }
+.sede-map-frame { height: 350px; width: 100%; z-index: 1; background-color: #333 !important; } /* Fondo gris oscuro para detectar carga */
+.sede-card-footer { padding: 15px 20px; background: #002d4b; font-size: 13px; color: white; border-top: 1px solid #eee; }
+.sede-card-footer i { color: #ffce00; margin-right: 8px; }
 
-/* 2. ETIQUETAS */
-.itza-label-permanent { background-color: #002d4b !important; color: white !important; border: 2px solid #ffce00 !important; border-radius: 4px !important; padding: 5px 12px !important; font-weight: 700 !important; text-transform: uppercase !important; white-space: nowrap !important; }
+/* 2. ETIQUETAS PERMANENTES ("Lindo Formato") */
+.itza-label-permanent {
+    background-color: #002d4b !important;
+    color: white !important;
+    border: 2px solid #ffce00 !important;
+    border-radius: 4px !important;
+    padding: 5px 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+    white-space: nowrap !important;
+}
+.itza-label-permanent::before { border-top-color: #ffce00 !important; }
 
-/* 3. FIX PANTALLA BLANCA (PC NATIVO) */
-
-/* Forzamos al contenedor que el navegador pone en fullscreen */
-.leaflet-container:-webkit-full-screen,
-.leaflet-container:fullscreen,
+/* 3. FIX PANTALLA BLANCA PC (Nativo) */
+.sede-map-frame:fullscreen, 
 .sede-map-frame:-webkit-full-screen,
-.sede-map-frame:fullscreen {
+.leaflet-container:fullscreen {
     width: 100vw !important;
     height: 100vh !important;
-    z-index: 999999 !important;
+    background-color: #333 !important;
+    display: flex !important;
 }
-
-/* Forzamos al mapa interno a estirarse sí o sí */
 .leaflet-container.leaflet-fullscreen-on {
     width: 100% !important;
     height: 100% !important;
+    position: absolute !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-/* 4. BLINDAJE MÓVIL (iOS/Android) */
-body.map-is-fullscreen { overflow: hidden !important; }
-
+/* 4. BLINDAJE MÓVIL (Falso Fullscreen iOS/Android) */
+body.map-is-fullscreen { overflow: hidden !important; touch-action: none; }
 body.map-is-fullscreen .sede-map-frame.active-fullscreen {
     position: fixed !important;
     top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
+    width: 100vw !important; height: 100dvh !important;
     z-index: 9999999 !important;
     border-radius: 0 !important;
+    background: white !important;
 }
-
-body.map-is-fullscreen .nav-bar, 
-body.map-is-fullscreen .top-bar, 
-body.map-is-fullscreen .btn-wsp, 
-body.map-is-fullscreen #itza-footer {
+body.map-is-fullscreen .nav-bar, body.map-is-fullscreen .top-bar, 
+body.map-is-fullscreen .btn-wsp, body.map-is-fullscreen #itza-footer {
     display: none !important;
-}
-
-/* PARCHE DE EMERGENCIA: FUERZA EL FONDO Y EL TAMAÑO */
-.leaflet-container {
-    background-color: #f0f0f0 !important; /* Si ves gris, el mapa cargó pero faltan las imágenes */
-}
-
-/* Fuerza el renderizado de las imágenes del mapa en Fullscreen */
-.leaflet-fullscreen-on .leaflet-tile-pane {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* Si el blanco es total, es que el alto es 0. Forzamos el alto en el ancestro */
-:fullscreen, ::-webkit-full-screen, :ms-fullscreen {
-    height: 100vh !important;
-    width: 100vw !important;
-    display: block !important;
 }
 
 /*******************************/
