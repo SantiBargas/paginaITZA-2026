@@ -2285,17 +2285,12 @@ html, body {
 
 /* Estado contraído de la lista */
 .map-sidebar-overlay.collapsed {
-    /* 1. Sincronizamos con los 60px de la cabecera para que no corte nada */
+    /* Sincronizamos con la altura de la cabecera (60px) */
     max-height: 60px !important; 
-    
-    /* 2. Mantenemos el ancho para que el texto no salte de línea */
     width: 280px !important; 
-    
-    /* 3. Evitamos cualquier recorte accidental */
-    overflow: hidden !important; 
+    overflow: hidden !important;
 }
-
-.map-sidebar-header {
+/*.map-sidebar-header {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
@@ -2305,6 +2300,12 @@ html, body {
     color: white !important;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}*/
+
+.map-sidebar-header {
+    min-height: 60px !important;
+    padding: 0 15px !important;
+    background: #002d4b !important; /* Azul ITZA */
 }
 
 .map-sidebar-header span {
@@ -2313,6 +2314,19 @@ html, body {
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
 }
+
+/*.toggle-sidebar-btn {
+    background: #ffce00 !important; 
+    color: #002d4b !important;      
+    border: none !important;
+    padding: 6px 12px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}*/
+
 .toggle-sidebar-btn {
     background: var(--main-color);
     border: none;
@@ -2404,6 +2418,26 @@ body.map-is-fullscreen .map-sidebar-overlay {
         margin-right: 5px;
     }
 }
+
+/* --- ESCUDO ANTI-MENÚ iOS --- */
+
+/* Si el mapa tiene la clase de pantalla completa (nativo o plugin) */
+.leaflet-fullscreen-on,
+.leaflet-container.leaflet-fullscreen-on {
+    z-index: 999999 !important;
+    position: fixed !important;
+    inset: 0 !important;
+}
+
+/* Forzamos la desaparición del Menú y WhatsApp en iOS */
+body.map-is-fullscreen .nav-bar,
+body.map-is-fullscreen .top-bar,
+body.map-is-fullscreen .btn-wsp {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    display: none !important;
+}
+
 /*******************************/
 /********* MAPAS ITZA *********/
 /*******************************/

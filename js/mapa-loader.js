@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const mapContainer = document.getElementById('mapa-proyectos');
     if (!mapContainer) return;
 
-    // 1. Inicializar el mapa con scroll activo y control de pantalla completa
+    // 1. Inicializar el mapa
     const mapa = L.map('mapa-proyectos', {
         scrollWheelZoom: true,
         fullscreenControl: true,
         fullscreenControlOptions: { position: 'topleft' }
     }).setView([-31.74, -60.51], 7);
 
-    // 2. Capa de fondo (OpenStreetMap)
+    // 2. Capa de fondo
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(mapa);
@@ -25,7 +25,28 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.remove('map-is-fullscreen');
     });
 
-    // Función para limpiar etiquetas HTML de los títulos del JSON
+    // >>> AGREGAR ESTO AQUÍ: REFUERZO ESPECÍFICO PARA iOS (Safari) <<<
+    const checkFullscreen = () => {
+        if (mapContainer.classList.contains('leaflet-fullscreen-on')) {
+            document.body.classList.add('map-is-fullscreen');
+        } else {
+            document.body.classList.remove('map-is-fullscreen');
+        }
+    };
+
+    // Escuchamos el cambio de estado del plugin
+    mapa.on('fullscreenchange', checkFullscreen);
+
+    // Click global para forzar la detección en iPhone
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.leaflet-control-fullscreen-button')) {
+            setTimeout(checkFullscreen, 100);
+        }
+    });
+    // >>> FIN DEL REFUERZO iOS <<<
+
+
+    // Función para limpiar etiquetas HTML
     const limpiarTexto = (html) => {
         const tmp = document.createElement("DIV");
         tmp.innerHTML = html;
@@ -49,14 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     sidebar.addTo(mapa);
 
-    // Lógica del botón Ocultar/Mostrar de la lista lateral
+    // Lógica del botón Ocultar/Mostrar
     document.getElementById('btn-toggle-list').onclick = function() {
         const panel = document.querySelector('.map-sidebar-overlay');
         panel.classList.toggle('collapsed');
         this.innerText = panel.classList.contains('collapsed') ? 'Mostrar' : 'Ocultar';
     };
 
-    // 4. Cargar proyectos y generar interacción desde el JSON
+    // 4. Cargar proyectos
     fetch('data/proyectos.json')
         .then(res => res.json())
         .then(proyectos => {
@@ -66,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (proy.coords) {
                     const tituloLimpio = limpiarTexto(proy.titulo);
 
-                    // Diseño de la Tarjeta Detallada (Popup)
                     const popupContent = `
                         <div style="width: 220px; font-family: 'Poppins', sans-serif; padding: 5px;">
                             <img src="${proy.imagen}" style="width:100%; border-radius:8px; margin-bottom:10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
@@ -81,22 +101,18 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     `;
 
-                    // Crear marcador y vincular popup
                     const marker = L.marker([proy.coords.lat, proy.coords.lng]);
                     marker.bindPopup(popupContent);
                     markersCluster.addLayer(marker);
 
-                    // Crear ítem en la lista lateral
                     const item = document.createElement('div');
                     item.className = 'map-project-item';
                     item.innerHTML = `<h6>${tituloLimpio}</h6><span>${proy.ubicacion}</span>`;
 
-                    // Acción al hacer clic: Vuelo suave + Apertura de tarjeta
                     item.onclick = () => {
                         mapa.flyTo([proy.coords.lat, proy.coords.lng], 15, {
                             duration: 1.5
                         });
-                        // Esperar a que termine el movimiento para abrir la tarjeta
                         setTimeout(() => marker.openPopup(), 1600);
                     };
                     
