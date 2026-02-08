@@ -2362,79 +2362,35 @@ html, body {
     color: #666;
 }
 
-/* 3. BLINDAJE DE PANTALLA COMPLETA (MODO CELULAR) */
 
-/* Clase maestra en el Body (activada por el JS) */
-body.map-is-fullscreen {
-    overflow: hidden !important; /* Bloquea el scroll de la web */
-}
 
-/* Forzamos al mapa a ocupar TODO el espacio */
+/* --- BLINDAJE FULLSCREEN ITZA (Especial para iPhone) --- */
+
 body.map-is-fullscreen #mapa-proyectos {
+    /* 1. Lo sacamos del flujo de la página para que flote sobre todo */
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
-    height: 100vh !important;
+    
+    /* 2. dynamic viewport height: se ajusta si aparece/desaparece la barra de Safari */
+    height: 100vh !important; 
+    height: 100dvh !important; 
+    
     z-index: 99999 !important;
-    border-radius: 0;
-    margin: 0;
+    margin: 0 !important;
+    border-radius: 0 !important;
 }
 
-/* Ocultamos elementos molestos que tapan el mapa */
-body.map-is-fullscreen .top-bar,
-body.map-is-fullscreen .nav-bar,
-body.map-is-fullscreen .btn-wsp,
+/* 3. Ocultamos el botón de "Cargar más" y cualquier otra fila que ande dando vueltas */
+body.map-is-fullscreen .row,
+body.map-is-fullscreen .portfolio,
+body.map-is-fullscreen .section-divider,
+body.map-is-fullscreen .page-header-area,
 body.map-is-fullscreen #itza-footer,
-body.map-is-fullscreen .section-divider {
-    display: none !important;
-    visibility: hidden !important;
-}
-
-/* Aseguramos que el sidebar interno sea visible sobre el fullscreen */
-body.map-is-fullscreen .map-sidebar-overlay {
-    z-index: 100000 !important;
-    max-height: 70vh; /* Para que no tape toda la pantalla en vertical */
-}
-
-/* 4. AJUSTES FINOS DE LEAFLET */
-.leaflet-popup-content-wrapper {
-    border-radius: 8px;
-    padding: 0;
-}
-
-.leaflet-popup-content {
-    margin: 0;
-}
-
-/* Fix para navegadores que usan Fullscreen nativo */
-:fullscreen, ::-webkit-full-screen, :ms-fullscreen {
-    z-index: 99999 !important;
-}
-
-@media (max-width: 768px) {
-    .map-sidebar-overlay {
-        width: 220px;
-        margin-right: 5px;
-    }
-}
-
-/* --- ESCUDO ANTI-MENÚ iOS --- */
-
-/* Si el mapa tiene la clase de pantalla completa (nativo o plugin) */
-.leaflet-fullscreen-on,
-.leaflet-container.leaflet-fullscreen-on {
-    z-index: 999999 !important;
-    position: fixed !important;
-    inset: 0 !important;
-}
-
-/* Forzamos la desaparición del Menú y WhatsApp en iOS */
 body.map-is-fullscreen .nav-bar,
 body.map-is-fullscreen .top-bar,
 body.map-is-fullscreen .btn-wsp {
-    opacity: 0 !important;
-    pointer-events: none !important;
     display: none !important;
 }
 
