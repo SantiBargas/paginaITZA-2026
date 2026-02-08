@@ -2285,22 +2285,22 @@ html, body {
 
 /* Estado contraído de la lista */
 .map-sidebar-overlay.collapsed {
-    max-height: 45px;
-    width: 150px;
+    /* 1. Sincronizamos con los 60px de la cabecera para que no corte nada */
+    max-height: 60px !important; 
+    
+    /* 2. Mantenemos el ancho para que el texto no salte de línea */
+    width: 280px !important; 
+    
+    /* 3. Evitamos cualquier recorte accidental */
+    overflow: hidden !important; 
 }
 
 .map-sidebar-header {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    
-    /* 1. AGRANDAMOS: Subimos el padding vertical de 0 a 12px o 15px */
     padding: 12px 15px !important; 
-    
-    /* 2. ALTURA: Aumentamos la base para que el contenedor respire */
     min-height: 60px !important; 
-
-    /* Mantenemos tus colores de ITZA */
     background: #002d4b !important;
     color: white !important;
     border-top-left-radius: 8px;
@@ -2308,7 +2308,6 @@ html, body {
 }
 
 .map-sidebar-header span {
-    /* Ajuste de fuente para que no quede "chico" en una cabecera más grande */
     font-size: 12px !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
