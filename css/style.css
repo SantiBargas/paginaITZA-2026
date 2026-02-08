@@ -1450,6 +1450,97 @@ html, body {
     margin: 0;
 }
 
+/*******************************************/
+/******* BARRA DIVISORA SECCION CSS *******/
+/*******************************************/
+
+.section-divider {
+    background: var(--bg-dark) !important;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.divider-container {
+    width: 100%;
+    /* Reducimos de 1100px a 800px para un look más centrado y premium */
+    max-width: 800px; 
+    padding: 0 30px;
+    text-align: center;
+}
+
+.divider-subtitle {
+    color: var(--main-color) !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    font-size: clamp(13px, 2vw, 15px);
+}
+
+.divider-title {
+    color: var(--text-main) !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0 auto 20px;
+    max-width: 750px; /* Ajustamos para que combine con el contenedor */
+    font-size: clamp(26px, 5vw, 48px);
+    hyphens: none !important;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.divider-line {
+    width: 80px;
+    height: 4px;
+    background: var(--main-color);
+    margin: 0 auto 25px;
+}
+
+/* Descripción en Mayúsculas y más compacta */
+.divider-description {
+    color: var(--main-color) !important;
+    max-width: 550px; /* Un poco más angosto para forzar el salto de línea elegante */
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: clamp(12px, 1.5vw, 15px);
+    font-weight: 600; /* Un poco más de peso para las mayúsculas */
+    
+    /* CONFIGURACIÓN SOLICITADA */
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Espaciado extra para que las mayúsculas "respiren" */
+}
+
+/* AJUSTES PARA MÓVILES */
+@media (max-width: 767.98px) {
+    .section-divider {
+        padding: 60px 0;
+    }
+    
+    .divider-container {
+        padding: 0 25px;
+    }
+
+    .divider-title {
+        font-size: 26px !important;
+        letter-spacing: -0.5px;
+    }
+
+    .divider-description {
+        font-size: 11px !important;
+        letter-spacing: 1px;
+    }
+}
+
 /*******************************/
 /******* Testimonial CSS *******/
 /*******************************/
