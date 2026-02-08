@@ -16,6 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const markersCluster = L.markerClusterGroup();
 
+    // --- BLINDAJE FULLSCREEN: Gestión de clases en el Body ---
+    mapa.on('enterFullscreen', () => {
+        document.body.classList.add('map-is-fullscreen');
+    });
+
+    mapa.on('exitFullscreen', () => {
+        document.body.classList.remove('map-is-fullscreen');
+    });
+
     // Función para limpiar etiquetas HTML de los títulos del JSON
     const limpiarTexto = (html) => {
         const tmp = document.createElement("DIV");
@@ -40,14 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     sidebar.addTo(mapa);
 
-    // Lógica del botón Ocultar/Mostrar
+    // Lógica del botón Ocultar/Mostrar de la lista lateral
     document.getElementById('btn-toggle-list').onclick = function() {
         const panel = document.querySelector('.map-sidebar-overlay');
         panel.classList.toggle('collapsed');
         this.innerText = panel.classList.contains('collapsed') ? 'Mostrar' : 'Ocultar';
     };
 
-    // 4. Cargar proyectos y generar interacción
+    // 4. Cargar proyectos y generar interacción desde el JSON
     fetch('data/proyectos.json')
         .then(res => res.json())
         .then(proyectos => {

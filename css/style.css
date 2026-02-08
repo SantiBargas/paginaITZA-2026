@@ -2237,64 +2237,174 @@ html, body {
     }
 }
 
-/*******************************/
-/********* MAPA PROYECTO CSS **********/
-/*******************************/
+
+/*******************************************/
+/********* MAPA PROYECTOS ITZA - CSS **********/
+/*******************************************/
+
+/* 1. ESTILOS DEL CONTENEDOR Y PLACEHOLDER */
+#mapa-proyectos {
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+    z-index: 1; /* Nivel base */
+}
+
 .mapa-placeholder {
-    background-color: #f8f9fa; /* Gris muy claro */
-    border: 2px dashed var(--border-light); /* Borde punteado */
+    background-color: #f8f9fa;
+    border: 2px dashed var(--main-color);
     border-radius: 15px;
     padding: 60px 20px;
     text-align: center;
     transition: 0.3s;
 }
 
-.mapa-placeholder:hover {
-    background-color: var(--bg-muted);
-    border-color: var(--main-color); /* Cambia al azul #0293e7 al pasar el mouse */
-}
-
 .mensaje-mapa i {
     font-size: 50px;
-    color: var(--main-color); /* Usa tu azul #0293e7 */
+    color: var(--main-color);
     margin-bottom: 20px;
 }
 
-.mensaje-mapa h3 {
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-}
-
-.mensaje-mapa p {
-    color: var(--text-muted);
-    font-size: 18px;
-}
-
-/* 1. Forzamos al contenedor del mapa a estar por encima de ABSOLUTAMENTE TODO */
-.leaflet-container.leaflet-fullscreen-on {
-    z-index: 99999 !important;
-}
-
-/* 2. Bajamos la prioridad de los elementos globales cuando el mapa está expandido */
-/* Usamos el selector de hermano o descendiente según tu estructura */
-.leaflet-fullscreen-on ~ .btn-wsp,
-.leaflet-fullscreen-on ~ .nav-bar,
-.leaflet-fullscreen-on ~ .top-bar {
-    z-index: 1 !important;
-    display: none !important; /* Recomendado: los ocultamos para que no estorben la navegación hídrica */
-}
-
-/* 3. Ajuste para el sidebar interno que creaste en el JS */
+/* 2. PANEL LATERAL INTERNO (SIDEBAR) */
 .map-sidebar-overlay {
-    z-index: 1000 !important; /* Asegura que la lista de obras esté sobre el mapa pero bajo los controles */
+    background: white;
+    width: 280px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1000 !important;
 }
 
-/* 4. Fix para navegadores móviles que usan el API nativo de Fullscreen */
+/* Estado contraído de la lista */
+.map-sidebar-overlay.collapsed {
+    max-height: 45px;
+    width: 150px;
+}
+
+.map-sidebar-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    
+    /* 1. AGRANDAMOS: Subimos el padding vertical de 0 a 12px o 15px */
+    padding: 12px 15px !important; 
+    
+    /* 2. ALTURA: Aumentamos la base para que el contenedor respire */
+    min-height: 60px !important; 
+
+    /* Mantenemos tus colores de ITZA */
+    background: #002d4b !important;
+    color: white !important;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.map-sidebar-header span {
+    /* Ajuste de fuente para que no quede "chico" en una cabecera más grande */
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+.toggle-sidebar-btn {
+    background: var(--main-color);
+    border: none;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+/* Ítems de la lista */
+.map-project-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.map-project-item:hover {
+    background: #f0f7ff;
+}
+
+.map-project-item h6 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--bg-dark);
+    text-transform: uppercase;
+}
+
+.map-project-item span {
+    font-size: 11px;
+    color: #666;
+}
+
+/* 3. BLINDAJE DE PANTALLA COMPLETA (MODO CELULAR) */
+
+/* Clase maestra en el Body (activada por el JS) */
+body.map-is-fullscreen {
+    overflow: hidden !important; /* Bloquea el scroll de la web */
+}
+
+/* Forzamos al mapa a ocupar TODO el espacio */
+body.map-is-fullscreen #mapa-proyectos {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 99999 !important;
+    border-radius: 0;
+    margin: 0;
+}
+
+/* Ocultamos elementos molestos que tapan el mapa */
+body.map-is-fullscreen .top-bar,
+body.map-is-fullscreen .nav-bar,
+body.map-is-fullscreen .btn-wsp,
+body.map-is-fullscreen #itza-footer,
+body.map-is-fullscreen .section-divider {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Aseguramos que el sidebar interno sea visible sobre el fullscreen */
+body.map-is-fullscreen .map-sidebar-overlay {
+    z-index: 100000 !important;
+    max-height: 70vh; /* Para que no tape toda la pantalla en vertical */
+}
+
+/* 4. AJUSTES FINOS DE LEAFLET */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    padding: 0;
+}
+
+.leaflet-popup-content {
+    margin: 0;
+}
+
+/* Fix para navegadores que usan Fullscreen nativo */
 :fullscreen, ::-webkit-full-screen, :ms-fullscreen {
     z-index: 99999 !important;
 }
 
+@media (max-width: 768px) {
+    .map-sidebar-overlay {
+        width: 220px;
+        margin-right: 5px;
+    }
+}
 /*******************************/
 /********* MAPAS ITZA *********/
 /*******************************/
