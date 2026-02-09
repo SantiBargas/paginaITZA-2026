@@ -21,25 +21,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- BLINDAJE FULLSCREEN EXCLUSIVO PROYECTOS ---
 
-    const activarFullscreenUI = () => {
+    // Centralizamos el toggle para fullscreen (aplica clase + ocultamiento inline de elementos problemáticos)
+    const toggleFS = (isEntering) => {
         posicionScrollOriginal = window.scrollY;
-        // Usamos la clase exclusiva que definimos en el CSS
-        document.body.classList.add('proyectos-fs-active'); 
-        
+        if (isEntering) {
+            document.body.classList.add('proyectos-fs-active');
+        } else {
+            document.body.classList.remove('proyectos-fs-active');
+            // Restauramos el scroll en iPhone
+            requestAnimationFrame(() => window.scrollTo(0, posicionScrollOriginal));
+        }
+
+        // Forzar ocultamiento de elementos que a veces quedan por encima en iOS
+        const toHide = document.querySelectorAll('.btn-wsp, .nav-bar, .top-bar, #itza-footer, .page-header-area, .navbar-collapse, .navbar-collapse.show, .navbar-toggler, .navbar-nav, .collapse.show, .dropdown-menu.show');
+        toHide.forEach(el => {
+            if (isEntering) {
+                el.dataset._prevDisplay = el.style.display || '';
+                el.style.display = 'none';
+                el.style.visibility = 'hidden';
+            } else {
+                if (el.dataset._prevDisplay !== undefined) el.style.display = el.dataset._prevDisplay;
+                el.style.visibility = '';
+                delete el.dataset._prevDisplay;
+            }
+        });
+
         setTimeout(() => { mapa.invalidateSize(); }, 300);
     };
 
-    const desactivarFullscreenUI = () => {
-        document.body.classList.remove('proyectos-fs-active');
-        
-        // RESTAURAMOS EL SCROLL: Fix vital para iPhone
-        window.scrollTo(0, posicionScrollOriginal);
-        
-        setTimeout(() => { mapa.invalidateSize(); }, 300);
-    };
+    mapa.on('enterFullscreen', () => toggleFS(true));
+    mapa.on('exitFullscreen', () => toggleFS(false));
 
-    mapa.on('enterFullscreen', activarFullscreenUI);
-    mapa.on('exitFullscreen', desactivarFullscreenUI);
+    // Observador de clase en el contenedor del mapa para detectar fullscreen cuando el plugin no dispara eventos (iOS)
+    const mapContainerEl = mapa.getContainer();
+    try {
+        const mo = new MutationObserver(() => {
+            const isFs = mapContainerEl.classList.contains('leaflet-fullscreen-on');
+            if (isFs && !document.body.classList.contains('proyectos-fs-active')) toggleFS(true);
+            if (!isFs && document.body.classList.contains('proyectos-fs-active')) toggleFS(false);
+        });
+        mo.observe(mapContainerEl, { attributes: true, attributeFilter: ['class'] });
+    } catch (e) {
+        document.addEventListener('fullscreenchange', () => {
+            const isFs = !!(document.fullscreenElement);
+            if (isFs) toggleFS(true); else toggleFS(false);
+        });
+    }
+
+    // Listener extra en el botón de fullscreen del control (si existe) para forzar toggle
+    const fsBtn = mapContainerEl.querySelector('.leaflet-control-fullscreen-button, .leaflet-control-fullscreen a, .leaflet-control-fullscreen');
+    if (fsBtn) {
+        fsBtn.addEventListener('click', () => {
+            const active = document.body.classList.contains('proyectos-fs-active');
+            toggleFS(!active);
+            setTimeout(() => {
+                const pluginOn = mapContainerEl.classList.contains('leaflet-fullscreen-on');
+                if (pluginOn && !document.body.classList.contains('proyectos-fs-active')) toggleFS(true);
+                if (!pluginOn && document.body.classList.contains('proyectos-fs-active')) toggleFS(false);
+            }, 600);
+        });
+    }
 
     // 3. Crear el Panel Lateral Interno (Sidebar con prefijo pro-)
     const sidebar = L.control({ position: 'topright' });
