@@ -3088,3 +3088,11 @@ body.sedes-is-fullscreen {
         transition: none;
     }
 }
+
+body.sedes-is-fullscreen .sedes-card {
+    display: none !important;
+}
+
+body.sedes-is-fullscreen .sedes-card.sedes-card--active {
+    display: block !important;
+}

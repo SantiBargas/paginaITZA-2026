@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const mapId = `map-${sede.id}`;
                 const mapElement = document.getElementById(mapId);
+                const sedeCard = mapElement.closest('.sedes-card');
 
                 // 2. INICIALIZACIÓN DEL MAPA
                 const mapa = L.map(mapId, {
@@ -54,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (fullscreenActivo) return;
                     fullscreenActivo = true;
                     document.body.classList.add('sedes-is-fullscreen');
+                    if (sedeCard) {
+                        sedeCard.classList.add('sedes-card--active');
+                    }
                     mapElement.classList.add('active-fullscreen');
 
                     // Pequeño delay para que el mapa recalcule su nuevo tamaño
@@ -65,6 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     fullscreenActivo = false;
                     document.body.classList.remove('sedes-is-fullscreen');
                     mapElement.classList.remove('active-fullscreen');
+                    if (sedeCard) {
+                        sedeCard.classList.remove('sedes-card--active');
+                    }
 
                     // Volvemos al inicio de la seccion de sedes
                     if (sedesSection) {
