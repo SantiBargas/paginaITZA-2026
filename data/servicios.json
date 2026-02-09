@@ -4,8 +4,8 @@
       "id": "main-hidrica",
       "titulo": "Ingeniería Hídrica",
       "descripcion": "Soluciones en estudios hídricos, factibilidades, diseño hidráulico, agua subterránea y servicios sanitarios.",
-      "imagen": "imagenes/servicios/rec-hidricos/main-hid_converted.webp",
-      "fotos": ["imagenes/servicios/rec-hidricos/main-hid_converted.webp"],
+      "imagen": "imagenes/servicios/rec-hidricos/main-hid_Y.webp",
+      "fotos": ["imagenes/servicios/rec-hidricos/main-hid_Y.webp"],
       "enlace": "RecursosHidricos.html",
       "delay": "0.1s"
     },
