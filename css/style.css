@@ -432,7 +432,6 @@ a:focus {
     animation-delay: 0.5s; /* Retraso para que aparezca después del botón */
 }
 
-
 .btn-map-sub::before {
     content: "";
     display: block;
