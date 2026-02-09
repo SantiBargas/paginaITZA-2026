@@ -37,6 +37,29 @@
         onScroll();
     })();
 
+    // Scroll reveal for contact blocks (appear and disappear)
+    (function () {
+        var elements = document.querySelectorAll('.scroll-reveal-left, .scroll-reveal-right');
+        if (!elements.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            elements.forEach(function (el) { el.classList.add('is-visible'); });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+
+        elements.forEach(function (el) { observer.observe(el); });
+    })();
+
     $('.back-to-top').on('click', function () {
         $('html, body').animate({ scrollTop: 0 }, 600, 'easeInOutExpo');
         return false;
