@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('equipo-container');
     if (!container) return;
 
-    // Variable para guardar la posición del usuario y evitar el salto al inicio
-    let posicionScrollOriginal = 0;
+    const sedesSection = document.querySelector('.sedes-mapas-section');
 
     fetch('data/sedes.json')
         .then(res => res.json())
@@ -13,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const col = document.createElement('div');
                 col.className = 'col-lg-6 col-md-12 mb-4 d-flex';
                 col.innerHTML = `
-                    <div class="sede-card shadow-sm">
-                        <div class="sede-card-header"><span>${sede.titulo}</span></div>
-                        <div id="map-${sede.id}" class="sede-map-frame"></div>
-                        <div class="sede-card-footer"><i class="fas fa-map-marker-alt"></i> ${sede.direccion}</div>
+                    <div class="sedes-card shadow-sm">
+                        <div class="sedes-card-header"><span>${sede.titulo}</span></div>
+                        <div id="map-${sede.id}" class="sedes-map-frame"></div>
+                        <div class="sedes-card-footer"><i class="fas fa-map-marker-alt"></i> ${sede.direccion}</div>
                     </div>`;
                 container.appendChild(col);
 
@@ -45,41 +44,42 @@ document.addEventListener("DOMContentLoaded", () => {
                         permanent: true, 
                         direction: 'top', 
                         offset: [0, -32], 
-                        className: 'itza-label-permanent' 
+                        className: 'sedes-label-permanent' 
                     }).openTooltip();
 
                 // 4. FIX DE SCROLL Y PANTALLA COMPLETA
-                const toggleFullscreenUI = (isEntering) => {
-                    if (isEntering) {
-                        // Guardamos la posición EXACTA antes de que el CSS bloquee el body
-                        posicionScrollOriginal = window.pageYOffset || document.documentElement.scrollTop;
-                        document.body.classList.add('map-is-fullscreen');
-                        mapElement.classList.add('active-fullscreen');
-                    } else {
-                        // Quitamos las clases de bloqueo
-                        document.body.classList.remove('map-is-fullscreen');
-                        mapElement.classList.remove('active-fullscreen');
+                let fullscreenActivo = false;
 
-                        // EL SECRETO: Esperamos al siguiente cuadro de renderizado para devolver el scroll
-                        requestAnimationFrame(() => {
-                            window.scrollTo(0, posicionScrollOriginal);
-                        });
-                    }
-                    
-                    // Martillazo de refresco para evitar la pantalla blanca
-                    setTimeout(() => { 
-                        mapa.invalidateSize({animate: false}); 
-                    }, 300);
+                const activarFullscreenUI = () => {
+                    if (fullscreenActivo) return;
+                    fullscreenActivo = true;
+                    document.body.classList.add('sedes-is-fullscreen');
+                    mapElement.classList.add('active-fullscreen');
+
+                    // Pequeño delay para que el mapa recalcule su nuevo tamaño
+                    setTimeout(() => { mapa.invalidateSize({ animate: false }); }, 300);
                 };
 
-                // Eventos del plugin Fullscreen
-                mapa.on('enterFullscreen', () => toggleFullscreenUI(true));
-                mapa.on('exitFullscreen', () => toggleFullscreenUI(false));
-                
-                // Refuerzo para cierre con tecla ESC
+                const desactivarFullscreenUI = () => {
+                    if (!fullscreenActivo) return;
+                    fullscreenActivo = false;
+                    document.body.classList.remove('sedes-is-fullscreen');
+                    mapElement.classList.remove('active-fullscreen');
+
+                    // Volvemos al inicio de la seccion de sedes
+                    if (sedesSection) {
+                        sedesSection.scrollIntoView({ block: 'start' });
+                    }
+
+                    setTimeout(() => { mapa.invalidateSize({ animate: false }); }, 300);
+                };
+
+                // Evento único para evitar dobles llamadas
                 mapa.on('fullscreenchange', () => {
-                    if (!mapa.isFullscreen()) {
-                        toggleFullscreenUI(false);
+                    if (mapa.isFullscreen()) {
+                        activarFullscreenUI();
+                    } else {
+                        desactivarFullscreenUI();
                     }
                 });
             });
