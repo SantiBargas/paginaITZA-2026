@@ -2317,201 +2317,6 @@ html, body {
 }
 
 
-/*******************************************/
-/********* PROYECTOS ITZA - EXCLUSIVO **********/
-/*******************************************/
-
-/* 1. CONTENEDOR Y PLACEHOLDER */
-#mapa-proyectos {
-    height: 500px;
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    margin-bottom: 50px;
-    z-index: 1;
-}
-
-/* 2. SIDEBAR INTERNA (PREFIJO pro-) */
-.pro-sidebar-overlay {
-    background: white;
-    width: 280px;
-    max-height: 400px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    margin: 10px !important;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    z-index: 1000 !important;
-}
-
-/* Estado contraído exclusivo */
-.pro-sidebar-overlay.collapsed {
-    max-height: 60px !important; 
-    width: 280px !important; 
-}
-
-.pro-sidebar-header {
-    min-height: 60px !important;
-    padding: 0 15px !important;
-    background: #002d4b !important; /* Azul ITZA */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.pro-sidebar-header span {
-    color: white;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-}
-
-/* Ítems exclusivos */
-.pro-project-item {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.pro-project-item:hover { background: #f0f7ff; }
-.pro-project-item h6 { margin: 0; font-size: 13px; font-weight: 700; color: #1c0a0a; text-transform: uppercase; }
-.pro-project-item span { font-size: 11px; color: #666; }
-
-/* --- BLINDAJE FULLSCREEN EXCLUSIVO PROYECTOS (iPhone Ready) --- */
-
-/* Cuando activás el modo pantalla completa en Proyectos */
-body.proyectos-fs-active {
-    overflow: hidden !important;
-    position: fixed; /* Evita que el fondo se mueva en iOS */
-    width: 100%;
-    touch-action: none;
-}
-
-body.proyectos-fs-active .nav-bar,
-body.proyectos-fs-active .nav-sticky,
-body.proyectos-fs-active .navbar,
-body.proyectos-fs-active .top-bar,
-body.proyectos-fs-active .btn-wsp,    /* OCULTA BOTÓN WHATSAPP */
-body.proyectos-fs-active #itza-footer, /* OCULTA FOOTER */
-body.proyectos-fs-active .page-header-area,
-body.proyectos-fs-active .section-divider {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* Forzamos que el mapa esté arriba de cualquier residuo visual */
-body.proyectos-fs-active #mapa-proyectos {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100dvh !important; /* Altura dinámica para Safari */
-    z-index: 9999999 !important;
-}
-
-/*******************************************/
-/********* SEDES ITZA - EXCLUSIVO PRO ********/
-/*******************************************/
-
-/* 1. CONTENEDOR MAESTRO */
-#sedes-map-unificado {
-    height: 550px;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    background: #333; /* Fondo para evitar flash blanco */
-    border-radius: 8px;
-}
-
-/* 2. SIDEBAR INTERNA (PREFIJO sedes-) */
-.sedes-sidebar-overlay {
-    background: rgba(255, 255, 255, 0.98);
-    width: 280px;
-    max-height: 400px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    margin: 10px !important;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    z-index: 1000 !important;
-}
-
-/* Estado contraído exclusivo para sedes */
-.sedes-sidebar-overlay.collapsed {
-    max-height: 60px !important; 
-    width: 280px !important; 
-}
-
-.sedes-sidebar-header {
-    min-height: 60px !important;
-    padding: 0 15px !important;
-    background: #002d4b !important; /* Azul ITZA */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.sedes-sidebar-header span {
-    color: white;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-}
-
-/* Ítems exclusivos de la lista de sedes */
-.sedes-item-link {
-    padding: 12px 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.sedes-item-link:hover { background: #f0f7ff; }
-.sedes-item-link h6 { margin: 0; color: #002d4b; font-weight: 700; font-size: 13px; text-transform: uppercase; }
-.sedes-item-link span { font-size: 11px; color: #666; display: block; }
-
-/* --- BLINDAJE FULLSCREEN EXCLUSIVO SEDES (iOS Ready) --- */
-
-/* Cuando activás el modo pantalla completa en Sedes */
-
-body.sedes-is-fullscreen {
-    overflow: hidden !important;
-    position: fixed;
-    width: 100%;
-    touch-action: none;
-}
-
-body.sedes-is-fullscreen .nav-bar,
-body.sedes-is-fullscreen .nav-sticky,
-body.sedes-is-fullscreen .navbar,
-body.sedes-is-fullscreen .top-bar,
-body.sedes-is-fullscreen .btn-wsp,     /* OCULTA BOTÓN WHATSAPP */
-body.sedes-is-fullscreen #itza-footer,  /* OCULTA FOOTER */
-body.sedes-is-fullscreen .page-header-area,
-body.sedes-is-fullscreen .section-divider {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* Forzamos que el mapa de sedes sea la capa maestra */
-/* El mapa de sedes ocupa el 100% real de la pantalla en iPhone */
-body.sedes-is-fullscreen #sedes-map-unificado {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
-    z-index: 9999999 !important;
-}
 
 /*******************************/
 /********* EQUIPO CSS (NOSOTROS) **********/
@@ -2749,327 +2554,199 @@ body.sedes-is-fullscreen #sedes-map-unificado {
     pointer-events: auto;
 }
 
-/**************************************************/
-/********** MAPA INTERACTIVO ITZA 2026 ************/
-/**************************************************/
 
-/* 1. CONTENEDOR PRINCIPAL */
+/*******************************************/
+/********* PROYECTOS ITZA - EXCLUSIVO **********/
+/*******************************************/
+
+/* 1. CONTENEDOR Y PLACEHOLDER */
 #mapa-proyectos {
+    height: 500px;
     width: 100%;
-    aspect-ratio: 4 / 3; /* Proporción cuadrada/rectangular equilibrada */
-    max-height: 650px;
-    min-height: 450px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    margin: 30px 0 60px 0;
-    border: 1px solid rgba(0, 51, 102, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
     z-index: 1;
 }
 
-/* 2. ESTILOS DE LOS CLÚSTERES (Agrupaciones) */
-.marker-cluster-small, 
-.marker-cluster-medium, 
-.marker-cluster-large {
-    background-color: rgba(0, 51, 102, 0.2) !important;
-    transition: all 0.3s ease;
-}
-
-.marker-cluster div {
-    background-color: var(--primary-color) !important; /* Azul ITZA */
-    color: #ffffff !important;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.marker-cluster-small div {
-    background-color: var(--secondary-color) !important; /* Amarillo ITZA */
-    color: var(--primary-color) !important;
-}
-
-.marker-cluster:hover {
-    transform: scale(1.1);
-}
-
-/* 3. PANEL LATERAL INTERNO (SIDEBAR) */
-.map-sidebar-overlay {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(0, 51, 102, 0.2);
-    border-radius: 10px;
+/* 2. SIDEBAR INTERNA (PREFIJO pro-) */
+.pro-sidebar-overlay {
+    background: white;
     width: 280px;
-    max-height: 450px;
+    max-height: 400px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Poppins', sans-serif;
-    pointer-events: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin: 10px !important;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1000 !important;
 }
 
-.map-sidebar-header {
-    background: #003366;
-    color: white;
-    padding: 12px 15px;
-    font-size: 13px;
-    font-weight: 700;
+/* Estado contraído exclusivo */
+.pro-sidebar-overlay.collapsed {
+    max-height: 60px !important; 
+    width: 280px !important; 
+}
+
+.pro-sidebar-header {
+    min-height: 60px !important;
+    padding: 0 15px !important;
+    background: #002d4b !important; /* Azul ITZA */
     display: flex;
-    justify-content: space-between; /* Alinea título a la izquierda y botón a la derecha */
     align-items: center;
-    border-radius: 10px 10px 0 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    justify-content: space-between;
 }
 
-/* Botón Ocultar/Mostrar interno */
-.toggle-sidebar-btn {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.pro-sidebar-header span {
     color: white;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+/* Ítems exclusivos */
+.pro-project-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
     cursor: pointer;
-    transition: 0.2s;
-    text-transform: uppercase;
+    transition: 0.3s;
+}
+.pro-project-item:hover { background: #f0f7ff; }
+.pro-project-item h6 { margin: 0; font-size: 13px; font-weight: 700; color: #1c0a0a; text-transform: uppercase; }
+.pro-project-item span { font-size: 11px; color: #666; }
+
+/* --- BLINDAJE FULLSCREEN EXCLUSIVO PROYECTOS (iPhone Ready) --- */
+
+/* Cuando activás el modo pantalla completa en Proyectos */
+body.proyectos-fs-active {
+    overflow: hidden !important;
+    position: fixed; /* Evita que el fondo se mueva en iOS */
+    width: 100%;
+    touch-action: none;
 }
 
-.toggle-sidebar-btn:hover {
-    background: var(--secondary-color);
-    color: #003366;
-    border-color: var(--secondary-color);
+body.proyectos-fs-active .nav-bar,
+body.proyectos-fs-active .nav-sticky,
+body.proyectos-fs-active .navbar,
+body.proyectos-fs-active .top-bar,
+body.proyectos-fs-active .btn-wsp,    /* OCULTA BOTÓN WHATSAPP */
+body.proyectos-fs-active #itza-footer, /* OCULTA FOOTER */
+body.proyectos-fs-active .page-header-area,
+body.proyectos-fs-active .section-divider {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
-/* Estado Colapsado del Panel */
-.map-sidebar-overlay.collapsed {
-    max-height: 45px; /* Altura de la cabecera */
-    width: 200px;
+/* Forzamos que el mapa esté arriba de cualquier residuo visual */
+body.proyectos-fs-active #mapa-proyectos {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important; /* Altura dinámica para Safari */
+    z-index: 9999999 !important;
 }
 
-.map-sidebar-overlay.collapsed #lista-mapa-interna {
-    opacity: 0;
-    pointer-events: none;
+/*******************************************/
+/********* SEDES ITZA - EXCLUSIVO PRO ********/
+/*******************************************/
+
+/* 1. CONTENEDOR MAESTRO */
+#sedes-map-unificado {
+    height: 550px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    background: #333; /* Fondo para evitar flash blanco */
+    border-radius: 8px;
 }
 
-/* Lista de Proyectos */
-#lista-mapa-interna {
-    overflow-y: auto;
-    flex-grow: 1;
-    transition: opacity 0.3s;
+/* 2. SIDEBAR INTERNA (PREFIJO sedes-) */
+.sedes-sidebar-overlay {
+    background: rgba(255, 255, 255, 0.98);
+    width: 280px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin: 10px !important;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1000 !important;
 }
 
-.map-project-item {
+/* Estado contraído exclusivo para sedes */
+.sedes-sidebar-overlay.collapsed {
+    max-height: 60px !important; 
+    width: 280px !important; 
+}
+
+.sedes-sidebar-header {
+    min-height: 60px !important;
+    padding: 0 15px !important;
+    background: #002d4b !important; /* Azul ITZA */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sedes-sidebar-header span {
+    color: white;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+
+/* Ítems exclusivos de la lista de sedes */
+.sedes-item-link {
     padding: 12px 15px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: 0.3s;
 }
 
-.map-project-item:hover {
-    background: rgba(255, 206, 0, 0.1);
-}
+.sedes-item-link:hover { background: #f0f7ff; }
+.sedes-item-link h6 { margin: 0; color: #002d4b; font-weight: 700; font-size: 13px; text-transform: uppercase; }
+.sedes-item-link span { font-size: 11px; color: #666; display: block; }
 
-.map-project-item h6 {
-    margin: 0;
-    font-size: 13px;
-    color: var(--primary-color);
-    font-weight: 700;
-    line-height: 1.2;
-}
+/* --- BLINDAJE FULLSCREEN EXCLUSIVO SEDES (iOS Ready) --- */
 
-.map-project-item span {
-    font-size: 11px;
-    color: #666;
-}
+/* Cuando activás el modo pantalla completa en Sedes */
 
-/* 4. PERSONALIZACIÓN DE POPUPS (Tarjetas) */
-.leaflet-popup-content-wrapper {
-    border-radius: 12px;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.leaflet-popup-content {
-    margin: 0 !important;
-    width: 220px !important;
-}
-
-.leaflet-container a.leaflet-popup-close-button {
-    color: #ffffff;
-    padding: 8px;
-    z-index: 10;
-}
-
-/* 5. INTERFAZ: ZOOM Y FULLSCREEN */
-.leaflet-bar {
-    border: none !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
-}
-
-.leaflet-bar a {
-    background-color: #ffffff !important;
-    color: #003366 !important;
-    border-bottom: 1px solid #eee !important;
-}
-
-.leaflet-bar a:hover {
-    background-color: #f8f9fa !important;
-    color: #ffce00 !important;
-}
-
-/* Arreglo Icono Fullscreen (FontAwesome) */
-.leaflet-control-fullscreen-button {
-    background-image: none !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-}
-
-.leaflet-control-fullscreen-button::before {
-    content: '\f065'; /* Icono expand */
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 15px;
-}
-
-.leaflet-fullscreen-on .leaflet-control-fullscreen-button::before {
-    content: '\f066'; /* Icono compress */
-}
-
-/* 6. SCROLLBAR PERSONALIZADA */
-#lista-mapa-interna::-webkit-scrollbar {
-    width: 6px;
-}
-
-#lista-mapa-interna::-webkit-scrollbar-thumb {
-    background: #003366;
-    border-radius: 10px;
-}
-
-/* 7. RESPONSIVE */
-@media (max-width: 768px) {
-    #mapa-proyectos {
-        aspect-ratio: 1 / 1;
-        min-height: 380px;
-    }
-    .map-sidebar-overlay {
-        width: 220px;
-        max-height: 300px;
-    }
-}
-
-/**************************************************/
-/********** SEDE MAPA - ITZA 2026 *****************/
-/**************************************************/
-
-/* Diseño de la Tarjeta de Sede (Tu código corregido) */
-.sedes-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border-light);
-    transition: transform 0.3s ease;
-    height: 100%; /* Asegura que ambas tarjetas midan lo mismo */
-}
-
-.sedes-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 51, 102, 0.1) !important;
-}
-
-.sedes-card-header {
-    background: var(--primary-color); /* Azul ITZA */
-    color: #fff;
-    padding: 15px 25px;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-}
-
-.sedes-map-frame {
-    height: 350px;
+body.sedes-is-fullscreen {
+    overflow: hidden !important;
+    position: fixed;
     width: 100%;
-    border-bottom: 1px solid #eee;
-    z-index: 1;
+    touch-action: none;
 }
 
-.sedes-card-footer {
-    padding: 20px 25px;
-    font-size: 14px;
-    color: var(--text-muted);
-    background: var(--primary-color);
-    font-family: 'Poppins', sans-serif;
-}
-
-.sedes-card-footer i {
-    color: #ffce00; /* Amarillo ITZA */
-    margin-right: 10px;
-}
-
-/* Arreglo para el botón de pantalla completa (Evita el cuadro blanco) */
-.leaflet-control-fullscreen-button {
-    background-image: none !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-}
-
-.leaflet-control-fullscreen-button::before {
-    content: '\f065'; /* Icono expandir de FontAwesome */
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    color: #003366;
-    font-size: 15px;
-}
-
-.leaflet-fullscreen-on .leaflet-control-fullscreen-button::before {
-    content: '\f066'; /* Icono contraer */
-}
-
-/* Quitar bordes y sombras por defecto de Leaflet para un look limpio */
-.itza-custom-popup .leaflet-popup-content-wrapper {
-    background: var(--text-main);
-    color: var(--text-dark);
-    border-radius: 8px;
-    padding: 0;
-    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
-}
-
-.itza-custom-popup .leaflet-popup-tip {
-    background: var(--text-main);
-}
-
-/* Ajustar el contenido interno */
-.itza-custom-popup .leaflet-popup-content {
-    margin: 12px !important;
-}
-
-/* Botón de cerrar del popup */
-.itza-custom-popup .leaflet-popup-close-button {
-    color: #003366 !important;
-    padding: 8px 12px 0 0 !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .scroll-reveal-left,
-    .scroll-reveal-right {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-}
-
-body.sedes-is-fullscreen .sedes-card {
+body.sedes-is-fullscreen .nav-bar,
+body.sedes-is-fullscreen .nav-sticky,
+body.sedes-is-fullscreen .navbar,
+body.sedes-is-fullscreen .top-bar,
+body.sedes-is-fullscreen .btn-wsp,     /* OCULTA BOTÓN WHATSAPP */
+body.sedes-is-fullscreen #itza-footer,  /* OCULTA FOOTER */
+body.sedes-is-fullscreen .page-header-area,
+body.sedes-is-fullscreen .section-divider {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
-body.sedes-is-fullscreen .sedes-card.sedes-card--active {
-    display: block !important;
+/* Forzamos que el mapa de sedes sea la capa maestra */
+/* El mapa de sedes ocupa el 100% real de la pantalla en iPhone */
+body.sedes-is-fullscreen #sedes-map-unificado {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    z-index: 9999999 !important;
 }
