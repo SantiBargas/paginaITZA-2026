@@ -2383,6 +2383,13 @@ html, body {
 /* --- BLINDAJE FULLSCREEN EXCLUSIVO PROYECTOS (iPhone Ready) --- */
 
 /* Cuando activás el modo pantalla completa en Proyectos */
+body.proyectos-fs-active {
+    overflow: hidden !important;
+    position: fixed; /* Evita que el fondo se mueva en iOS */
+    width: 100%;
+    touch-action: none;
+}
+
 body.proyectos-fs-active .nav-bar,
 body.proyectos-fs-active .nav-sticky,
 body.proyectos-fs-active .navbar,
@@ -2399,8 +2406,14 @@ body.proyectos-fs-active .section-divider {
 
 /* Forzamos que el mapa esté arriba de cualquier residuo visual */
 body.proyectos-fs-active #mapa-proyectos {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important; /* Altura dinámica para Safari */
     z-index: 9999999 !important;
 }
+
 /*******************************************/
 /********* SEDES ITZA - EXCLUSIVO PRO ********/
 /*******************************************/
@@ -2467,6 +2480,14 @@ body.proyectos-fs-active #mapa-proyectos {
 /* --- BLINDAJE FULLSCREEN EXCLUSIVO SEDES (iOS Ready) --- */
 
 /* Cuando activás el modo pantalla completa en Sedes */
+
+body.sedes-is-fullscreen {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    touch-action: none;
+}
+
 body.sedes-is-fullscreen .nav-bar,
 body.sedes-is-fullscreen .nav-sticky,
 body.sedes-is-fullscreen .navbar,
@@ -2482,7 +2503,13 @@ body.sedes-is-fullscreen .section-divider {
 }
 
 /* Forzamos que el mapa de sedes sea la capa maestra */
+/* El mapa de sedes ocupa el 100% real de la pantalla en iPhone */
 body.sedes-is-fullscreen #sedes-map-unificado {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
     z-index: 9999999 !important;
 }
 
