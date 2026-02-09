@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
             setTimeout(() => {
                 // Forzar ocultamiento de elementos que a veces quedan por encima en iOS (botón WhatsApp, nav, footer)
-                const toHide = document.querySelectorAll('.btn-wsp, .nav-bar, .top-bar, #itza-footer, .page-header-area');
+                const toHide = document.querySelectorAll('.btn-wsp, .nav-bar, .top-bar, #itza-footer, .page-header-area, .navbar-collapse, .navbar-collapse.show, .navbar-toggler, .navbar-nav, .collapse.show, .dropdown-menu.show');
                 toHide.forEach(el => {
                     if (isEntering) {
                         // guardamos el inline display previo para poder restaurarlo
@@ -119,6 +119,23 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener('fullscreenchange', () => {
             const isFs = !!(document.fullscreenElement);
             if (isFs) toggleFS(true); else toggleFS(false);
+        });
+    }
+
+    // Agregamos un listener al control de fullscreen del propio plugin (si existe)
+    // para forzar el ocultamiento en navegadores móviles donde los eventos pueden fallar.
+    const fsBtn = mapContainer.querySelector('.leaflet-control-fullscreen-button, .leaflet-control-fullscreen a, .leaflet-control-fullscreen');
+    if (fsBtn) {
+        fsBtn.addEventListener('click', (ev) => {
+            const isActive = document.body.classList.contains('sedes-is-fullscreen');
+            // invertimos estado esperado (algunas versiones del plugin aplican la clase después)
+            toggleFS(!isActive);
+            // aseguramos sincronía tras la animación del plugin
+            setTimeout(() => {
+                const pluginOn = mapContainer.classList.contains('leaflet-fullscreen-on');
+                if (pluginOn && !document.body.classList.contains('sedes-is-fullscreen')) toggleFS(true);
+                if (!pluginOn && document.body.classList.contains('sedes-is-fullscreen')) toggleFS(false);
+            }, 600);
         });
     }
 });
