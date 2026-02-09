@@ -1,95 +1,84 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById('equipo-container');
-    if (!container) return;
+    const mapEl = document.getElementById('sedes-map-unificado');
+    if (!mapEl) return;
 
-    const sedesSection = document.querySelector('.sedes-mapas-section');
+    let posicionScrollOriginal = 0;
 
+    // 1. Inicializar Mapa Único
+    const mapa = L.map('sedes-map-unificado', {
+        scrollWheelZoom: false,
+        fullscreenControl: true,
+        fullscreenControlOptions: { position: 'topleft' }
+    }).setView([-31.68, -60.60], 10); // Vista intermedia entre Paraná y SF
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapa);
+
+    // 2. Sidebar interna (L.control)
+    const sidebar = L.control({ position: 'topright' });
+    sidebar.onAdd = function() {
+        const div = L.DomUtil.create('div', 'map-sidebar-overlay');
+        div.innerHTML = `
+            <div class="map-sidebar-header">
+                <span>SEDES ITZA</span>
+                <button id="btn-toggle-sedes" class="toggle-sidebar-btn" style="background:none; border:1px solid white; color:white; font-size:10px; padding:2px 5px; cursor:pointer;">Ocultar</button>
+            </div>
+            <div id="lista-sedes-interna" style="overflow-y: auto; flex-grow: 1;"></div>
+        `;
+        L.DomEvent.disableScrollPropagation(div);
+        L.DomEvent.disableClickPropagation(div);
+        return div;
+    };
+    sidebar.addTo(mapa);
+
+    // 3. Carga de Datos y Marcadores
     fetch('data/sedes.json')
         .then(res => res.json())
         .then(sedes => {
-            sedes.forEach(sede => {
-                // 1. CREACIÓN DE LA TARJETA
-                const col = document.createElement('div');
-                col.className = 'col-lg-6 col-md-12 mb-4 d-flex';
-                col.innerHTML = `
-                    <div class="sedes-card shadow-sm">
-                        <div class="sedes-card-header"><span>${sede.titulo}</span></div>
-                        <div id="map-${sede.id}" class="sedes-map-frame"></div>
-                        <div class="sedes-card-footer"><i class="fas fa-map-marker-alt"></i> ${sede.direccion}</div>
-                    </div>`;
-                container.appendChild(col);
-
-                const mapId = `map-${sede.id}`;
-                const mapElement = document.getElementById(mapId);
-                const sedeCard = mapElement.closest('.sedes-card');
-
-                // 2. INICIALIZACIÓN DEL MAPA
-                const mapa = L.map(mapId, {
-                    scrollWheelZoom: false,
-                    fullscreenControl: true,
-                    fullscreenControlOptions: { position: 'topleft' }
-                }).setView([sede.coords.lat, sede.coords.lng], 16);
-
-                // Capa de mapa (Carto Light)
-                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapa);
-
-                // 3. ICONO ITZA Y MARCADOR
-                const itzaIcon = L.icon({
-                    iconUrl: 'imagenes/logo/logo-tr-mapa.png',
-                    iconSize: [36, 36], 
-                    iconAnchor: [18, 36]
-                });
-
-                L.marker([sede.coords.lat, sede.coords.lng], { icon: itzaIcon }).addTo(mapa)
-                    .bindTooltip(sede.titulo, { 
-                        permanent: true, 
-                        direction: 'top', 
-                        offset: [0, -32], 
-                        className: 'sedes-label-permanent' 
-                    }).openTooltip();
-
-                // 4. FIX DE SCROLL Y PANTALLA COMPLETA
-                let fullscreenActivo = false;
-
-                const activarFullscreenUI = () => {
-                    if (fullscreenActivo) return;
-                    fullscreenActivo = true;
-                    document.body.classList.add('sedes-is-fullscreen');
-                    if (sedeCard) {
-                        sedeCard.classList.add('sedes-card--active');
-                    }
-                    mapElement.classList.add('active-fullscreen');
-
-                    // Pequeño delay para que el mapa recalcule su nuevo tamaño
-                    setTimeout(() => { mapa.invalidateSize({ animate: false }); }, 300);
-                };
-
-                const desactivarFullscreenUI = () => {
-                    if (!fullscreenActivo) return;
-                    fullscreenActivo = false;
-                    document.body.classList.remove('sedes-is-fullscreen');
-                    mapElement.classList.remove('active-fullscreen');
-                    if (sedeCard) {
-                        sedeCard.classList.remove('sedes-card--active');
-                    }
-
-                    // Volvemos al inicio de la seccion de sedes
-                    if (sedesSection) {
-                        sedesSection.scrollIntoView({ block: 'start' });
-                    }
-
-                    setTimeout(() => { mapa.invalidateSize({ animate: false }); }, 300);
-                };
-
-                // Evento único para evitar dobles llamadas
-                mapa.on('fullscreenchange', () => {
-                    if (mapa.isFullscreen()) {
-                        activarFullscreenUI();
-                    } else {
-                        desactivarFullscreenUI();
-                    }
-                });
+            const listContainer = document.getElementById('lista-sedes-interna');
+            const group = L.featureGroup();
+            
+            const itzaIcon = L.icon({
+                iconUrl: 'imagenes/logo/logo-tr-mapa.png',
+                iconSize: [36, 36], iconAnchor: [18, 36]
             });
-        })
-        .catch(err => console.error("Error cargando las sedes de ITZA:", err));
+
+            sedes.forEach(s => {
+                // Marcador
+                const marker = L.marker([s.coords.lat, s.coords.lng], { icon: itzaIcon })
+                    .bindPopup(`<div style="font-family:'Poppins';"><strong>${s.titulo}</strong><br><small>${s.direccion}</small></div>`)
+                    .addTo(mapa);
+                group.addLayer(marker);
+
+                // Item en Sidebar
+                const item = document.createElement('div');
+                item.className = 'map-sede-item';
+                item.innerHTML = `<h6>${s.titulo}</h6><span>${s.direccion}</span>`;
+                item.onclick = () => {
+                    mapa.flyTo([s.coords.lat, s.coords.lng], 16, { duration: 1.5 });
+                    setTimeout(() => marker.openPopup(), 1600);
+                };
+                listContainer.appendChild(item);
+            });
+
+            // Ajustar vista para que se vean ambas sedes al inicio
+            mapa.fitBounds(group.getBounds(), { padding: [50, 50] });
+        });
+
+    // 4. Blindaje Fullscreen (Igual que Proyectos)
+    const toggleFS = (isEntering) => {
+        const wrapper = mapEl.closest('.sedes-map-wrapper');
+        if (isEntering) {
+            posicionScrollOriginal = window.scrollY;
+            document.body.classList.add('map-is-fullscreen');
+            wrapper.classList.add('active-fullscreen');
+        } else {
+            document.body.classList.remove('map-is-fullscreen');
+            wrapper.classList.remove('active-fullscreen');
+            requestAnimationFrame(() => window.scrollTo(0, posicionScrollOriginal));
+        }
+        setTimeout(() => mapa.invalidateSize(), 300);
+    };
+
+    mapa.on('enterFullscreen', () => toggleFS(true));
+    mapa.on('exitFullscreen', () => toggleFS(false));
 });
