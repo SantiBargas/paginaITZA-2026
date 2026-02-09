@@ -2321,7 +2321,7 @@ html, body {
 /********* PROYECTOS ITZA - EXCLUSIVO **********/
 /*******************************************/
 
-/* 1. CONTENEDOR ÚNICO */
+/* 1. CONTENEDOR Y PLACEHOLDER */
 #mapa-proyectos {
     height: 500px;
     width: 100%;
@@ -2340,7 +2340,7 @@ html, body {
     flex-direction: column;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    margin: 10px !important; /* Ajuste de posición */
+    margin: 10px !important;
     overflow: hidden;
     transition: all 0.4s ease;
     z-index: 1000 !important;
@@ -2369,37 +2369,22 @@ html, body {
     letter-spacing: 1px !important;
 }
 
-/* Ítems exclusivos de la lista de proyectos */
+/* Ítems exclusivos */
 .pro-project-item {
     padding: 12px 15px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
     transition: 0.3s;
 }
+.pro-project-item:hover { background: #f0f7ff; }
+.pro-project-item h6 { margin: 0; font-size: 13px; font-weight: 700; color: #1c0a0a; text-transform: uppercase; }
+.pro-project-item span { font-size: 11px; color: #666; }
 
-.pro-project-item:hover {
-    background: #f0f7ff;
-}
+/* --- BLINDAJE FULLSCREEN EXCLUSIVO PROYECTOS (iPhone Ready) --- */
 
-.pro-project-item h6 {
-    margin: 0;
-    font-size: 13px;
-    font-weight: 700;
-    color: #1c0a0a; /* var(--bg-dark) */
-    text-transform: uppercase;
-}
-
-.pro-project-item span {
-    font-size: 11px;
-    color: #666;
-}
-
-/* --- BLINDAJE FULLSCREEN EXCLUSIVO PROYECTOS --- */
-
-/* Clase única para el body */
 body.proyectos-fs-active {
     overflow: hidden !important;
-    touch-action: none;
+    touch-action: none; /* Clave para iPhone */
 }
 
 body.proyectos-fs-active #mapa-proyectos {
@@ -2409,27 +2394,33 @@ body.proyectos-fs-active #mapa-proyectos {
     right: 0 !important;
     bottom: 0 !important;
     width: 100vw !important;
-    height: 100dvh !important; /* Fix vital iPhone */
-    z-index: 999999 !important; 
+    height: 100vh !important;
+    height: 100dvh !important; /* Fix dinámico para Safari */
+    z-index: 9999999 !important; /* Prioridad máxima */
     margin: 0 !important;
     border-radius: 0 !important;
 }
 
-/* Ocultar elementos SOLO cuando Proyectos está activo */
+/* LA SOLUCIÓN: Ocultamos absolutamente toda la interfaz de la web */
 body.proyectos-fs-active .nav-bar,
+body.proyectos-fs-active .nav-sticky, /* Fix para menús que cambian al scrollear */
+body.proyectos-fs-active .navbar,     /* Refuerzo para Bootstrap */
 body.proyectos-fs-active .top-bar,
-body.proyectos-fs-active .btn-wsp,
+body.proyectos-fs-active .btn-wsp,    /* Oculta WhatsApp */
 body.proyectos-fs-active #itza-footer,
 body.proyectos-fs-active .page-header-area,
-body.proyectos-fs-active .section-divider {
+body.proyectos-fs-active .section-divider,
+body.proyectos-fs-active .portfolio,  /* Oculta la grilla de proyectos de fondo */
+body.proyectos-fs-active .row {       /* Limpieza de floats */
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
-/* Aseguramos la sidebar sobre el mapa fullscreen */
+/* Aseguramos que la sidebar de proyectos flote arriba de todo en Fullscreen */
 body.proyectos-fs-active .pro-sidebar-overlay {
-    z-index: 1000000 !important; 
+    z-index: 10000000 !important; 
 }
-
 /*******************************************/
 /********* SEDES ITZA - EXCLUSIVO PRO ********/
 /*******************************************/
@@ -2497,31 +2488,37 @@ body.proyectos-fs-active .pro-sidebar-overlay {
 
 body.sedes-is-fullscreen {
     overflow: hidden !important; 
-    touch-action: none; /* Bloquea el scroll del body en iPhone */
+    touch-action: none; /* Bloquea el scroll del fondo en iPhone */
 }
 
 body.sedes-is-fullscreen #sedes-map-unificado {
     position: fixed !important;
-    top: 0 !important; left: 0 !important;
-    right: 0 !important; bottom: 0 !important;
+    top: 0 !important; 
+    left: 0 !important; 
+    right: 0 !important; 
+    bottom: 0 !important;
     width: 100vw !important;
-    height: 100dvh !important; /* Fix vital para Safari iOS */
-    z-index: 9999999 !important;
+    height: 100dvh !important; /* Fix vital para Safari */
+    z-index: 9999999 !important; /* Prioridad absoluta */
     margin: 0 !important;
     border-radius: 0 !important;
 }
 
-/* OCULTAR TODO EL RESTO PARA LIMPIEZA TOTAL */
+/* LA SOLUCIÓN: Ocultamos el Menú, el Sticky y el WhatsApp */
 body.sedes-is-fullscreen .nav-bar,
+body.sedes-is-fullscreen .nav-sticky,
+body.sedes-is-fullscreen .navbar,
 body.sedes-is-fullscreen .top-bar,
-body.sedes-is-fullscreen .btn-wsp,
+body.sedes-is-fullscreen .btn-wsp, /* OCULTA EL BOTÓN DE WHATSAPP */
 body.sedes-is-fullscreen #itza-footer,
 body.sedes-is-fullscreen .page-header-area,
 body.sedes-is-fullscreen .section-divider {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
-/* Aseguramos que la sidebar flote sobre el mapa fullscreen */
+/* Aseguramos que la sidebar de sedes flote arriba de todo */
 body.sedes-is-fullscreen .sedes-sidebar-overlay {
     z-index: 10000000 !important; 
 }
