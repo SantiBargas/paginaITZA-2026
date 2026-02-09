@@ -79,7 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.remove('sedes-is-fullscreen');
             requestAnimationFrame(() => window.scrollTo(0, posicionScrollOriginal));
         }
-        setTimeout(() => mapa.invalidateSize(), 300);
+            setTimeout(() => {
+                // Forzar ocultamiento de elementos que a veces quedan por encima en iOS (botón WhatsApp, nav, footer)
+                const toHide = document.querySelectorAll('.btn-wsp, .nav-bar, .top-bar, #itza-footer, .page-header-area');
+                toHide.forEach(el => {
+                    if (isEntering) {
+                        // guardamos el inline display previo para poder restaurarlo
+                        el.dataset._prevDisplay = el.style.display || '';
+                        el.style.display = 'none';
+                        el.style.visibility = 'hidden';
+                    } else {
+                        // restauramos
+                        if (el.dataset._prevDisplay !== undefined) el.style.display = el.dataset._prevDisplay;
+                        el.style.visibility = '';
+                        delete el.dataset._prevDisplay;
+                    }
+                });
+                mapa.invalidateSize();
+            }, 300);
     };
 
     mapa.on('enterFullscreen', () => toggleFS(true));
