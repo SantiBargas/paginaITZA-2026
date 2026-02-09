@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let posicionScrollOriginal = 0;
 
-    // 1. Inicializar Mapa Único
+    // 1. Inicializar Mapa Único - FIX: scrollWheelZoom en TRUE
     const mapa = L.map('sedes-map-unificado', {
-        scrollWheelZoom: false,
+        scrollWheelZoom: true, // Ahora podés acercar/alejar con el scroll
         fullscreenControl: true,
         fullscreenControlOptions: { position: 'topleft' }
-    }).setView([-31.68, -60.60], 10); // Vista intermedia entre Paraná y SF
+    }).setView([-31.68, -60.60], 10); 
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapa);
 
@@ -30,6 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     sidebar.addTo(mapa);
 
+    // --- FIX: LÓGICA DEL BOTÓN MOSTRAR/OCULTAR ---
+    const btnToggle = document.getElementById('btn-toggle-sedes');
+    if (btnToggle) {
+        btnToggle.onclick = function() {
+            const panel = document.querySelector('.map-sidebar-overlay');
+            panel.classList.toggle('collapsed');
+            // Cambiamos el texto según el estado
+            this.innerText = panel.classList.contains('collapsed') ? 'Mostrar' : 'Ocultar';
+        };
+    }
+
     // 3. Carga de Datos y Marcadores
     fetch('data/sedes.json')
         .then(res => res.json())
@@ -43,13 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             sedes.forEach(s => {
-                // Marcador
                 const marker = L.marker([s.coords.lat, s.coords.lng], { icon: itzaIcon })
                     .bindPopup(`<div style="font-family:'Poppins';"><strong>${s.titulo}</strong><br><small>${s.direccion}</small></div>`)
                     .addTo(mapa);
                 group.addLayer(marker);
 
-                // Item en Sidebar
                 const item = document.createElement('div');
                 item.className = 'map-sede-item';
                 item.innerHTML = `<h6>${s.titulo}</h6><span>${s.direccion}</span>`;
@@ -60,11 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 listContainer.appendChild(item);
             });
 
-            // Ajustar vista para que se vean ambas sedes al inicio
             mapa.fitBounds(group.getBounds(), { padding: [50, 50] });
         });
 
-    // 4. Blindaje Fullscreen (Igual que Proyectos)
+    // 4. Blindaje Fullscreen
     const toggleFS = (isEntering) => {
         const wrapper = mapEl.closest('.sedes-map-wrapper');
         if (isEntering) {
