@@ -2606,10 +2606,17 @@ html, body {
 
 body.proyectos-fs-active {
     overflow: hidden !important;
-    position: fixed !important; /* Clava el fondo en iPhone */
+    position: fixed !important; 
     width: 100% !important;
     height: 100% !important;
-    touch-action: none;
+}
+
+/* DESACTIVAMOS TRANSFORM EN EL WRAPPER (Esto es lo que rompe iOS) */
+body.proyectos-fs-active .wrapper, 
+body.proyectos-fs-active main {
+    transform: none !important;
+    filter: none !important;
+    perspective: none !important;
 }
 
 /* OCULTAMIENTO TOTAL: Menú, WhatsApp y Footer */
@@ -2620,22 +2627,22 @@ body.proyectos-fs-active .top-bar,
 body.proyectos-fs-active .btn-wsp,       /* WHATSAPP FUERA */
 body.proyectos-fs-active #itza-footer,    /* FOOTER FUERA */
 body.proyectos-fs-active .page-header-area,
-body.proyectos-fs-active .section-divider {
+body.proyectos-fs-active .section-divider,
+body.proyectos-fs-active .back-to-top {  /* Botón de volver arriba fuera */
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
-    pointer-events: none !important;
+    z-index: -1 !important; /* Lo mandamos al fondo del todo */
 }
 
+/* EL MAPA AL FRENTE ABSOLUTO */
 body.proyectos-fs-active #mapa-proyectos {
     position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
+    top: 0 !important; left: 0 !important;
     width: 100vw !important;
-    height: 100dvh !important; /* Altura dinámica Safari */
-    z-index: 9999999 !important;
+    height: 100dvh !important;
+    z-index: 2147483647 !important; /* Máximo número posible en CSS */
     margin: 0 !important;
-    border-radius: 0 !important;
 }
 
 /*******************************************/
@@ -2687,40 +2694,50 @@ body.proyectos-fs-active #mapa-proyectos {
 
 body.sedes-is-fullscreen {
     overflow: hidden !important;
-    position: fixed !important; /* Clava el fondo en iPhone */
+    position: fixed !important;
     width: 100% !important;
     height: 100% !important;
-    touch-action: none;
 }
 
-/* OCULTAMIENTO TOTAL: Menú, WhatsApp y Footer */
+body.sedes-is-fullscreen .wrapper, 
+body.sedes-is-fullscreen main {
+    transform: none !important;
+    filter: none !important;
+}
+
+/* OCULTAMIENTO TOTAL REFORZADO */
 body.sedes-is-fullscreen .nav-bar,
 body.sedes-is-fullscreen .nav-sticky,
 body.sedes-is-fullscreen .navbar,
 body.sedes-is-fullscreen .top-bar,
-body.sedes-is-fullscreen .btn-wsp,       /* WHATSAPP FUERA */
-body.sedes-is-fullscreen #itza-footer,    /* FOOTER FUERA */
+body.sedes-is-fullscreen .btn-wsp,
+body.sedes-is-fullscreen #itza-footer,
 body.sedes-is-fullscreen .page-header-area,
-body.sedes-is-fullscreen .section-divider {
+body.sedes-is-fullscreen .section-divider,
+body.sedes-is-fullscreen .back-to-top {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
-    pointer-events: none !important;
+    z-index: -1 !important;
 }
 
-body.sedes-is-fullscreen #sedes-map-unificado {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100dvh !important;
-    z-index: 9999999 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
+/* FIX ETIQUETAS (Para que no se peguen las letras como en tu foto) */
+.itza-label-permanent {
+    background-color: white !important;
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    text-align: center !important;
+    white-space: normal !important;      
+    width: max-content !important;       
+    max-width: 220px !important;
+    display: block !important;
 }
 
-/* Asegurar sidebar sobre el mapa */
-body.sedes-is-fullscreen .sedes-sidebar-overlay,
-body.proyectos-fs-active .pro-sidebar-overlay {
-    z-index: 10000000 !important;
+.itza-label-permanent b { 
+    display: block !important; 
+    margin-bottom: 4px !important; /* Espacio para que no se pegue a la dirección */
+    color: #002d4b !important; 
 }
