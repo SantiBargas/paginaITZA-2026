@@ -389,6 +389,106 @@ a:focus {
     transition: .3s;
 }
 
+/* Botón principal para ir al mapa de proyectos desde el inicio */
+.btn-map-link {
+    background: linear-gradient(90deg, #005082 0%, #006aa6 100%) !important;
+    color: #fff !important;
+    padding: 12px 26px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.14) !important;
+    letter-spacing: 1px !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    display: block !important;
+    width: max-content !important;
+    margin: 0 auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: 40px !important;
+}
+
+.btn-map-link::after {
+    content: '\2192';
+    font-size: 14px;
+    opacity: 0.95;
+}
+.btn-map-link:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0,0,0,0.18) !important; }
+
+/* Subtítulo bajo el botón principal */
+.btn-map-sub {
+    margin-top: 10px;
+    color: #2b3b44;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.95;
+    letter-spacing: 0.2px;
+    line-height: 1.35;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s; /* Retraso para que aparezca después del botón */
+}
+
+
+.btn-map-sub::before {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin: 0 auto 8px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, rgba(0,106,166,0.95), rgba(0,80,130,0.95));
+    box-shadow: 0 4px 12px rgba(0,106,166,0.06);
+}
+
+@media (max-width: 576px) {
+    .btn-map-sub { font-size: 13px; max-width: 92%; }
+    .btn-map-sub::before { width: 44px; height: 3px; }
+}
+
+/* Caja contenedora para el CTA del mapa */
+.map-cta-box {
+    background: linear-gradient(180deg, var(--primary-color) 0%, #ffffff 60%);
+    border-radius: 14px;
+    padding: 26px 24px;
+    max-width: 920px;
+    margin: 18px auto 28px;
+    box-shadow: 0 22px 48px rgba(3,24,42,0.08);
+    border: 1px solid rgb(255, 255, 255);
+    position: relative;
+    overflow: visible;
+}
+
+.map-cta-box::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    bottom: 18px;
+    width: 8px;
+    border-radius: 6px;
+    background: var(--secondary-color);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.map-cta-box .btn-map-link { 
+    margin-top: 6px;
+    background: linear-gradient(90deg,#004f78 0%, #006aa6 100%) !important;
+    color: #fff !important;
+    box-shadow: 0 12px 30px rgba(0,106,166,0.12) !important;
+}
+
+.map-cta-box .btn-map-sub { margin-top: 12px; color: #123243; }
+
+@media (max-width: 768px) {
+    .map-cta-box { padding: 16px; margin: 14px auto; }
+    .btn-map-link { padding-left: 14px !important; padding-right: 14px !important; }
+    .map-cta-box::before { left: 12px; top: 12px; bottom: 12px; }
+}
+
 
 /**********************************/
 /********** Top Bar CSS ***********/
@@ -1210,8 +1310,8 @@ html, body {
 }
 
 /*******************************/
-/*********** Fact CSS **********/
-/*******************************/
+/*********** Fact CSS (Clientes, profesionales, trabajos etc **********/
+/************en seccion nosotros*****************/
 .fact {
     position: relative;
     width: 100%;
@@ -2565,6 +2665,7 @@ html, body {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-top: 60px;
     margin-bottom: 50px;
     z-index: 1;
 }
