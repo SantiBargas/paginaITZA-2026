@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         div.innerHTML = `
             <div class="sedes-sidebar-header">
                 <span>NUESTRAS SEDES</span>
-                <button id="btn-toggle-sedes" class="toggle-sidebar-btn" style="background:none; border:1px solid white; color:white; font-size:10px; padding:2px 5px; cursor:pointer;">Ocultar</button>
+                <button id="btn-toggle-sedes" class="sedes-toggle-sidebar-btn">Ocultar</button>
             </div>
             <div id="lista-sedes-interna" style="overflow-y: auto; flex-grow: 1;"></div>
         `;

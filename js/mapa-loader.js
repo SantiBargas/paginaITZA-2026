@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         div.innerHTML = `
             <div class="pro-sidebar-header">
                 <span>OBRAS Y PROYECTOS</span>
-                <button id="btn-toggle-pro-list" class="toggle-sidebar-btn">Ocultar</button>
+                <button id="btn-toggle-pro-list" class="pro-toggle-sidebar-btn">Ocultar</button>
             </div>
             <div id="lista-proyectos-interna" style="overflow-y: auto; flex-grow: 1;"></div>
         `;

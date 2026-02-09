@@ -2594,11 +2594,70 @@ html, body {
     align-items: center;
     justify-content: space-between;
 }
+/* Botón ocultar/mostrar para Proyectos */
+.pro-toggle-sidebar-btn {
+    background: var(--secondary-color);
+    color: #002d4b;
+    border: 0;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Montserrat', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.pro-toggle-sidebar-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.14); }
+.pro-toggle-sidebar-btn:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(0,0,0,0.08) inset; }
+
+/* Botón ocultar/mostrar para Sedes (mismo diseño base, clase separada) */
+.sedes-toggle-sidebar-btn {
+    background: var(--secondary-color);
+    color: #002d4b;
+    border: 0;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Montserrat', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.sedes-toggle-sidebar-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.14); }
+.sedes-toggle-sidebar-btn:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(0,0,0,0.08) inset; }
+
+/* Estado "oculto" (panel colapsado): botón amarillo como "presionado" (cada panel maneja su botón) */
+.pro-sidebar-overlay.collapsed .pro-toggle-sidebar-btn {
+    background: var(--secondary-color);
+    color: #002d4b;
+    transform: translateY(1px);
+    box-shadow: inset 0 3px 0 rgba(0,0,0,0.08);
+}
+.sedes-sidebar-overlay.collapsed .sedes-toggle-sidebar-btn {
+    background: var(--secondary-color);
+    color: #002d4b;
+    transform: translateY(1px);
+    box-shadow: inset 0 3px 0 rgba(0,0,0,0.08);
+}
+
+@media (max-width: 768px) {
+    .pro-toggle-sidebar-btn, .sedes-toggle-sidebar-btn { padding: 6px 8px; font-size: 12px; }
+}
 
 .pro-sidebar-header span { color: white; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
 .pro-project-item { padding: 12px 15px; border-bottom: 1px solid #eee; cursor: pointer; transition: 0.3s; }
-.pro-project-item:hover { background: #f0f7ff; }
+.pro-project-item:hover { background: #fff7cc; }
 .pro-project-item h6 { margin: 0; font-size: 13px; font-weight: 700; color: #1c0a0a; text-transform: uppercase; }
 .pro-project-item span { font-size: 11px; color: #666; }
 
@@ -2685,8 +2744,35 @@ body.proyectos-fs-active #mapa-proyectos {
 
 .sedes-sidebar-header span { color: white; font-size: 12px; font-weight: 700; text-transform: uppercase; }
 
+.sedes-toggle-sidebar-btn {
+    background: var(--secondary-color);
+    color: #002d4b;
+    border: 0;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+.sedes-toggle-sidebar-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+.sedes-toggle-sidebar-btn:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(0,0,0,0.08) inset; }
+
+/* Estado "oculto" para sedes */
+.sedes-sidebar-overlay.collapsed .sedes-toggle-sidebar-btn,
+.pro-sidebar-overlay.collapsed .sedes-toggle-sidebar-btn {
+    background: var(--secondary-color) !important;
+    color: #002d4b !important;
+    transform: translateY(1px) !important;
+    box-shadow: inset 0 3px 0 rgba(0,0,0,0.08) !important;
+}
+
 .sedes-item-link { padding: 12px 15px; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
-.sedes-item-link:hover { background: #f0f7ff; }
+.sedes-item-link:hover { background: #fff7cc; }
 .sedes-item-link h6 { margin: 0; color: #002d4b; font-weight: 700; font-size: 13px; text-transform: uppercase; }
 .sedes-item-link span { font-size: 11px; color: #666; display: block; }
 
