@@ -2559,7 +2559,7 @@ html, body {
 /********* PROYECTOS ITZA - EXCLUSIVO **********/
 /*******************************************/
 
-/* 1. CONTENEDOR Y PLACEHOLDER */
+/* Contenedor base */
 #mapa-proyectos {
     height: 500px;
     width: 100%;
@@ -2569,7 +2569,7 @@ html, body {
     z-index: 1;
 }
 
-/* 2. SIDEBAR INTERNA (PREFIJO pro-) */
+/* Sidebar Interna Proyectos */
 .pro-sidebar-overlay {
     background: white;
     width: 280px;
@@ -2584,56 +2584,41 @@ html, body {
     z-index: 1000 !important;
 }
 
-/* Estado contraído exclusivo */
-.pro-sidebar-overlay.collapsed {
-    max-height: 60px !important; 
-    width: 280px !important; 
-}
+.pro-sidebar-overlay.collapsed { max-height: 60px !important; width: 280px !important; }
 
 .pro-sidebar-header {
     min-height: 60px !important;
     padding: 0 15px !important;
-    background: #002d4b !important; /* Azul ITZA */
+    background: #002d4b !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.pro-sidebar-header span {
-    color: white;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-}
+.pro-sidebar-header span { color: white; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-/* Ítems exclusivos */
-.pro-project-item {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    transition: 0.3s;
-}
+.pro-project-item { padding: 12px 15px; border-bottom: 1px solid #eee; cursor: pointer; transition: 0.3s; }
 .pro-project-item:hover { background: #f0f7ff; }
 .pro-project-item h6 { margin: 0; font-size: 13px; font-weight: 700; color: #1c0a0a; text-transform: uppercase; }
 .pro-project-item span { font-size: 11px; color: #666; }
 
-/* --- BLINDAJE FULLSCREEN EXCLUSIVO PROYECTOS (iPhone Ready) --- */
+/* --- BLINDAJE FULLSCREEN PROYECTOS (iOS Fix) --- */
 
-/* Cuando activás el modo pantalla completa en Proyectos */
 body.proyectos-fs-active {
     overflow: hidden !important;
-    position: fixed; /* Evita que el fondo se mueva en iOS */
-    width: 100%;
+    position: fixed !important; /* Clava el fondo en iPhone */
+    width: 100% !important;
+    height: 100% !important;
     touch-action: none;
 }
 
+/* OCULTAMIENTO TOTAL: Menú, WhatsApp y Footer */
 body.proyectos-fs-active .nav-bar,
 body.proyectos-fs-active .nav-sticky,
 body.proyectos-fs-active .navbar,
 body.proyectos-fs-active .top-bar,
-body.proyectos-fs-active .btn-wsp,    /* OCULTA BOTÓN WHATSAPP */
-body.proyectos-fs-active #itza-footer, /* OCULTA FOOTER */
+body.proyectos-fs-active .btn-wsp,       /* WHATSAPP FUERA */
+body.proyectos-fs-active #itza-footer,    /* FOOTER FUERA */
 body.proyectos-fs-active .page-header-area,
 body.proyectos-fs-active .section-divider {
     display: none !important;
@@ -2642,31 +2627,30 @@ body.proyectos-fs-active .section-divider {
     pointer-events: none !important;
 }
 
-/* Forzamos que el mapa esté arriba de cualquier residuo visual */
 body.proyectos-fs-active #mapa-proyectos {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
-    height: 100dvh !important; /* Altura dinámica para Safari */
+    height: 100dvh !important; /* Altura dinámica Safari */
     z-index: 9999999 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
 }
 
 /*******************************************/
 /********* SEDES ITZA - EXCLUSIVO PRO ********/
 /*******************************************/
 
-/* 1. CONTENEDOR MAESTRO */
 #sedes-map-unificado {
     height: 550px;
     width: 100%;
     position: relative;
     z-index: 1;
-    background: #333; /* Fondo para evitar flash blanco */
+    background: #333;
     border-radius: 8px;
 }
 
-/* 2. SIDEBAR INTERNA (PREFIJO sedes-) */
 .sedes-sidebar-overlay {
     background: rgba(255, 255, 255, 0.98);
     width: 280px;
@@ -2681,57 +2665,41 @@ body.proyectos-fs-active #mapa-proyectos {
     z-index: 1000 !important;
 }
 
-/* Estado contraído exclusivo para sedes */
-.sedes-sidebar-overlay.collapsed {
-    max-height: 60px !important; 
-    width: 280px !important; 
-}
+.sedes-sidebar-overlay.collapsed { max-height: 60px !important; width: 280px !important; }
 
 .sedes-sidebar-header {
     min-height: 60px !important;
     padding: 0 15px !important;
-    background: #002d4b !important; /* Azul ITZA */
+    background: #002d4b !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.sedes-sidebar-header span {
-    color: white;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-}
+.sedes-sidebar-header span { color: white; font-size: 12px; font-weight: 700; text-transform: uppercase; }
 
-/* Ítems exclusivos de la lista de sedes */
-.sedes-item-link {
-    padding: 12px 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
+.sedes-item-link { padding: 12px 15px; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
 .sedes-item-link:hover { background: #f0f7ff; }
 .sedes-item-link h6 { margin: 0; color: #002d4b; font-weight: 700; font-size: 13px; text-transform: uppercase; }
 .sedes-item-link span { font-size: 11px; color: #666; display: block; }
 
-/* --- BLINDAJE FULLSCREEN EXCLUSIVO SEDES (iOS Ready) --- */
-
-/* Cuando activás el modo pantalla completa en Sedes */
+/* --- BLINDAJE FULLSCREEN SEDES (iOS Fix) --- */
 
 body.sedes-is-fullscreen {
     overflow: hidden !important;
-    position: fixed;
-    width: 100%;
+    position: fixed !important; /* Clava el fondo en iPhone */
+    width: 100% !important;
+    height: 100% !important;
     touch-action: none;
 }
 
+/* OCULTAMIENTO TOTAL: Menú, WhatsApp y Footer */
 body.sedes-is-fullscreen .nav-bar,
 body.sedes-is-fullscreen .nav-sticky,
 body.sedes-is-fullscreen .navbar,
 body.sedes-is-fullscreen .top-bar,
-body.sedes-is-fullscreen .btn-wsp,     /* OCULTA BOTÓN WHATSAPP */
-body.sedes-is-fullscreen #itza-footer,  /* OCULTA FOOTER */
+body.sedes-is-fullscreen .btn-wsp,       /* WHATSAPP FUERA */
+body.sedes-is-fullscreen #itza-footer,    /* FOOTER FUERA */
 body.sedes-is-fullscreen .page-header-area,
 body.sedes-is-fullscreen .section-divider {
     display: none !important;
@@ -2740,8 +2708,6 @@ body.sedes-is-fullscreen .section-divider {
     pointer-events: none !important;
 }
 
-/* Forzamos que el mapa de sedes sea la capa maestra */
-/* El mapa de sedes ocupa el 100% real de la pantalla en iPhone */
 body.sedes-is-fullscreen #sedes-map-unificado {
     position: fixed !important;
     top: 0 !important;
@@ -2749,4 +2715,12 @@ body.sedes-is-fullscreen #sedes-map-unificado {
     width: 100vw !important;
     height: 100dvh !important;
     z-index: 9999999 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Asegurar sidebar sobre el mapa */
+body.sedes-is-fullscreen .sedes-sidebar-overlay,
+body.proyectos-fs-active .pro-sidebar-overlay {
+    z-index: 10000000 !important;
 }
