@@ -2507,39 +2507,34 @@ body.map-is-fullscreen {
     white-space: nowrap !important;
 }
 
-/* 3. BLINDAJE FULLSCREEN (Sin romper el scroll) */
+/* 3. BLINDAJE FULLSCREEN (Hardcode iOS) */
 
-/* FIX: Solo bloqueamos el scroll lateral y vertical, pero NO forzamos altura */
-body.sedes-is-fullscreen {
-    overflow: hidden !important;
-    position: relative; /* Evita que la web 'desaparezca' de fondo */
-}
-
-/* El mapa se vuelve una capa flotante sobre toda la web */
 body.sedes-is-fullscreen .sedes-map-frame.active-fullscreen {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    
-    /* EL SECRETO: 100dvh se ajusta a las barras de Safari */
     width: 100vw !important;
+    height: 100vh !important;
     height: 100dvh !important; 
-    
-    z-index: 9999999 !important; /* Por encima de CUALQUER cosa */
+    z-index: 9999999 !important;
     margin: 0 !important;
     border-radius: 0 !important;
     background: white !important;
 }
 
-/* Ocultar elementos para que no se filtren por debajo o arriba */
+body.sedes-is-fullscreen .page-header-area,
+body.sedes-is-fullscreen #itza-footer,
 body.sedes-is-fullscreen .nav-bar,
 body.sedes-is-fullscreen .top-bar,
-body.sedes-is-fullscreen .btn-wsp,
-body.sedes-is-fullscreen .page-header-area,
-body.sedes-is-fullscreen #itza-footer {
+body.sedes-is-fullscreen .btn-wsp {
     display: none !important;
+}
+
+body.sedes-is-fullscreen {
+    overflow: hidden !important;
+    touch-action: none;
 }
 /*******************************/
 /********* EQUIPO CSS (NOSOTROS) **********/
