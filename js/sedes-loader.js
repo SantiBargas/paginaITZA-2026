@@ -101,4 +101,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mapa.on('enterFullscreen', () => toggleFS(true));
     mapa.on('exitFullscreen', () => toggleFS(false));
+
+    // Algunos navegadores (iOS Safari) no disparan los eventos del plugin.
+    // Observamos cambios en las clases del contenedor del mapa para detectar cuando
+    // la clase `leaflet-fullscreen-on` aparece/desaparece y así ejecutar toggleFS.
+    const mapContainer = mapa.getContainer();
+    try {
+        const mo = new MutationObserver(() => {
+            const isFs = mapContainer.classList.contains('leaflet-fullscreen-on');
+            // Evitamos llamadas repetidas innecesarias
+            if (isFs && !document.body.classList.contains('sedes-is-fullscreen')) toggleFS(true);
+            if (!isFs && document.body.classList.contains('sedes-is-fullscreen')) toggleFS(false);
+        });
+        mo.observe(mapContainer, { attributes: true, attributeFilter: ['class'] });
+    } catch (e) {
+        // si MutationObserver no está disponible (muy raro), fallback a escuchar fullscreenchange
+        document.addEventListener('fullscreenchange', () => {
+            const isFs = !!(document.fullscreenElement);
+            if (isFs) toggleFS(true); else toggleFS(false);
+        });
+    }
 });
