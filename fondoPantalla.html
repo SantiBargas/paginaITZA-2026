@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador ITZA | Versión Clásica con Borde</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #003366;    /* Azul Oscuro ITZA */
+            --secondary-color: #ffce00;  /* Amarillo ITZA */
+            --bg-dark: #121518;          /* Fondo Negro ITZA */
+            --odoo1: #181818;
+            --odoo2: #1F2329;
+            --odoo3: #212529;
+
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+            background-color: var(--bg-dark);
+        }
+
+        /* --- RESTAURADO: EL MARCO DE 20PX Y EL DEGRADADO CLÁSICO --- */
+        .wallpaper-canvas {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* 3 Carriles exactos */
+            align-items: center;
+            padding: 0 3%; /* Espacio pequeño desde el borde */
+            background: radial-gradient(circle, var(--primary-color) 0%, var(--bg-dark) 90%);
+            border: 20px solid var(--bg-dark); /* EL BORDE QUE TE GUSTÓ */
+            position: relative;
+        }
+
+        /* Alineación de Carriles */
+        .lane-left { display: flex; justify-content: flex-start; }
+        .lane-center { visibility: hidden; }
+        .lane-right { display: flex; justify-content: flex-end; }
+
+        .itz-logo-img {
+            width: 45%; /* Tamaño reducido solicitado */
+            height: auto;
+            /*border: 8px solid var(--bg-dark); /* Borde amarillo en la imagen */
+            padding: 10px; 
+            background-color: rgba(0, 51, 102, 0.3); 
+            filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.6)); 
+        }
+
+        /* Botón de Descarga HD */
+        #downloadBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wallpaper-canvas">
+        <div class="lane-left">
+            <img src="imagenes/logo/main-ico_converted.webp" alt="ITZA Izquierda" class="img-fluid rounded shadow-lg itz-logo-img">
+        </div>
+        <div class="lane-center"></div>
+        <div class="lane-right">
+            <img src="imagenes/logo/main-ico_converted.webp" alt="ITZA Derecha" class="img-fluid rounded shadow-lg itz-logo-img">
+        </div>
+    </div>
+
+    <button id="downloadBtn" class="btn btn-warning">
+        Descargar Fondo HD
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const canvasElement = document.querySelector(".wallpaper-canvas");
+            this.style.display = 'none';
+
+            html2canvas(canvasElement, {
+                scale: 2, // Calidad HD
+                useCORS: true
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'Fondo-ITZA-Ingenieria.png';
+                link.href = canvas.toDataURL("image/png", 1.0);
+                link.click();
+                this.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
