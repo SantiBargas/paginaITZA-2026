@@ -9,8 +9,8 @@
   {
     "id": "santafe",
     "titulo": "Sede Santa Fe",
-    "direccion": "Rivadavia 2774, Santa Fe, Argentina",
-    "coords": { "lat": -31.644161, "lng": -60.7057612 },
+    "direccion": "Boulevard Galvez 1993, Santa Fe, Santa Fe",
+    "coords": { "lat": -31.636962, "lng": -60.6990239},
     "zoom": 16
   }
 ]

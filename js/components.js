@@ -16,8 +16,8 @@ function loadFooter() {
                     <div class="footer-contact">
                         <h2>Contacto</h2>
                         <p><i class="fa fa-map-marker-alt"></i>Pedro Balcar 233, Paraná </p>
-                        <p><i class="fa fa-map-marker-alt"></i>Rivadavia 2774, Santa Fe</p>
-                        <p><i class="fa fa-phone-alt"></i>+54 9 343 506-6172</p>
+                        <p><i class="fa fa-map-marker-alt"></i>Boulevard Galvez 1993, Santa Fe</p>
+                        <p><i class="fa fa-phone-alt"></i>+54 9 342 568 7429</p>
                         <p><i class="fa fa-envelope"></i>contacto@itza.com.ar</p>
                         <div class="footer-social">
                             <a href="https://www.instagram.com/itzaingenieria/" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
